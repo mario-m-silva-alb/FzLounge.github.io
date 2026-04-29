@@ -4,9 +4,8 @@
    - Active nav link highlighting
    - Load products from data/products.json
    - Render product cards dynamically (products page & featured section)
-   - Populate game dropdowns from JSON (filter bar & share form)
+   - Populate game dropdowns from JSON (filter bar)
    - Products page filtering
-   - Share form validation + simulated submission
    ============================================================ */
 
 /* ============================================================
@@ -186,71 +185,6 @@ function initIndexPage(data) {
 }
 
 /* ============================================================
-   SHARE FORM – Validation & Submission
-   ============================================================ */
-
-function initShareForm() {
-  const shareForm = document.getElementById('share-form');
-  const thankYou  = document.getElementById('thankyou');
-  if (!shareForm) return;
-
-  const VALIDATORS = {
-    'product-name':  { test: v => v.trim().length >= 2,   msg: 'Please enter a product name (at least 2 characters).' },
-    'game-type':     { test: v => v !== '',               msg: 'Please select a game type.' },
-    'condition':     { test: v => v !== '',               msg: 'Please select a condition.' },
-    'description':   { test: v => v.trim().length >= 10,  msg: 'Please write a short description (at least 10 characters).' },
-    'contact-email': { test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), msg: 'Please enter a valid email address.' },
-  };
-
-  function validateField(id) {
-    const validator = VALIDATORS[id];
-    if (!validator) return true;
-    const field   = document.getElementById(id);
-    const group   = field ? field.closest('.form-group') : null;
-    const errorEl = group ? group.querySelector('.field-error') : null;
-    if (!field || !group) return true;
-    const valid = validator.test(field.value);
-    group.classList.toggle('has-error', !valid);
-    if (errorEl) errorEl.textContent = valid ? '' : validator.msg;
-    return valid;
-  }
-
-  Object.keys(VALIDATORS).forEach(id => {
-    const field = document.getElementById(id);
-    if (field) {
-      field.addEventListener('blur', () => validateField(id));
-      field.addEventListener('input', () => {
-        if (field.closest('.form-group').classList.contains('has-error')) {
-          validateField(id);
-        }
-      });
-    }
-  });
-
-  shareForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const allValid = Object.keys(VALIDATORS).map(id => validateField(id)).every(Boolean);
-    if (!allValid) {
-      const firstError = shareForm.querySelector('.has-error input, .has-error select, .has-error textarea');
-      if (firstError) firstError.focus();
-      return;
-    }
-    const submitBtn = shareForm.querySelector('[type="submit"]');
-    if (submitBtn) {
-      submitBtn.disabled    = true;
-      submitBtn.textContent = 'Submitting…';
-    }
-    setTimeout(() => {
-      shareForm.style.display = 'none';
-      if (thankYou) {
-        thankYou.classList.add('visible');
-        thankYou.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 900);
-  });
-}
-
-/* ============================================================
    "Contact to Get" – event delegation on document
    ============================================================ */
 
@@ -301,9 +235,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Contact button delegation (works for both static and dynamic cards) */
   initContactButtons();
-
-  /* Share form validation (no data needed) */
-  initShareForm();
 
   /* Load JSON then initialise data-driven features */
   const needsData = document.getElementById('products-grid') ||
