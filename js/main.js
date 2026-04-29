@@ -34,10 +34,7 @@ async function loadData() {
    ============================================================ */
 
 const CONDITION_LABELS = {
-  'mint':           'Mint',
-  'near-mint':      'Near Mint',
-  'lightly-played': 'Lightly Played',
-  'played':         'Played',
+  'sealed': 'Sealed',
 };
 
 const CATEGORY_LABELS = {
@@ -124,24 +121,21 @@ function initProductsPage(data) {
 
   // Set up filter controls
   const filterGame      = document.getElementById('filter-game');
-  const filterCondition = document.getElementById('filter-condition');
   const filterCategory  = document.getElementById('filter-category');
   const filterResetBtn  = document.getElementById('filter-reset');
   const productsCount   = document.getElementById('products-count');
 
   function applyFilters() {
-    const game      = filterGame      ? filterGame.value      : 'all';
-    const condition = filterCondition ? filterCondition.value : 'all';
-    const category  = filterCategory  ? filterCategory.value  : 'all';
+    const game      = filterGame     ? filterGame.value     : 'all';
+    const category  = filterCategory ? filterCategory.value : 'all';
 
     let visible = 0;
 
     grid.querySelectorAll('.product-card[data-game]').forEach(card => {
-      const matchGame      = game      === 'all' || card.dataset.game      === game;
-      const matchCondition = condition === 'all' || card.dataset.condition === condition;
-      const matchCategory  = category  === 'all' || card.dataset.category  === category;
+      const matchGame      = game     === 'all' || card.dataset.game     === game;
+      const matchCategory  = category === 'all' || card.dataset.category === category;
 
-      const show = matchGame && matchCondition && matchCategory;
+      const show = matchGame && matchCategory;
       card.style.display = show ? '' : 'none';
       if (show) visible++;
     });
@@ -156,15 +150,13 @@ function initProductsPage(data) {
     }
   }
 
-  if (filterGame)      filterGame.addEventListener('change', applyFilters);
-  if (filterCondition) filterCondition.addEventListener('change', applyFilters);
-  if (filterCategory)  filterCategory.addEventListener('change', applyFilters);
+  if (filterGame)     filterGame.addEventListener('change', applyFilters);
+  if (filterCategory) filterCategory.addEventListener('change', applyFilters);
 
   if (filterResetBtn) {
     filterResetBtn.addEventListener('click', () => {
-      if (filterGame)      filterGame.value = 'all';
-      if (filterCondition) filterCondition.value = 'all';
-      if (filterCategory)  filterCategory.value = 'all';
+      if (filterGame)     filterGame.value = 'all';
+      if (filterCategory) filterCategory.value = 'all';
       applyFilters();
     });
   }
@@ -185,16 +177,64 @@ function initIndexPage(data) {
 }
 
 /* ============================================================
-   "Contact to Get" – event delegation on document
+   "Contact to Get" – modal with Discord & WhatsApp channels
    ============================================================ */
 
+const DISCORD_URL   = 'https://discord.gg/MTtNkGN';
+const WHATSAPP_URL  = 'https://chat.whatsapp.com/D0mnF1MreqSGaJyBYi8H9p';
+
+function injectContactModal() {
+  if (document.getElementById('contact-modal')) return;
+  const modal = document.createElement('div');
+  modal.id = 'contact-modal';
+  modal.className = 'modal-overlay';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'modal-title');
+  modal.style.display = 'none';
+  modal.innerHTML = `
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      <h2 id="modal-title" class="modal-title">Contact to Get</h2>
+      <p class="modal-desc">Interested in <strong id="modal-product-name"></strong>? Reach out on one of our community channels:</p>
+      <div class="modal-channels">
+        <a href="${DISCORD_URL}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-channel-btn">
+          💬 Discord
+        </a>
+        <a href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" class="btn btn-outline modal-channel-btn">
+          📱 WhatsApp
+        </a>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+
+  document.getElementById('modal-close').addEventListener('click', closeContactModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeContactModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeContactModal(); });
+}
+
+function openContactModal(productName) {
+  const modal = document.getElementById('contact-modal');
+  if (!modal) return;
+  document.getElementById('modal-product-name').textContent = productName;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modal-close').focus();
+}
+
+function closeContactModal() {
+  const modal = document.getElementById('contact-modal');
+  if (!modal) return;
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
 function initContactButtons() {
+  injectContactModal();
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn-contact');
     if (!btn) return;
-    const product = btn.dataset.product || 'this product';
-    const subject = encodeURIComponent(`Interest in: ${product}`);
-    window.location.href = `mailto:fzlounge@example.com?subject=${subject}`;
+    openContactModal(btn.dataset.product || 'this product');
   });
 }
 
