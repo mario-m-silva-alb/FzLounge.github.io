@@ -198,6 +198,9 @@ footer {
 }
 
 .footer__col h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
   font-family: var(--font-heading);
   font-size: 1rem;
   color: var(--color-primary);
