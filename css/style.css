@@ -137,7 +137,8 @@ button { cursor: pointer; font-family: var(--font-body); }
   text-decoration: none;
 }
 .navbar__brand:hover { text-decoration: none; opacity: .9; }
-.navbar__brand-icon { font-size: 1.6rem; }
+.navbar__brand-icon { font-size: 1.6rem; line-height: 1; }
+.navbar__brand-icon img { height: 40px; width: auto; display: block; border-radius: 6px; }
 
 .navbar__links {
   display: flex;
