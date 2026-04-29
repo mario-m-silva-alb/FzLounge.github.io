@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FzLounge – TCG Community Hub</title>
+  <meta name="description" content="FzLounge is a non-profit community where Trading Card Game enthusiasts discover, share, and exchange TCG products." />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://mario-m-silva-alb.github.io/FzLounge.github.io/" />
+  <meta property="og:title"       content="FzLounge – TCG Community Hub" />
+  <meta property="og:description" content="A community-driven space to discover and share Trading Card Game treasures." />
+  <meta property="og:image"       content="https://mario-m-silva-alb.github.io/FzLounge.github.io/assets/og-image.png" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="navbar__brand">
+        <span class="navbar__brand-icon" aria-hidden="true">🃏</span>
+        FzLounge
+      </a>
+
+      <button class="navbar__toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <ul class="navbar__links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="share.html">Share</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" role="banner">
+    <div class="container">
+      <div class="hero__badge">✦ Non-Profit TCG Association ✦</div>
+      <h1 class="hero__title">Welcome to <span>FzLounge</span></h1>
+      <p class="hero__tagline">
+        A community-driven space to discover and share<br>
+        Trading Card Game treasures with fellow enthusiasts.
+      </p>
+      <div class="hero__cta">
+        <a href="products.html" class="btn btn-primary btn-lg">Browse Products</a>
+        <a href="share.html"    class="btn btn-outline btn-lg">Share a Product</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== MISSION ===================== -->
+  <section class="mission" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="mission-heading">Our <span>Mission</span></h2>
+        <p class="section-sub">
+          FzLounge is a non-profit built by card-game fans, for card-game fans.
+          We believe great cards should be shared, not locked away.
+        </p>
+      </div>
+
+      <div class="mission__grid">
+        <div class="mission__card">
+          <div class="mission__card-icon" aria-hidden="true">🤝</div>
+          <h3>Community First</h3>
+          <p>Every member contributes. We share cards, decks, and knowledge freely to strengthen the TCG community.</p>
+        </div>
+        <div class="mission__card">
+          <div class="mission__card-icon" aria-hidden="true">♻️</div>
+          <h3>Sustainable Play</h3>
+          <p>Giving TCG products a second life reduces waste and makes the hobby accessible to everyone, regardless of budget.</p>
+        </div>
+        <div class="mission__card">
+          <div class="mission__card-icon" aria-hidden="true">🔍</div>
+          <h3>Transparency</h3>
+          <p>As a non-profit, we operate openly. No hidden fees — just a community marketplace powered by mutual trust.</p>
+        </div>
+        <div class="mission__card">
+          <div class="mission__card-icon" aria-hidden="true">🌍</div>
+          <h3>Inclusivity</h3>
+          <p>New players, seasoned collectors, or casual traders — everyone is welcome at FzLounge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURED PRODUCTS ===================== -->
+  <section class="featured" aria-labelledby="featured-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="featured-heading">Featured <span>Products</span></h2>
+        <p class="section-sub">A glimpse of what our community is sharing right now.</p>
+      </div>
+
+      <div class="products-grid">
+
+        <!-- Card 1 -->
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&q=80"
+                 alt="Magic: The Gathering booster pack" loading="lazy" />
+            <span class="product-card__badge badge-mint">Mint</span>
+            <span class="product-card__game-tag">MTG</span>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__title">Dominaria United Booster Box</h3>
+            <p class="product-card__desc">Sealed English booster box, 36 packs. Perfect for a draft night with your group.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Booster Pack</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Dominaria United Booster Box">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80"
+                 alt="Pokémon card collection" loading="lazy" />
+            <span class="product-card__badge badge-near-mint">Near Mint</span>
+            <span class="product-card__game-tag">Pokémon</span>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__title">Charizard VMAX (Full Art)</h3>
+            <p class="product-card__desc">Brilliant Stars full-art Charizard VMAX in a sleeve since pulled. A centrepiece for any collection.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Single Card</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Charizard VMAX">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1618042164219-62c820f10723?w=600&q=80"
+                 alt="Yu-Gi-Oh! structure deck" loading="lazy" />
+            <span class="product-card__badge badge-played">Played</span>
+            <span class="product-card__game-tag">Yu-Gi-Oh!</span>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__title">Dragon's Collide Structure Deck</h3>
+            <p class="product-card__desc">Complete structure deck, all cards present. Great starting point for new duelists exploring Dragon builds.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Deck</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Dragon's Collide Structure Deck">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="text-center mt-2" style="margin-top:2.5rem;">
+        <a href="products.html" class="btn btn-outline">View All Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BANNER ===================== -->
+  <section style="background:var(--color-surface);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);padding:4rem 0;text-align:center;" aria-label="Call to action">
+    <div class="container">
+      <h2 class="section-title" style="margin-bottom:.6rem;">Have cards to <span>share</span>?</h2>
+      <p class="section-sub" style="margin:0 auto 2rem;">List your TCG products in minutes and help another player find exactly what they need.</p>
+      <a href="share.html" class="btn btn-primary btn-lg">Share a Product Now</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__col">
+          <h4>🃏 FzLounge</h4>
+          <p>A non-profit community platform for Trading Card Game enthusiasts to share and discover products.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="share.html">Share a Product</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="about.html#join">How to Join</a></li>
+            <li><a href="about.html#contact">Contact Us</a></li>
+          </ul>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" aria-label="Discord">💬</a>
+            <a href="#" aria-label="Twitter / X">🐦</a>
+            <a href="#" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 FzLounge – All rights reserved. Built with ❤️ for the TCG community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

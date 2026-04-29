@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products – FzLounge</title>
+  <meta name="description" content="Browse TCG products shared by the FzLounge community. Filter by game, condition, and category." />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://mario-m-silva-alb.github.io/FzLounge.github.io/products.html" />
+  <meta property="og:title"       content="Products – FzLounge" />
+  <meta property="og:description" content="Browse TCG products shared by the FzLounge community." />
+  <meta property="og:image"       content="https://mario-m-silva-alb.github.io/FzLounge.github.io/assets/og-image.png" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="navbar__brand">
+        <span class="navbar__brand-icon" aria-hidden="true">🃏</span>
+        FzLounge
+      </a>
+      <button class="navbar__toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <ul class="navbar__links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="share.html">Share</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" role="banner">
+    <div class="container">
+      <h1 class="section-title">Community <span>Products</span></h1>
+      <p class="section-sub">Browse everything shared by FzLounge members — from singles to sealed product.</p>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main style="padding: 3rem 0 5rem;" role="main">
+    <div class="container">
+
+      <!-- FILTER BAR -->
+      <div class="filter-bar" role="search" aria-label="Product filters">
+        <div class="filter-group">
+          <label for="filter-game">Game</label>
+          <select id="filter-game" name="filter-game">
+            <option value="all">All Games</option>
+            <option value="mtg">Magic: The Gathering</option>
+            <option value="pokemon">Pokémon</option>
+            <option value="yugioh">Yu-Gi-Oh!</option>
+            <option value="lorcana">Lorcana</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-condition">Condition</label>
+          <select id="filter-condition" name="filter-condition">
+            <option value="all">All Conditions</option>
+            <option value="mint">Mint</option>
+            <option value="near-mint">Near Mint</option>
+            <option value="lightly-played">Lightly Played</option>
+            <option value="played">Played</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-category">Category</label>
+          <select id="filter-category" name="filter-category">
+            <option value="all">All Categories</option>
+            <option value="single">Single Card</option>
+            <option value="deck">Deck</option>
+            <option value="booster">Booster Pack</option>
+            <option value="accessory">Accessory</option>
+          </select>
+        </div>
+
+        <button class="filter-reset" id="filter-reset" type="button">Reset Filters</button>
+        <span id="products-count" aria-live="polite"></span>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div class="products-grid" id="products-grid" aria-label="Products list">
+
+        <!-- 1: MTG Booster -->
+        <article class="product-card"
+          data-game="mtg" data-condition="mint" data-category="booster">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&q=80"
+                 alt="Magic: The Gathering booster packs" loading="lazy" />
+            <span class="product-card__badge badge-mint">Mint</span>
+            <span class="product-card__game-tag">MTG</span>
+          </div>
+          <div class="product-card__body">
+            <h2 class="product-card__title">Dominaria United Booster Box</h2>
+            <p class="product-card__desc">Sealed English booster box, 36 packs. Perfect for a draft night. Never opened.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Booster Pack</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Dominaria United Booster Box">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2: Pokémon single -->
+        <article class="product-card"
+          data-game="pokemon" data-condition="near-mint" data-category="single">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80"
+                 alt="Pokémon cards spread on a table" loading="lazy" />
+            <span class="product-card__badge badge-near-mint">Near Mint</span>
+            <span class="product-card__game-tag">Pokémon</span>
+          </div>
+          <div class="product-card__body">
+            <h2 class="product-card__title">Charizard VMAX (Full Art)</h2>
+            <p class="product-card__desc">Brilliant Stars full-art Charizard VMAX sleeved since pulled. Centrepiece of any collection.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Single Card</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Charizard VMAX Full Art">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3: Yu-Gi-Oh! Deck -->
+        <article class="product-card"
+          data-game="yugioh" data-condition="played" data-category="deck">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1618042164219-62c820f10723?w=600&q=80"
+                 alt="A hand of trading cards" loading="lazy" />
+            <span class="product-card__badge badge-played">Played</span>
+            <span class="product-card__game-tag">Yu-Gi-Oh!</span>
+          </div>
+          <div class="product-card__body">
+            <h2 class="product-card__title">Dragon's Collide Structure Deck</h2>
+            <p class="product-card__desc">Complete structure deck, all cards present. Great starting point for new duelists.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Deck</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Dragon's Collide Structure Deck">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4: Lorcana Booster -->
+        <article class="product-card"
+          data-game="lorcana" data-condition="mint" data-category="booster">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=80"
+                 alt="Disney Lorcana booster packs" loading="lazy" />
+            <span class="product-card__badge badge-mint">Mint</span>
+            <span class="product-card__game-tag">Lorcana</span>
+          </div>
+          <div class="product-card__body">
+            <h2 class="product-card__title">The First Chapter Booster Pack</h2>
+            <p class="product-card__desc">Sealed Lorcana First Chapter booster. Rare Disney enchanted cards possible. Great gift.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Booster Pack</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Lorcana First Chapter Booster">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5: MTG single -->
+        <article class="product-card"
+          data-game="mtg" data-condition="lightly-played" data-category="single">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80"
+                 alt="Magic the Gathering card close-up" loading="lazy" />
+            <span class="product-card__badge badge-lightly-played">Lightly Played</span>
+            <span class="product-card__game-tag">MTG</span>
+          </div>
+          <div class="product-card__body">
+            <h2 class="product-card__title">Liliana of the Veil (Modern Masters)</h2>
+            <p class="product-card__desc">Iconic Planeswalker. Light surface scratch only visible under direct light. Competitive staple.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Single Card</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Liliana of the Veil">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6: Accessory -->
+        <article class="product-card"
+          data-game="other" data-condition="mint" data-category="accessory">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=600&q=80"
+                 alt="Card storage binder" loading="lazy" />
+            <span class="product-card__badge badge-mint">Mint</span>
+            <span class="product-card__game-tag">Accessory</span>
+          </div>
+          <div class="product-card__body">
+            <h2 class="product-card__title">Premium 4-Pocket Binder (400 cards)</h2>
+            <p class="product-card__desc">Black faux-leather binder with 100 side-loading 4-pocket pages. Never used. Fits all standard cards.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Accessory</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Premium Card Binder">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7: Pokémon Deck -->
+        <article class="product-card"
+          data-game="pokemon" data-condition="near-mint" data-category="deck">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=600&q=80"
+                 alt="Pokémon card deck box" loading="lazy" />
+            <span class="product-card__badge badge-near-mint">Near Mint</span>
+            <span class="product-card__game-tag">Pokémon</span>
+          </div>
+          <div class="product-card__body">
+            <h2 class="product-card__title">Pikachu VMAX Battle Deck</h2>
+            <p class="product-card__desc">Ready-to-play 60-card deck built around Pikachu VMAX. Ideal for beginners getting into the TCG.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Deck</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Pikachu VMAX Battle Deck">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8: Yu-Gi-Oh! Single -->
+        <article class="product-card"
+          data-game="yugioh" data-condition="near-mint" data-category="single">
+          <div class="product-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80"
+                 alt="Yu-Gi-Oh! card close-up" loading="lazy" />
+            <span class="product-card__badge badge-near-mint">Near Mint</span>
+            <span class="product-card__game-tag">Yu-Gi-Oh!</span>
+          </div>
+          <div class="product-card__body">
+            <h2 class="product-card__title">Blue-Eyes White Dragon (LOB-001)</h2>
+            <p class="product-card__desc">First-edition LOB-001 Blue-Eyes White Dragon. Minor edge wear, still tournament legal.</p>
+            <div class="product-card__footer">
+              <span class="product-card__category">Single Card</span>
+              <button class="btn btn-primary btn-sm btn-contact" data-product="Blue-Eyes White Dragon LOB-001">Contact to Get</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- No results message -->
+        <div id="no-results" class="no-results" style="display:none;" role="status">
+          <div class="icon" aria-hidden="true">🔍</div>
+          <p>No products match your filters. Try resetting them!</p>
+        </div>
+
+      </div><!-- /products-grid -->
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__col">
+          <h4>🃏 FzLounge</h4>
+          <p>A non-profit community platform for Trading Card Game enthusiasts.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="share.html">Share a Product</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="about.html#join">How to Join</a></li>
+            <li><a href="about.html#contact">Contact Us</a></li>
+          </ul>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" aria-label="Discord">💬</a>
+            <a href="#" aria-label="Twitter / X">🐦</a>
+            <a href="#" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 FzLounge – All rights reserved. Built with ❤️ for the TCG community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
