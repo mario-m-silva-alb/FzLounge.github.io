@@ -33,16 +33,18 @@ async function loadData() {
    CARD RENDERER
    ============================================================ */
 
-const CONDITION_LABELS = {
-  'sealed': 'Sealed',
-};
-
 const CATEGORY_LABELS = {
   'single':    'Single Card',
   'deck':      'Deck',
   'booster':   'Booster Pack',
   'accessory': 'Accessory',
 };
+
+/* ============================================================
+   PAGINATION CONFIGURATION
+   ============================================================ */
+
+const PRODUCTS_PER_PAGE = 12;
 
 /**
  * Build the HTML for a single product card.
@@ -53,19 +55,15 @@ const CATEGORY_LABELS = {
 function buildCardHTML(product, games, titleTag) {
   const tag           = titleTag || 'h2';
   const gameLabel     = (games.find(g => g.value === product.game) || {}).label || product.game;
-  const condLabel     = CONDITION_LABELS[product.condition] || product.condition;
-  const condClass     = `badge-${product.condition}`;
   const catLabel      = CATEGORY_LABELS[product.category]  || product.category;
   const escapedName   = product.name.replace(/"/g, '&quot;');
 
   return `
     <article class="product-card"
       data-game="${product.game}"
-      data-condition="${product.condition}"
       data-category="${product.category}">
       <div class="product-card__img-wrap">
         <img src="${product.image}" alt="${product.imageAlt}" loading="lazy" />
-        <span class="product-card__badge ${condClass}">${condLabel}</span>
         <span class="product-card__game-tag">${gameLabel}</span>
       </div>
       <div class="product-card__body">
@@ -109,45 +107,40 @@ function populateGameSelects(games) {
    PRODUCTS PAGE
    ============================================================ */
 
+// Pagination state
+let currentPage = 1;
+let filteredProducts = [];
+let allProducts = [];
+let gamesData = [];
+
 function initProductsPage(data) {
   const grid = document.getElementById('products-grid');
   if (!grid) return;
 
-  // Render all product cards
-  const cards = data.products
-    .map(p => buildCardHTML(p, data.games, 'h2'))
-    .join('\n');
-  grid.insertAdjacentHTML('afterbegin', cards);
+  // Store all products and games for filtering/pagination
+  allProducts = data.products;
+  gamesData = data.games;
+  filteredProducts = [...allProducts];
 
   // Set up filter controls
   const filterGame      = document.getElementById('filter-game');
   const filterCategory  = document.getElementById('filter-category');
   const filterResetBtn  = document.getElementById('filter-reset');
-  const productsCount   = document.getElementById('products-count');
 
   function applyFilters() {
     const game      = filterGame     ? filterGame.value     : 'all';
     const category  = filterCategory ? filterCategory.value : 'all';
 
-    let visible = 0;
-
-    grid.querySelectorAll('.product-card[data-game]').forEach(card => {
-      const matchGame      = game     === 'all' || card.dataset.game     === game;
-      const matchCategory  = category === 'all' || card.dataset.category === category;
-
-      const show = matchGame && matchCategory;
-      card.style.display = show ? '' : 'none';
-      if (show) visible++;
+    // Filter products
+    filteredProducts = allProducts.filter(product => {
+      const matchGame      = game     === 'all' || product.game     === game;
+      const matchCategory  = category === 'all' || product.category === category;
+      return matchGame && matchCategory;
     });
 
-    if (productsCount) {
-      productsCount.textContent = `${visible} product${visible !== 1 ? 's' : ''} found`;
-    }
-
-    const noResults = document.getElementById('no-results');
-    if (noResults) {
-      noResults.style.display = visible === 0 ? 'block' : 'none';
-    }
+    // Reset to page 1 when filters change
+    currentPage = 1;
+    renderProducts();
   }
 
   if (filterGame)     filterGame.addEventListener('change', applyFilters);
@@ -161,7 +154,177 @@ function initProductsPage(data) {
     });
   }
 
-  applyFilters();
+  // Initial render
+  renderProducts();
+}
+
+/**
+ * Render products for the current page with pagination.
+ */
+function renderProducts() {
+  const grid = document.getElementById('products-grid');
+  const productsCount = document.getElementById('products-count');
+  const noResults = document.getElementById('no-results');
+
+  if (!grid) return;
+
+  // Calculate pagination
+  const totalProducts = filteredProducts.length;
+  const totalPages = Math.ceil(totalProducts / PRODUCTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+  const endIndex = startIndex + PRODUCTS_PER_PAGE;
+  const productsToShow = filteredProducts.slice(startIndex, endIndex);
+
+  // Clear grid (except no-results element)
+  const noResultsEl = document.getElementById('no-results');
+  grid.innerHTML = '';
+  if (noResultsEl) grid.appendChild(noResultsEl);
+
+  // Update products count
+  if (productsCount) {
+    if (totalProducts === 0) {
+      productsCount.textContent = '';
+    } else {
+      productsCount.textContent = `${startIndex + 1}-${Math.min(endIndex, totalProducts)} of ${totalProducts} product${totalProducts !== 1 ? 's' : ''}`;
+    }
+  }
+
+  // Show/hide no results message
+  if (noResults) {
+    noResults.style.display = totalProducts === 0 ? 'block' : 'none';
+  }
+
+  if (totalProducts === 0) return;
+
+  // Render product cards
+  const cards = productsToShow
+    .map(p => buildCardHTML(p, gamesData, 'h2'))
+    .join('\n');
+  grid.insertAdjacentHTML('afterbegin', cards);
+
+  // Render pagination controls
+  renderPagination(totalPages);
+}
+
+/**
+ * Render pagination controls.
+ * @param {number} totalPages – total number of pages
+ */
+function renderPagination(totalPages) {
+  const grid = document.getElementById('products-grid');
+  if (!grid || totalPages <= 1) return;
+
+  // Remove existing pagination
+  const existingPagination = document.getElementById('pagination');
+  if (existingPagination) existingPagination.remove();
+
+  const pagination = document.createElement('nav');
+  pagination.id = 'pagination';
+  pagination.className = 'pagination';
+  pagination.setAttribute('aria-label', 'Products pagination');
+  pagination.setAttribute('role', 'navigation');
+
+  let paginationHTML = '';
+
+  // Previous button
+  paginationHTML += `
+    <button class="pagination__btn pagination__btn--prev ${currentPage === 1 ? 'pagination__btn--disabled' : ''}"
+            ${currentPage === 1 ? 'disabled' : ''} 
+            data-page="${currentPage - 1}" 
+            aria-label="Previous page">
+      ← Prev
+    </button>
+  `;
+
+  // Page numbers
+  paginationHTML += '<div class="pagination__pages">';
+
+  // Calculate which page numbers to show
+  const pagesToShow = getPagesToShow(currentPage, totalPages);
+
+  pagesToShow.forEach((page, index) => {
+    if (page === '...') {
+      paginationHTML += `<span class="pagination__ellipsis">...</span>`;
+    } else {
+      const isActive = page === currentPage;
+      paginationHTML += `
+        <button class="pagination__btn pagination__btn--page ${isActive ? 'pagination__btn--active' : ''}"
+                data-page="${page}"
+                ${isActive ? 'aria-current="page"' : ''}
+                aria-label="Page ${page}">
+          ${page}
+        </button>
+      `;
+    }
+  });
+
+  paginationHTML += '</div>';
+
+  // Next button
+  paginationHTML += `
+    <button class="pagination__btn pagination__btn--next ${currentPage === totalPages ? 'pagination__btn--disabled' : ''}"
+            ${currentPage === totalPages ? 'disabled' : ''} 
+            data-page="${currentPage + 1}"
+            aria-label="Next page">
+      Next →
+    </button>
+  `;
+
+  pagination.innerHTML = paginationHTML;
+
+  // Add event listeners
+  pagination.querySelectorAll('.pagination__btn[data-page]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const page = parseInt(btn.dataset.page, 10);
+      if (page >= 1 && page <= totalPages && page !== currentPage) {
+        currentPage = page;
+        renderProducts();
+        // Scroll to top of products grid
+        document.getElementById('products-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Insert pagination after the grid
+  grid.parentNode.insertBefore(pagination, grid.nextSibling);
+}
+
+/**
+ * Calculate which page numbers to show in pagination.
+ * @param {number} current – current page
+ * @param {number} total   – total pages
+ * @returns {(number|string)[]} – array of page numbers and '...'
+ */
+function getPagesToShow(current, total) {
+  const pages = [];
+  const delta = 2; // Pages to show on each side of current
+
+  if (total <= 7) {
+    // Show all pages if 7 or fewer
+    for (let i = 1; i <= total; i++) pages.push(i);
+    return pages;
+  }
+
+  // Always show first page
+  pages.push(1);
+
+  // Calculate start and end of range around current page
+  const start = Math.max(2, current - delta);
+  const end = Math.min(total - 1, current + delta);
+
+  // Add ellipsis if there's a gap after page 1
+  if (start > 2) pages.push('...');
+
+  // Add pages in range
+  for (let i = start; i <= end; i++) pages.push(i);
+
+  // Add ellipsis if there's a gap before last page
+  if (end < total - 1) pages.push('...');
+
+  // Always show last page
+  pages.push(total);
+
+  return pages;
 }
 
 /* ============================================================
