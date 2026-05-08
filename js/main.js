@@ -229,8 +229,8 @@ function renderPagination(totalPages) {
   // Previous button
   paginationHTML += `
     <button class="pagination__btn pagination__btn--prev ${currentPage === 1 ? 'pagination__btn--disabled' : ''}"
-            ${currentPage === 1 ? 'disabled' : ''} 
-            data-page="${currentPage - 1}" 
+            ${currentPage === 1 ? 'disabled' : ''}
+            data-page="${currentPage - 1}"
             aria-label="Previous page">
       ← Prev
     </button>
@@ -263,7 +263,7 @@ function renderPagination(totalPages) {
   // Next button
   paginationHTML += `
     <button class="pagination__btn pagination__btn--next ${currentPage === totalPages ? 'pagination__btn--disabled' : ''}"
-            ${currentPage === totalPages ? 'disabled' : ''} 
+            ${currentPage === totalPages ? 'disabled' : ''}
             data-page="${currentPage + 1}"
             aria-label="Next page">
       Next →
