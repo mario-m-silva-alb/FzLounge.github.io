@@ -606,13 +606,10 @@ function buildProductDetailHTML(product, games) {
           </button>
           <button class="btn btn-outline btn-share" id="btn-share-product">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="18" cy="5" r="3"></circle>
-              <circle cx="6" cy="12" r="3"></circle>
-              <circle cx="18" cy="19" r="3"></circle>
-              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
-            Share
+            Copy Name
           </button>
         </div>
       </div>
@@ -713,13 +710,20 @@ function updateModalNavButtons() {
 }
 
 /**
- * Share product (copy URL to clipboard)
+ * Share product (copy product name to clipboard)
  */
 function shareProduct(productId) {
-  const url = `${window.location.origin}${window.location.pathname}#product-${productId}`;
+  if (!productsData) return;
+  
+  const product = productsData.products.find(p => p.id === productId);
+  if (!product) return;
+  
+  const productName = product.name;
+  const productIdFormatted = `#${String(product.id).padStart(3, '0')}`;
+  const textToCopy = `${productName} (${productIdFormatted})`;
   
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url).then(() => {
+    navigator.clipboard.writeText(textToCopy).then(() => {
       // Show success feedback
       const shareBtn = document.getElementById('btn-share-product');
       if (shareBtn) {
@@ -732,12 +736,12 @@ function shareProduct(productId) {
         }, 2000);
       }
     }).catch(err => {
-      console.error('Failed to copy URL:', err);
-      alert('Could not copy URL to clipboard');
+      console.error('Failed to copy product name:', err);
+      alert('Could not copy to clipboard');
     });
   } else {
     // Fallback for browsers without clipboard API
-    alert(`Share this URL: ${url}`);
+    alert(`Product name: ${textToCopy}\n\nCopy this and send to us!`);
   }
 }
 
