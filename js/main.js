@@ -443,6 +443,9 @@ function initIndexPage(data) {
 
   const featured = data.products.filter(p => p.featured);
   grid.innerHTML = featured.map(p => buildCardHTML(p, data.games, 'h3')).join('\n');
+  
+  // Attach click handlers for product detail modal
+  attachProductCardHandlers(data);
 }
 
 /* ============================================================

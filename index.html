@@ -153,6 +153,35 @@
     </div>
   </footer>
 
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="product-detail-modal" class="modal-overlay product-detail-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-detail-close" aria-label="Close modal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-nav">
+        <button class="modal-nav-btn modal-nav-prev" id="modal-nav-prev" aria-label="Previous product">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="modal-nav-btn modal-nav-next" id="modal-nav-next" aria-label="Next product">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body" id="modal-detail-body">
+        <!-- Product details rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 </html>
