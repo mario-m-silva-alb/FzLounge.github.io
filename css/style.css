@@ -1397,3 +1397,626 @@ footer {
     justify-content: center;
   }
 }
+
+/* ============================================================
+   TIERS PAGE
+   ============================================================ */
+
+/* Hero variant for smaller pages */
+.hero--small {
+  padding: 4rem 0 3rem;
+}
+
+/* Tier-specific colors */
+:root {
+  --tier-wood: #8B4513;
+  --tier-bronze: #CD7F32;
+  --tier-silver: #C0C0C0;
+  --tier-gold: #FFD700;
+  --tier-platinum: #E5E4E2;
+}
+
+/* Tiers Overview Section */
+.tiers-overview {
+  padding: 4rem 0;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+/* Tier Cards */
+.tier-card {
+  background: var(--color-surface2);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all .3s;
+  position: relative;
+}
+
+.tier-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.tier-card--wood:hover { border-color: var(--tier-wood); }
+.tier-card--bronze:hover { border-color: var(--tier-bronze); }
+.tier-card--silver:hover { border-color: var(--tier-silver); }
+.tier-card--gold:hover { border-color: var(--tier-gold); }
+.tier-card--platinum:hover { border-color: var(--tier-platinum); }
+
+.tier-card--popular {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(212, 160, 23, 0.2);
+}
+
+.tier-card__badge {
+  position: absolute;
+  top: -1px;
+  right: 20px;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: .4rem 1rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tier-card__header {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-surface2) 0%, var(--color-surface) 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tier-card__icon {
+  font-size: 3rem;
+  margin-bottom: .75rem;
+  line-height: 1;
+}
+
+.tier-card__name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.tier-card__price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .3rem;
+  margin-bottom: .5rem;
+}
+
+.price-large {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+.tier-card__yearly {
+  font-size: .85rem;
+  color: var(--color-text-muted);
+  margin-bottom: .75rem;
+}
+
+.tier-card__savings {
+  display: inline-block;
+  background: rgba(212, 160, 23, 0.15);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  color: var(--color-primary);
+  font-size: .75rem;
+  font-weight: 600;
+  padding: .3rem .75rem;
+  border-radius: 999px;
+}
+
+.tier-card__body {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.tier-card__body h4 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  font-size: .88rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.benefit-icon {
+  color: var(--color-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tier-card__credit {
+  background: rgba(212, 160, 23, 0.1);
+  border: 1px solid rgba(212, 160, 23, 0.25);
+  border-radius: var(--radius-md);
+  padding: .75rem 1rem;
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: .88rem;
+  color: var(--color-text);
+}
+
+.tier-card__footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Comparison Table Section */
+.tiers-comparison {
+  padding: 4rem 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface2);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+
+.comparison-table thead th {
+  background: var(--color-surface);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-bottom: 2px solid var(--color-border);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.comparison-table thead th:first-child {
+  text-align: left;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+.comparison-table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.comparison-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.comparison-table tbody tr:hover {
+  background: rgba(212, 160, 23, 0.05);
+}
+
+.comparison-table td {
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.comparison-table .feature-label {
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.tier-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .35rem;
+}
+
+.tier-icon {
+  font-size: 1.8rem;
+}
+
+.tier-name {
+  font-family: var(--font-heading);
+  font-size: .95rem;
+  color: var(--color-white);
+}
+
+.tier-price {
+  font-size: .8rem;
+  color: var(--color-text-muted);
+}
+
+.tier-col--wood { color: var(--tier-wood); }
+.tier-col--bronze { color: var(--tier-bronze); }
+.tier-col--silver { color: var(--tier-silver); }
+.tier-col--gold { color: var(--tier-gold); }
+.tier-col--platinum { color: var(--tier-platinum); }
+
+/* Rules Section */
+.tiers-rules {
+  padding: 4rem 0;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.rule-card {
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  transition: border-color .2s, transform .2s;
+}
+
+.rule-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+.rule-card__icon {
+  font-size: 2rem;
+  margin-bottom: .75rem;
+}
+
+.rule-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-white);
+  margin-bottom: .75rem;
+}
+
+.rule-card p {
+  font-size: .9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.priority-example {
+  background: rgba(212, 160, 23, 0.1);
+  border-left: 3px solid var(--color-primary);
+  padding: .75rem 1rem;
+  margin-top: 1rem;
+  border-radius: var(--radius-sm);
+  font-size: .85rem;
+  line-height: 1.6;
+}
+
+.priority-example strong {
+  color: var(--color-primary);
+}
+
+/* Discounts Section */
+.tiers-discounts {
+  padding: 4rem 0;
+}
+
+.discount-table-wrapper {
+  margin-top: 2rem;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface2);
+}
+
+.discount-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+
+.discount-table thead {
+  background: var(--color-surface);
+}
+
+.discount-table th {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--color-border);
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.discount-table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background .2s;
+}
+
+.discount-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.discount-table tbody tr:hover {
+  background: rgba(212, 160, 23, 0.05);
+}
+
+.discount-table td {
+  padding: 1rem;
+  color: var(--color-text);
+}
+
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-weight: 600;
+  font-size: .88rem;
+}
+
+.tier-badge.tier-wood { color: var(--tier-wood); }
+.tier-badge.tier-bronze { color: var(--tier-bronze); }
+.tier-badge.tier-silver { color: var(--tier-silver); }
+.tier-badge.tier-gold { color: var(--tier-gold); }
+.tier-badge.tier-platinum { color: var(--tier-platinum); }
+
+.discount-note {
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.discount-note p {
+  font-size: .88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.discount-note strong {
+  color: var(--color-primary);
+}
+
+/* CTA Section */
+.tiers-cta {
+  padding: 4rem 0;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.cta-card {
+  background: linear-gradient(135deg, var(--color-surface2) 0%, var(--color-surface) 100%);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(212, 160, 23, 0.15);
+}
+
+.cta-card h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.cta-card p {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Footer Updates */
+.footer__update {
+  font-size: .78rem;
+  color: var(--color-text-muted);
+  margin-top: .5rem;
+}
+
+.footer__update time {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer__col h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: .75rem;
+}
+
+.footer__col h4 {
+  font-family: var(--font-heading);
+  font-size: .95rem;
+  color: var(--color-primary);
+  margin-bottom: .75rem;
+}
+
+.footer__col p {
+  font-size: .88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.footer__col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.footer__col ul li a {
+  font-size: .88rem;
+  color: var(--color-text-muted);
+  transition: color .2s;
+}
+
+.footer__col ul li a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Error Message */
+.error-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: var(--color-surface2);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius-lg);
+}
+
+.error-message h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--color-danger);
+  margin-bottom: .75rem;
+}
+
+.error-message p {
+  color: var(--color-text-muted);
+  font-size: .95rem;
+}
+
+/* Mobile Navigation Enhancement */
+@media (max-width: 680px) {
+  .navbar__links.active {
+    display: flex;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .tiers-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .rules-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .cta-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+  }
+  
+  .table-wrapper {
+    border-radius: 0;
+  }
+  
+  .comparison-table {
+    font-size: .8rem;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: .75rem .5rem;
+  }
+  
+  .tier-icon {
+    font-size: 1.4rem;
+  }
+  
+  .tier-name {
+    font-size: .85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tier-card__header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .tier-card__icon {
+    font-size: 2.5rem;
+  }
+  
+  .tier-card__name {
+    font-size: 1.25rem;
+  }
+  
+  .price-large {
+    font-size: 2rem;
+  }
+  
+  .hero--small {
+    padding: 3rem 0 2rem;
+  }
+  
+  .discount-table {
+    font-size: .75rem;
+  }
+  
+  .tier-badge {
+    font-size: .8rem;
+  }
+}

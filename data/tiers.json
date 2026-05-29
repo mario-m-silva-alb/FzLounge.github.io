@@ -1,0 +1,142 @@
+{
+  "lastUpdated": "2025-01-29",
+  "currency": "EUR",
+  "tiers": [
+    {
+      "id": "wood",
+      "name": "Wood Tier",
+      "price": {
+        "monthly": 0,
+        "yearly": 0
+      },
+      "color": "#8B4513",
+      "icon": "🌳",
+      "level": 0,
+      "benefits": [
+        "Access to association space",
+        "Use of tables and gaming area",
+        "Participation in events (fees apply)",
+        "Access to community Discord"
+      ],
+      "productDiscounts": {
+        "range5to10": 0,
+        "rangeAbove10": 0
+      },
+      "barCredit": 0,
+      "priority": "Standard"
+    },
+    {
+      "id": "bronze",
+      "name": "Bronze Tier",
+      "price": {
+        "monthly": 10,
+        "yearly": 120
+      },
+      "color": "#CD7F32",
+      "icon": "🥉",
+      "level": 1,
+      "benefits": [
+        "All Wood Tier benefits",
+        "€6 monthly credit for bar items",
+        "€0.50 discount on products €5-€10",
+        "€1 discount on products over €10",
+        "Priority over Wood tier members",
+        "Preorder access"
+      ],
+      "productDiscounts": {
+        "range5to10": 0.50,
+        "rangeAbove10": 1.00
+      },
+      "barCredit": 6,
+      "priority": "Bronze Priority"
+    },
+    {
+      "id": "silver",
+      "name": "Silver Tier",
+      "price": {
+        "monthly": 20,
+        "yearly": 240
+      },
+      "color": "#C0C0C0",
+      "icon": "🥈",
+      "level": 2,
+      "benefits": [
+        "All Bronze Tier benefits",
+        "€11 monthly credit (tournaments & bar)",
+        "Same product discounts as Bronze",
+        "Early pickup of preorders (before release)",
+        "Free access to electronic space",
+        "Priority over Wood & Bronze"
+      ],
+      "productDiscounts": {
+        "range5to10": 0.50,
+        "rangeAbove10": 1.00
+      },
+      "barCredit": 11,
+      "priority": "Silver Priority"
+    },
+    {
+      "id": "gold",
+      "name": "Gold Tier",
+      "price": {
+        "monthly": 30,
+        "yearly": 360
+      },
+      "color": "#FFD700",
+      "icon": "🥇",
+      "level": 3,
+      "benefits": [
+        "All Silver Tier benefits",
+        "€15 monthly credit (tournaments & bar)",
+        "€1 discount on products €5-€10",
+        "€2 discount on products over €10",
+        "5% discount on all singles",
+        "Free 4-hour table reservation monthly",
+        "Priority over Wood, Bronze & Silver"
+      ],
+      "productDiscounts": {
+        "range5to10": 1.00,
+        "rangeAbove10": 2.00
+      },
+      "barCredit": 15,
+      "priority": "Gold Priority"
+    },
+    {
+      "id": "platinum",
+      "name": "Platinum Tier",
+      "price": {
+        "monthly": 40,
+        "yearly": 480
+      },
+      "color": "#E5E4E2",
+      "icon": "💎",
+      "level": 4,
+      "benefits": [
+        "All Gold Tier benefits",
+        "Same product discounts as Gold",
+        "Free prerelease event every 2 months (up to €25)",
+        "Free access to all association facilities",
+        "Free large table reservation (no time limit)",
+        "Highest priority in all preorders & events"
+      ],
+      "productDiscounts": {
+        "range5to10": 1.00,
+        "rangeAbove10": 2.00
+      },
+      "barCredit": 15,
+      "priority": "Platinum Priority (Highest)"
+    }
+  ],
+  "rules": {
+    "eligibility": "Benefits require last 3 consecutive months of valid membership",
+    "upgrading": "Upgrading tiers requires paying the difference for the last 3 months without receiving benefits during that period",
+    "abuse": "Any abuse of benefits may result in tier revocation and association ban",
+    "priority": "Higher tier members have priority in event registration and preorders",
+    "creditUsage": "Credit can be used for tournaments and bar items only",
+    "materialsCredit": "Credit cannot be used for materials (sleeves, etc.). Materials have 10% markup (minimum €1) and no tier discount applies"
+  },
+  "priorityExample": {
+    "scenario": "Limited stock situation",
+    "description": "If a Wood member orders 1 box and a Bronze member orders 2 boxes, but only 2 boxes are available, the Bronze member receives their full order first due to tier priority."
+  }
+}
