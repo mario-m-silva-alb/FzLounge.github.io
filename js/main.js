@@ -989,16 +989,8 @@ function calculateEventStatus(event) {
     return { ...event, calculatedStatus: 'past' };
   }
   
-  if (event.registered >= event.capacity) {
-    return { ...event, calculatedStatus: 'full' };
-  }
-  
-  const fillPercentage = (event.registered / event.capacity) * 100;
-  if (fillPercentage >= 75) {
-    return { ...event, calculatedStatus: 'almost_full' };
-  }
-  
-  return { ...event, calculatedStatus: 'open' };
+  // Use the status from the data (open, almost_full, full)
+  return { ...event, calculatedStatus: event.status };
 }
 
 function buildCompactEventCard(event) {
@@ -1014,7 +1006,6 @@ function buildCompactEventCard(event) {
   };
   
   const status = statusConfig[event.calculatedStatus] || statusConfig.open;
-  const spotsLeft = event.capacity - event.registered;
   
   return `
     <article class="compact-event-card">
@@ -1027,7 +1018,7 @@ function buildCompactEventCard(event) {
         <h3 class="compact-event-title">${event.title}</h3>
         <div class="compact-event-meta">
           <span>📅 ${eventDate.toLocaleDateString('en-US', { weekday: 'short' })}</span>
-          <span>👥 ${event.registered}/${event.capacity}</span>
+          <span>👥 Capacity: ${event.capacity}</span>
           <span>${event.format || 'Various'}</span>
         </div>
         <p class="compact-event-description">${event.description}</p>

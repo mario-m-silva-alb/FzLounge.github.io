@@ -20,6 +20,7 @@ const STATUS_CONFIG = {
 document.addEventListener('DOMContentLoaded', () => {
   loadEventsData();
   initNavToggle();
+  initEventDetailModal();
 });
 
 /**
@@ -65,7 +66,7 @@ async function loadEventsData() {
 }
 
 /**
- * Calculate event status based on capacity and date
+ * Calculate event status based on date only
  */
 function calculateEventStatus(event) {
   const eventDate = new Date(event.date + 'T' + event.endTime);
@@ -76,17 +77,8 @@ function calculateEventStatus(event) {
     return { ...event, calculatedStatus: 'past' };
   }
   
-  // Check capacity
-  if (event.registered >= event.capacity) {
-    return { ...event, calculatedStatus: 'full' };
-  }
-  
-  const fillPercentage = (event.registered / event.capacity) * 100;
-  if (fillPercentage >= 75) {
-    return { ...event, calculatedStatus: 'almost_full' };
-  }
-  
-  return { ...event, calculatedStatus: 'open' };
+  // Use the status from the data (open, almost_full, full)
+  return { ...event, calculatedStatus: event.status };
 }
 
 /**
@@ -185,6 +177,9 @@ function renderEvents(events) {
   }
   
   grid.innerHTML = events.map(event => buildEventCard(event)).join('');
+  
+  // Attach click handlers to new cards
+  attachEventCardHandlers();
 }
 
 /**
@@ -208,14 +203,8 @@ function buildEventCard(event) {
   const startTime = event.time.substring(0, 5);
   const endTime = event.endTime.substring(0, 5);
   
-  // Capacity info
-  const spotsLeft = event.capacity - event.registered;
-  const capacityText = event.calculatedStatus === 'full' 
-    ? 'Full' 
-    : `${spotsLeft} spot${spotsLeft !== 1 ? 's' : ''} left`;
-  
   return `
-    <article class="event-card">
+    <article class="event-card" data-event-id="${event.id}" role="button" tabindex="0">
       <div class="event-card__date-badge">
         <div class="date-month">${month}</div>
         <div class="date-day">${day}</div>
@@ -247,7 +236,7 @@ function buildEventCard(event) {
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
-            ${event.registered}/${event.capacity} registered
+            Capacity: ${event.capacity} people
           </span>
           <span class="event-meta-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -271,11 +260,11 @@ function buildEventCard(event) {
         
         <div class="event-card__footer">
           <span class="capacity-indicator">
-            ${capacityText}
+            Click for details
           </span>
-          <a href="${event.rsvpLink}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm ${event.calculatedStatus === 'full' || event.calculatedStatus === 'past' ? 'btn-disabled' : ''}">
-            ${event.calculatedStatus === 'full' ? 'Waitlist' : event.calculatedStatus === 'past' ? 'Past Event' : 'RSVP Now'}
-          </a>
+          <button class="btn btn-primary btn-sm event-detail-btn">
+            View Details →
+          </button>
         </div>
       </div>
     </article>
@@ -322,3 +311,213 @@ function initNavToggle() {
     navLinks.classList.toggle('active');
   });
 }
+
+/**
+ * Initialize event detail modal
+ */
+function initEventDetailModal() {
+  const modal = document.getElementById('event-detail-modal');
+  const closeBtn = document.getElementById('modal-event-close');
+  
+  if (!modal || !closeBtn) return;
+  
+  // Close button handler
+  closeBtn.addEventListener('click', closeEventModal);
+  
+  // Click outside modal to close
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeEventModal();
+    }
+  });
+  
+  // ESC key to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display !== 'none') {
+      closeEventModal();
+    }
+  });
+}
+
+/**
+ * Attach click handlers to event cards
+ */
+function attachEventCardHandlers() {
+  document.querySelectorAll('.event-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Don't open if clicking a link or button inside
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('a') || e.target.closest('button')) {
+        return;
+      }
+      
+      const eventId = parseInt(card.getAttribute('data-event-id'));
+      const event = allEvents.find(e => e.id === eventId);
+      
+      if (event) {
+        openEventModal(event);
+      }
+    });
+    
+    // Keyboard support
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const eventId = parseInt(card.getAttribute('data-event-id'));
+        const event = allEvents.find(ev => ev.id === eventId);
+        
+        if (event) {
+          openEventModal(event);
+        }
+      }
+    });
+  });
+}
+
+/**
+ * Open event detail modal
+ */
+function openEventModal(event) {
+  const modal = document.getElementById('event-detail-modal');
+  const modalBody = document.getElementById('modal-event-body');
+  
+  if (!modal || !modalBody) return;
+  
+  modalBody.innerHTML = buildEventDetailHTML(event);
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  
+  // Focus close button
+  document.getElementById('modal-event-close').focus();
+}
+
+/**
+ * Close event detail modal
+ */
+function closeEventModal() {
+  const modal = document.getElementById('event-detail-modal');
+  if (!modal) return;
+  
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+/**
+ * Build event detail modal HTML
+ */
+function buildEventDetailHTML(event) {
+  const eventType = eventsData.eventTypes.find(t => t.value === event.type);
+  const typeIcon = eventType ? eventType.icon : '📅';
+  const typeLabel = eventType ? eventType.label : event.type;
+  const typeColor = eventType ? eventType.color : '#4A90E2';
+  
+  const status = STATUS_CONFIG[event.calculatedStatus] || STATUS_CONFIG.open;
+  
+  // Format date
+  const eventDate = new Date(event.date);
+  const fullDate = eventDate.toLocaleDateString('en-US', { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+  
+  // Format time
+  const startTime = event.time.substring(0, 5);
+  const endTime = event.endTime.substring(0, 5);
+  
+  return `
+    <div class="event-detail">
+      <div class="event-detail__header">
+        <div class="event-detail__type" style="background-color: ${typeColor}20; color: ${typeColor}; border-color: ${typeColor}50;">
+          ${typeIcon} ${typeLabel}
+        </div>
+        <span class="event-status ${status.class}">
+          ${status.icon} ${status.label}
+        </span>
+      </div>
+      
+      <h1 class="event-detail__title" id="modal-event-title">${event.title}</h1>
+      
+      <div class="event-detail__info">
+        <div class="event-info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <div>
+            <strong>Date</strong>
+            <p>${fullDate}</p>
+          </div>
+        </div>
+        
+        <div class="event-info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <div>
+            <strong>Time</strong>
+            <p>${startTime} - ${endTime}</p>
+          </div>
+        </div>
+        
+        <div class="event-info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <div>
+            <strong>Capacity</strong>
+            <p>${event.capacity} people</p>
+          </div>
+        </div>
+        
+        ${event.format ? `
+          <div class="event-info-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <div>
+              <strong>Format</strong>
+              <p>${event.format}</p>
+            </div>
+          </div>
+        ` : ''}
+      </div>
+      
+      <div class="event-detail__description">
+        <h2>About This Event</h2>
+        <p>${event.description}</p>
+      </div>
+      
+      ${event.prizes ? `
+        <div class="event-detail__prizes">
+          <h2>🎁 Prizes</h2>
+          <p>${event.prizes}</p>
+        </div>
+      ` : ''}
+      
+      ${event.image ? `
+        <div class="event-detail__image">
+          <img src="${event.image}" alt="${event.title}" />
+        </div>
+      ` : ''}
+      
+      <div class="event-detail__actions">
+        ${event.calculatedStatus !== 'past' ? `
+          <a href="${event.rsvpLink}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+            ${event.calculatedStatus === 'full' ? 'Join Waitlist' : 'RSVP on Discord'} →
+          </a>
+        ` : `
+          <span class="text-muted">This event has passed</span>
+        `}
+      </div>
+    </div>
+  `;
+}
+
