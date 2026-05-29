@@ -44,6 +44,20 @@ const CATEGORY_LABELS = {
   'accessory': 'Accessory',
 };
 
+const STATUS_LABELS = {
+  'presale':     'Presale',
+  'available':   'In Stock',
+  'limited':     'Limited',
+  'sold':        'Sold Out'
+};
+
+const STATUS_ICONS = {
+  'presale':     '🎁',
+  'available':   '📦',
+  'limited':     '⚡',
+  'sold':        '🔒'
+};
+
 /**
  * Build the HTML for a single product card.
  * @param {object} product  – entry from products.json
@@ -57,27 +71,70 @@ function buildCardHTML(product, games, titleTag) {
   const condClass     = `badge-${product.condition}`;
   const catLabel      = CATEGORY_LABELS[product.category]  || product.category;
   const escapedName   = product.name.replace(/"/g, '&quot;');
+  
+  // Status badge
+  const status        = product.status || 'available';
+  const statusLabel   = STATUS_LABELS[status] || status;
+  const statusIcon    = STATUS_ICONS[status] || '';
+  const statusClass   = `badge-status badge-status-${status}`;
+  
+  // Check if product is new (added within last 30 days)
+  const isNew = product.dateAdded && isProductNew(product.dateAdded);
+  const newBadge = isNew ? '<span class="badge-new">✨ NEW</span>' : '';
+  
+  // Product ID badge
+  const productId = `#${String(product.id).padStart(3, '0')}`;
+  
+  // Image with WebP support
+  const imageSrc = product.image;
+  const imageFallback = product.imageFallback || product.image;
+  const imageHTML = imageSrc.endsWith('.webp') 
+    ? `<picture>
+         <source srcset="${imageSrc}" type="image/webp">
+         <img src="${imageFallback}" alt="${product.imageAlt}" loading="lazy" />
+       </picture>`
+    : `<img src="${imageSrc}" alt="${product.imageAlt}" loading="lazy" />`;
 
   return `
     <article class="product-card"
       data-game="${product.game}"
       data-condition="${product.condition}"
-      data-category="${product.category}">
+      data-category="${product.category}"
+      data-status="${status}"
+      data-product-id="${product.id}"
+      data-search-text="${escapedName.toLowerCase()} ${product.description.toLowerCase()} ${gameLabel.toLowerCase()}">
       <div class="product-card__img-wrap">
-        <img src="${product.image}" alt="${product.imageAlt}" loading="lazy" />
+        ${imageHTML}
         <span class="product-card__badge ${condClass}">${condLabel}</span>
         <span class="product-card__game-tag">${gameLabel}</span>
+        <div class="product-card__badges">
+          <span class="${statusClass}">${statusIcon} ${statusLabel}</span>
+          ${newBadge}
+        </div>
       </div>
       <div class="product-card__body">
         <${tag} class="product-card__title">${product.name}</${tag}>
         <p class="product-card__desc">${product.description}</p>
         <div class="product-card__footer">
           <span class="product-card__category">${catLabel}</span>
+          <span class="product-card__id">${productId}</span>
           <button class="btn btn-primary btn-sm btn-contact"
                   data-product="${escapedName}">Contact to Get</button>
         </div>
       </div>
     </article>`.trim();
+}
+
+/**
+ * Check if a product is new (added within last 30 days)
+ * @param {string} dateAdded - ISO date string
+ * @returns {boolean}
+ */
+function isProductNew(dateAdded) {
+  const added = new Date(dateAdded);
+  const now = new Date();
+  const daysDiff = (now - added) / (1000 * 60 * 60 * 24);
+  return daysDiff <= 30;
 }
 
 /* ============================================================
@@ -119,48 +176,102 @@ function initProductsPage(data) {
     .join('\n');
   grid.insertAdjacentHTML('afterbegin', cards);
 
-  // Set up filter controls
+  // Set up filter and search controls
   const filterGame      = document.getElementById('filter-game');
   const filterCategory  = document.getElementById('filter-category');
   const filterResetBtn  = document.getElementById('filter-reset');
   const productsCount   = document.getElementById('products-count');
+  const searchInput     = document.getElementById('product-search');
+  const searchClear     = document.getElementById('search-clear');
 
+  let searchTerm = '';
+  let searchTimeout = null;
+
+  /**
+   * Apply all filters and search
+   */
   function applyFilters() {
     const game      = filterGame     ? filterGame.value     : 'all';
     const category  = filterCategory ? filterCategory.value : 'all';
+    const search    = searchTerm.toLowerCase().trim();
 
     let visible = 0;
 
     grid.querySelectorAll('.product-card[data-game]').forEach(card => {
       const matchGame      = game     === 'all' || card.dataset.game     === game;
       const matchCategory  = category === 'all' || card.dataset.category === category;
+      const matchSearch    = !search || (card.dataset.searchText && card.dataset.searchText.includes(search));
 
-      const show = matchGame && matchCategory;
+      const show = matchGame && matchCategory && matchSearch;
       card.style.display = show ? '' : 'none';
       if (show) visible++;
     });
 
+    // Update count
     if (productsCount) {
-      productsCount.textContent = `${visible} product${visible !== 1 ? 's' : ''} found`;
+      const filterText = search ? ` for "${searchTerm}"` : '';
+      productsCount.textContent = `${visible} product${visible !== 1 ? 's' : ''} found${filterText}`;
     }
 
+    // Show/hide no results message
     const noResults = document.getElementById('no-results');
     if (noResults) {
       noResults.style.display = visible === 0 ? 'block' : 'none';
     }
   }
 
+  /**
+   * Handle search input with debouncing
+   */
+  function handleSearch(value) {
+    searchTerm = value;
+    
+    // Show/hide clear button
+    if (searchClear) {
+      searchClear.style.display = searchTerm ? 'flex' : 'none';
+    }
+    
+    // Debounce the search
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      applyFilters();
+    }, 300);
+  }
+
+  // Event listeners for filters
   if (filterGame)     filterGame.addEventListener('change', applyFilters);
   if (filterCategory) filterCategory.addEventListener('change', applyFilters);
 
+  // Event listeners for search
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => handleSearch(e.target.value));
+    searchInput.addEventListener('search', applyFilters); // Triggered on Enter or clear
+  }
+
+  if (searchClear) {
+    searchClear.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        handleSearch('');
+      }
+    });
+  }
+
+  // Reset button
   if (filterResetBtn) {
     filterResetBtn.addEventListener('click', () => {
       if (filterGame)     filterGame.value = 'all';
       if (filterCategory) filterCategory.value = 'all';
+      if (searchInput) {
+        searchInput.value = '';
+        searchTerm = '';
+        if (searchClear) searchClear.style.display = 'none';
+      }
       applyFilters();
     });
   }
 
+  // Initial filter application
   applyFilters();
 }
 

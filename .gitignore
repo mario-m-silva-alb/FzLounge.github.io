@@ -1,0 +1,27 @@
+# IDE Files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node modules (if you ever use build tools)
+node_modules/
+package-lock.json
+
+# Build outputs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+~*
+
+# Image processing temp files
+assets/products/originals/.processing/

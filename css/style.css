@@ -477,6 +477,100 @@ footer {
   font-style: italic;
 }
 
+.product-card__id {
+  font-size: .72rem;
+  color: var(--color-text-muted);
+  font-family: 'Courier New', monospace;
+  opacity: 0.7;
+}
+
+/* Status and NEW badges container */
+.product-card__badges {
+  position: absolute;
+  top: .65rem;
+  left: .65rem;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  align-items: flex-start;
+}
+
+.badge-status {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: .25rem .55rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  backdrop-filter: blur(4px);
+}
+
+.badge-status-presale {
+  background: rgba(218, 54, 51, 0.9);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge-status-available {
+  background: rgba(35, 134, 54, 0.9);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge-status-limited {
+  background: rgba(255, 158, 0, 0.9);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge-status-sold {
+  background: rgba(139, 148, 158, 0.9);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge-new {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: .25rem .55rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(212,160,23,.95), rgba(184,134,11,.95));
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  animation: subtle-pulse 2s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Enhanced hover effect for cards */
+.product-card:hover .product-card__img-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.product-card:hover .product-card__img-wrap::after {
+  opacity: 1;
+}
+
 /* ---------- Products Page ----------------------------------- */
 .page-hero {
   padding: 3.5rem 0 2.5rem;
@@ -485,6 +579,88 @@ footer {
 }
 
 .page-hero .section-title { margin-bottom: .5rem; }
+
+/* Search bar */
+.search-bar {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-bar input[type="search"] {
+  width: 100%;
+  background: var(--color-surface2);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  padding: .75rem 3rem .75rem 3rem;
+  font-family: var(--font-body);
+  font-size: .95rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.search-bar input[type="search"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.1);
+}
+
+.search-bar input[type="search"]::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Remove default search input clear button in WebKit browsers */
+.search-bar input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-clear {
+  position: absolute;
+  right: 1rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background .2s, color .2s;
+  padding: 0;
+}
+
+.search-clear:hover {
+  background: var(--color-surface2);
+  color: var(--color-text);
+}
+
+.search-clear svg {
+  width: 16px;
+  height: 16px;
+}
 
 /* Filter bar */
 .filter-bar {

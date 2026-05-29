@@ -20,8 +20,11 @@
       "category": "booster",
       "description": "Sealed English booster box, 36 packs. Perfect for a draft night. Never opened.",
       "image": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&q=80",
       "imageAlt": "Magic: The Gathering booster packs",
-      "featured": true
+      "featured": true,
+      "dateAdded": "2025-01-22",
+      "status": "available"
     },
     {
       "id": 2,
@@ -31,8 +34,11 @@
       "category": "single",
       "description": "Brilliant Stars full-art Charizard VMAX sleeved since pulled. Centerpiece of any collection.",
       "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
       "imageAlt": "Pokémon cards spread on a table",
-      "featured": true
+      "featured": true,
+      "dateAdded": "2025-01-20",
+      "status": "available"
     },
     {
       "id": 3,
@@ -42,8 +48,11 @@
       "category": "deck",
       "description": "Complete structure deck, all cards present. Great starting point for new duelists.",
       "image": "https://images.unsplash.com/photo-1618042164219-62c820f10723?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1618042164219-62c820f10723?w=600&q=80",
       "imageAlt": "A hand of trading cards",
-      "featured": true
+      "featured": true,
+      "dateAdded": "2025-01-25",
+      "status": "limited"
     },
     {
       "id": 4,
@@ -53,8 +62,11 @@
       "category": "booster",
       "description": "Sealed Lorcana First Chapter booster. Rare Disney enchanted cards possible. Great gift.",
       "image": "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=80",
       "imageAlt": "Disney Lorcana booster packs",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2025-01-18",
+      "status": "available"
     },
     {
       "id": 5,
@@ -64,8 +76,11 @@
       "category": "single",
       "description": "Iconic Planeswalker. Light surface scratch only visible under direct light. Competitive staple.",
       "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80",
       "imageAlt": "Magic the Gathering card close-up",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2025-01-15",
+      "status": "available"
     },
     {
       "id": 6,
@@ -75,8 +90,11 @@
       "category": "accessory",
       "description": "Black faux-leather binder with 100 side-loading 4-pocket pages. Never used. Fits all standard cards.",
       "image": "https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=600&q=80",
       "imageAlt": "Card storage binder",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2025-01-12",
+      "status": "available"
     },
     {
       "id": 7,
@@ -86,8 +104,11 @@
       "category": "deck",
       "description": "Ready-to-play 60-card deck built around Pikachu VMAX. Ideal for beginners getting into the TCG.",
       "image": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=600&q=80",
       "imageAlt": "Pokémon card deck box",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2025-01-10",
+      "status": "available"
     },
     {
       "id": 8,
@@ -97,8 +118,11 @@
       "category": "single",
       "description": "First-edition LOB-001 Blue-Eyes White Dragon. Minor edge wear, still tournament legal.",
       "image": "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80",
       "imageAlt": "Yu-Gi-Oh! card close-up",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2025-01-08",
+      "status": "limited"
     },
     {
       "id": 9,
@@ -108,8 +132,12 @@
       "category": "booster",
       "description": "Sealed Riftbound core set booster pack. Brand new strategic TCG with stunning artwork and deep deckbuilding.",
       "image": "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?w=600&q=80",
       "imageAlt": "Fantasy card game booster pack",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2025-01-27",
+      "status": "presale",
+      "releaseDate": "2025-02-15"
     },
     {
       "id": 10,
@@ -119,8 +147,11 @@
       "category": "deck",
       "description": "Complete Dawn of Ashes starter deck. All cards in sleeves since opening. Ideal intro to Grand Archive.",
       "image": "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=600&q=80",
       "imageAlt": "Grand Archive starter deck",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2025-01-05",
+      "status": "available"
     },
     {
       "id": 11,
@@ -130,8 +161,11 @@
       "category": "deck",
       "description": "Gaia Red starter deck (ST-1). 54-card pre-built deck, perfect for learning the Digimon TCG system.",
       "image": "https://images.unsplash.com/photo-1580327332925-a10e6cb11baa?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1580327332925-a10e6cb11baa?w=600&q=80",
       "imageAlt": "Digimon TCG starter deck",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2025-01-03",
+      "status": "available"
     },
     {
       "id": 12,
@@ -141,8 +175,12 @@
       "category": "booster",
       "description": "Sealed Gundam TCG booster pack from the Mobile Suit series. Fresh off the shelf, never opened.",
       "image": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80",
       "imageAlt": "Gundam TCG booster pack",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2025-01-28",
+      "status": "presale",
+      "releaseDate": "2025-02-10"
     },
     {
       "id": 13,
@@ -152,8 +190,12 @@
       "category": "booster",
       "description": "Sealed One Piece TCG Romance Dawn (OP-01) booster. Chase the Monkey D. Luffy Secret Rare!",
       "image": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&q=80",
       "imageAlt": "One Piece TCG booster pack",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2025-01-26",
+      "status": "presale",
+      "releaseDate": "2025-02-20"
     },
     {
       "id": 14,
@@ -163,8 +205,11 @@
       "category": "single",
       "description": "Alternate art Nami card from Romance Dawn. Sleeved and stored flat. Great pull for collectors.",
       "image": "https://images.unsplash.com/photo-1581873372796-635b67ca2008?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1581873372796-635b67ca2008?w=600&q=80",
       "imageAlt": "One Piece TCG single card",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2024-12-28",
+      "status": "available"
     },
     {
       "id": 15,
@@ -174,8 +219,11 @@
       "category": "deck",
       "description": "Lorraine, Crux Knight starter deck. Sealed and unplayed. A great entry point for the Grand Archive meta.",
       "image": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&q=80",
+      "imageFallback": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&q=80",
       "imageAlt": "Grand Archive deck box",
-      "featured": false
+      "featured": false,
+      "dateAdded": "2024-12-20",
+      "status": "available"
     }
   ]
 }
