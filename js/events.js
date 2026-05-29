@@ -189,6 +189,7 @@ function buildEventCard(event) {
   const eventType = eventsData.eventTypes.find(t => t.value === event.type);
   const typeIcon = eventType ? eventType.icon : '📅';
   const typeLabel = eventType ? eventType.label : event.type;
+  const typeColor = eventType ? eventType.color : '#D4A017';
   
   const status = STATUS_CONFIG[event.calculatedStatus] || STATUS_CONFIG.open;
   
@@ -205,7 +206,7 @@ function buildEventCard(event) {
   
   return `
     <article class="event-card" data-event-id="${event.id}" role="button" tabindex="0">
-      <div class="event-card__date-badge">
+      <div class="event-card__date-badge" style="background: linear-gradient(135deg, ${typeColor} 0%, ${typeColor}dd 100%);">
         <div class="date-month">${month}</div>
         <div class="date-day">${day}</div>
         <div class="date-year">${year}</div>
@@ -257,15 +258,6 @@ function buildEventCard(event) {
             ${event.prizes ? `<span class="detail-badge">🎁 ${event.prizes}</span>` : ''}
           </div>
         ` : ''}
-        
-        <div class="event-card__footer">
-          <span class="capacity-indicator">
-            Click for details
-          </span>
-          <button class="btn btn-primary btn-sm event-detail-btn">
-            View Details →
-          </button>
-        </div>
       </div>
     </article>
   `;
