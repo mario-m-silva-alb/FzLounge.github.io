@@ -206,30 +206,32 @@ function buildEventCard(event) {
   
   return `
     <article class="event-card" data-event-id="${event.id}" role="button" tabindex="0">
+      <div class="event-card__header">
+        <h2 class="event-card__title">
+          ${typeIcon} ${event.title}
+        </h2>
+        <span class="event-status ${status.class}">
+          ${status.icon} ${status.label}
+        </span>
+      </div>
+      
       <div class="event-card__date-badge" style="background: linear-gradient(135deg, ${typeColor} 0%, ${typeColor}dd 100%);">
-        <div class="date-month">${month}</div>
-        <div class="date-day">${day}</div>
-        <div class="date-year">${year}</div>
+        <div class="date-info">
+          <span class="date-day">${day}</span>
+          <span class="date-month">${month}</span>
+          <span class="date-year">${year}</span>
+        </div>
+        <div class="date-time">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          ${startTime} - ${endTime}
+        </div>
       </div>
       
       <div class="event-card__content">
-        <div class="event-card__header">
-          <h2 class="event-card__title">
-            ${typeIcon} ${event.title}
-          </h2>
-          <span class="event-status ${status.class}">
-            ${status.icon} ${status.label}
-          </span>
-        </div>
-        
         <div class="event-card__meta">
-          <span class="event-meta-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            ${dayName}, ${startTime} - ${endTime}
-          </span>
           <span class="event-meta-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
