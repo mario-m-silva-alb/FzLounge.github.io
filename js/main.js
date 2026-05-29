@@ -901,6 +901,179 @@ function initProductDetailModal() {
 }
 
 /* ============================================================
+   STATS COUNTER ANIMATION (Homepage)
+   ============================================================ */
+
+function animateStatsCounters() {
+  const statNumbers = document.querySelectorAll('.stat-number');
+  if (statNumbers.length === 0) return;
+  
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+        entry.target.classList.add('animated');
+        animateCounter(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  statNumbers.forEach(stat => observer.observe(stat));
+}
+
+function animateCounter(element) {
+  const target = parseInt(element.getAttribute('data-target'));
+  const duration = 2000; // 2 seconds
+  const increment = target / (duration / 16); // 60fps
+  let current = 0;
+  
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      element.textContent = target + '+';
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(current);
+    }
+  }, 16);
+}
+
+/* ============================================================
+   UPCOMING EVENTS (Homepage)
+   ============================================================ */
+
+async function loadUpcomingEvents() {
+  const grid = document.getElementById('upcoming-events-grid');
+  if (!grid) return;
+  
+  try {
+    const response = await fetch('data/events.json');
+    if (!response.ok) throw new Error('Failed to load events');
+    
+    const data = await response.json();
+    const now = new Date();
+    
+    // Filter upcoming events (not past, limit to 3)
+    const upcoming = data.events
+      .map(event => {
+        const eventDate = new Date(event.date + 'T' + event.endTime);
+        return { ...event, eventDate };
+      })
+      .filter(event => event.eventDate > now)
+      .sort((a, b) => a.eventDate - b.eventDate)
+      .slice(0, 3)
+      .map(event => calculateEventStatus(event));
+    
+    if (upcoming.length === 0) {
+      grid.innerHTML = '<p style="text-align:center;color:var(--color-text-muted);">No upcoming events scheduled. Check back soon!</p>';
+      return;
+    }
+    
+    grid.innerHTML = upcoming.map(event => buildCompactEventCard(event)).join('');
+    
+  } catch (error) {
+    console.error('Error loading upcoming events:', error);
+    grid.innerHTML = '<p style="text-align:center;color:var(--color-text-muted);">Unable to load events.</p>';
+  }
+}
+
+function calculateEventStatus(event) {
+  const eventDate = new Date(event.date + 'T' + event.endTime);
+  const now = new Date();
+  
+  if (eventDate < now) {
+    return { ...event, calculatedStatus: 'past' };
+  }
+  
+  if (event.registered >= event.capacity) {
+    return { ...event, calculatedStatus: 'full' };
+  }
+  
+  const fillPercentage = (event.registered / event.capacity) * 100;
+  if (fillPercentage >= 75) {
+    return { ...event, calculatedStatus: 'almost_full' };
+  }
+  
+  return { ...event, calculatedStatus: 'open' };
+}
+
+function buildCompactEventCard(event) {
+  const eventDate = new Date(event.date);
+  const month = eventDate.toLocaleDateString('en-US', { month: 'short' });
+  const day = eventDate.getDate();
+  const time = event.time.substring(0, 5);
+  
+  const statusConfig = {
+    open: { label: 'Open', icon: '🟢', class: 'status-open' },
+    almost_full: { label: 'Almost Full', icon: '🟡', class: 'status-almost-full' },
+    full: { label: 'Full', icon: '🔴', class: 'status-full' }
+  };
+  
+  const status = statusConfig[event.calculatedStatus] || statusConfig.open;
+  const spotsLeft = event.capacity - event.registered;
+  
+  return `
+    <article class="compact-event-card">
+      <div class="compact-event-date">
+        <div class="compact-date-month">${month}</div>
+        <div class="compact-date-day">${day}</div>
+        <div class="compact-date-time">${time}</div>
+      </div>
+      <div class="compact-event-info">
+        <h3 class="compact-event-title">${event.title}</h3>
+        <div class="compact-event-meta">
+          <span>📅 ${eventDate.toLocaleDateString('en-US', { weekday: 'short' })}</span>
+          <span>👥 ${event.registered}/${event.capacity}</span>
+          <span>${event.format || 'Various'}</span>
+        </div>
+        <p class="compact-event-description">${event.description}</p>
+        <div class="compact-event-footer">
+          <span class="compact-event-status ${status.class}">
+            ${status.icon} ${status.label}
+          </span>
+          <a href="events.html" class="btn btn-sm btn-primary">Details →</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+
+function initScrollAnimations() {
+  // Only run if user hasn't requested reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        // Optional: stop observing after animation
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all elements with animate-on-scroll class
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+/* ============================================================
    BOOT
    ============================================================ */
 
@@ -940,6 +1113,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Product detail modal initialization */
   initProductDetailModal();
+  
+  /* Stats counter animation (Homepage) */
+  animateStatsCounters();
+  
+  /* Load upcoming events (Homepage) */
+  loadUpcomingEvents();
+  
+  /* Initialize scroll animations */
+  initScrollAnimations();
 
   /* Load JSON then initialise data-driven features */
   const needsData = document.getElementById('products-grid') ||
