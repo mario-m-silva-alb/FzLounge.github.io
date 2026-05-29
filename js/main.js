@@ -94,6 +94,24 @@ function buildCardHTML(product, games, titleTag) {
          <img src="${imageFallback}" alt="${product.imageAlt}" loading="lazy" />
        </picture>`
     : `<img src="${imageSrc}" alt="${product.imageAlt}" loading="lazy" />`;
+  
+  // Pricing display
+  let pricingHTML = '';
+  if (product.prices) {
+    const minPrice = Math.min(
+      product.prices.wood || Infinity,
+      product.prices.bronze || Infinity,
+      product.prices.silver || Infinity,
+      product.prices.gold || Infinity,
+      product.prices.platinum || Infinity
+    );
+    pricingHTML = `
+      <div class="product-card__pricing">
+        <span class="price-from">From €${minPrice.toFixed(2)}</span>
+        <span class="price-tiers">Member pricing</span>
+      </div>
+    `;
+  }
 
   return `
     <article class="product-card"
@@ -115,6 +133,7 @@ function buildCardHTML(product, games, titleTag) {
       <div class="product-card__body">
         <${tag} class="product-card__title">${product.name}</${tag}>
         <p class="product-card__desc">${product.description}</p>
+        ${pricingHTML}
         <div class="product-card__footer">
           <span class="product-card__category">${catLabel}</span>
           <span class="product-card__id">${productId}</span>
@@ -526,6 +545,15 @@ function buildProductDetailHTML(product, games) {
   const isNew = product.dateAdded && isProductNew(product.dateAdded);
   const productId = `#${String(product.id).padStart(3, '0')}`;
   
+  // Preorder date for presale items
+  let preorderDateHTML = '';
+  if (status === 'presale' && product.preorderDate) {
+    const preorderDate = new Date(product.preorderDate).toLocaleDateString('en-US', { 
+      year: 'numeric', month: 'long', day: 'numeric' 
+    });
+    preorderDateHTML = `<div class="spec-item"><span class="spec-label">Preorder Opened:</span> <span class="spec-value">${preorderDate}</span></div>`;
+  }
+  
   // Release date for presale items
   let releaseDateHTML = '';
   if (status === 'presale' && product.releaseDate) {
@@ -593,12 +621,15 @@ function buildProductDetailHTML(product, games) {
             <span class="spec-label">Condition:</span>
             <span class="spec-value">${condLabel}</span>
           </div>
+          ${preorderDateHTML}
           ${releaseDateHTML}
           <div class="spec-item">
             <span class="spec-label">Added:</span>
             <span class="spec-value">${dateAdded}</span>
           </div>
         </div>
+        
+        ${buildTierPricingHTML(product)}
         
         <div class="modal-product-actions">
           <button class="btn btn-primary btn-lg btn-contact" data-product="${product.name}">
@@ -619,7 +650,70 @@ function buildProductDetailHTML(product, games) {
 }
 
 /**
- * Open product detail modal
+ * Attach product card click handlers
+ */
+function attachProductCardHandlers(data) {
+  productsData = data;
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      // Don't trigger if clicking the contact button
+      if (e.target.closest('.btn-contact')) return;
+      
+      const productId = parseInt(card.dataset.productId);
+      openProductDetail(productId);
+    });
+  });
+}
+
+/**
+ * Build tier pricing table HTML
+ */
+function buildTierPricingHTML(product) {
+  if (!product.prices) return '';
+  
+  const tiers = [
+    { id: 'wood', name: 'Wood', icon: '🌳' },
+    { id: 'bronze', name: 'Bronze', icon: '🥉' },
+    { id: 'silver', name: 'Silver', icon: '🥈' },
+    { id: 'gold', name: 'Gold', icon: '🥇' },
+    { id: 'platinum', name: 'Platinum', icon: '💎' }
+  ];
+  
+  const basePrice = product.prices.wood;
+  
+  return `
+    <div class="modal-product-pricing">
+      <h3>Membership Pricing</h3>
+      <div class="pricing-table">
+        ${tiers.map(tier => {
+          const price = product.prices[tier.id];
+          if (price === undefined) return '';
+          
+          const savings = basePrice - price;
+          const savingsText = savings > 0 ? `<span class="savings-badge">Save €${savings.toFixed(2)}</span>` : '';
+          
+          return `
+            <div class="pricing-row tier-${tier.id}">
+              <span class="tier-info">
+                <span class="tier-icon">${tier.icon}</span>
+                <span class="tier-name">${tier.name}</span>
+              </span>
+              <span class="tier-price-group">
+                <span class="tier-price">€${price.toFixed(2)}</span>
+                ${savingsText}
+              </span>
+            </div>
+          `;
+        }).join('')}
+      </div>
+      <a href="tiers.html" class="tier-info-link">Learn about membership tiers →</a>
+    </div>
+  `;
+}
+
+/**
+ * Build product detail HTML
  */
 function openProductDetail(productId) {
   if (!productsData) return;

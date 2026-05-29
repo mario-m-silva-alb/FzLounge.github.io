@@ -24,7 +24,14 @@
       "imageAlt": "Magic: The Gathering booster packs",
       "featured": true,
       "dateAdded": "2025-01-22",
-      "status": "available"
+      "status": "available",
+      "prices": {
+        "wood": 120.00,
+        "bronze": 119.00,
+        "silver": 119.00,
+        "gold": 118.00,
+        "platinum": 118.00
+      }
     },
     {
       "id": 2,
@@ -137,7 +144,15 @@
       "featured": false,
       "dateAdded": "2025-01-27",
       "status": "presale",
-      "releaseDate": "2025-02-15"
+      "preorderDate": "2025-01-20",
+      "releaseDate": "2025-02-15",
+      "prices": {
+        "wood": 5.50,
+        "bronze": 5.00,
+        "silver": 5.00,
+        "gold": 4.50,
+        "platinum": 4.50
+      }
     },
     {
       "id": 10,
@@ -180,7 +195,15 @@
       "featured": false,
       "dateAdded": "2025-01-28",
       "status": "presale",
-      "releaseDate": "2025-02-10"
+      "preorderDate": "2025-01-25",
+      "releaseDate": "2025-02-10",
+      "prices": {
+        "wood": 6.00,
+        "bronze": 5.50,
+        "silver": 5.50,
+        "gold": 5.00,
+        "platinum": 5.00
+      }
     },
     {
       "id": 13,
@@ -195,7 +218,15 @@
       "featured": false,
       "dateAdded": "2025-01-26",
       "status": "presale",
-      "releaseDate": "2025-02-20"
+      "preorderDate": "2025-01-22",
+      "releaseDate": "2025-02-20",
+      "prices": {
+        "wood": 7.00,
+        "bronze": 6.50,
+        "silver": 6.50,
+        "gold": 6.00,
+        "platinum": 6.00
+      }
     },
     {
       "id": 14,

@@ -2020,3 +2020,182 @@ footer {
     font-size: .8rem;
   }
 }
+
+/* ============================================================
+   PRODUCT PRICING DISPLAY
+   ============================================================ */
+
+/* Product Card Pricing */
+.product-card__pricing {
+  background: rgba(212, 160, 23, 0.08);
+  border: 1px solid rgba(212, 160, 23, 0.25);
+  border-radius: var(--radius-md);
+  padding: .75rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.price-from {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.price-tiers {
+  font-size: .75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+/* Modal Pricing Section */
+.modal-product-pricing {
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.modal-product-pricing h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.pricing-table {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+
+.pricing-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all .2s;
+}
+
+.pricing-row:hover {
+  border-color: var(--color-primary);
+  transform: translateX(3px);
+}
+
+.tier-info {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+
+.tier-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.tier-name {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: .95rem;
+}
+
+.tier-price-group {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.tier-price {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.savings-badge {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--color-success);
+  background: rgba(35, 134, 54, 0.15);
+  border: 1px solid rgba(35, 134, 54, 0.3);
+  padding: .2rem .5rem;
+  border-radius: 999px;
+}
+
+.tier-info-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .88rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color .2s, gap .2s;
+}
+
+.tier-info-link:hover {
+  color: var(--color-white);
+  gap: .6rem;
+}
+
+/* Tier-specific styling */
+.pricing-row.tier-wood .tier-icon { opacity: .7; }
+.pricing-row.tier-bronze .tier-icon { color: #CD7F32; }
+.pricing-row.tier-silver .tier-icon { color: #C0C0C0; }
+.pricing-row.tier-gold .tier-icon { color: #FFD700; }
+.pricing-row.tier-platinum .tier-icon { color: #E5E4E2; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .modal-product-pricing {
+    padding: 1.25rem 1rem;
+  }
+  
+  .pricing-row {
+    padding: .65rem .75rem;
+  }
+  
+  .tier-name {
+    font-size: .88rem;
+  }
+  
+  .tier-price {
+    font-size: 1rem;
+  }
+  
+  .savings-badge {
+    font-size: .7rem;
+    padding: .15rem .4rem;
+  }
+  
+  .tier-price-group {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card__pricing {
+    padding: .65rem .85rem;
+  }
+  
+  .price-from {
+    font-size: 1.15rem;
+  }
+  
+  .price-tiers {
+    font-size: .7rem;
+  }
+}
