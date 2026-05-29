@@ -170,22 +170,139 @@ function initProductsPage(data) {
   const grid = document.getElementById('products-grid');
   if (!grid) return;
 
+  // Store original products for sorting
+  let currentProducts = [...data.products];
+
   // Render all product cards
-  const cards = data.products
-    .map(p => buildCardHTML(p, data.games, 'h2'))
-    .join('\n');
-  grid.insertAdjacentHTML('afterbegin', cards);
+  function renderProducts(products) {
+    const cards = products
+      .map(p => buildCardHTML(p, data.games, 'h2'))
+      .join('\n');
+    grid.innerHTML = '<div id="no-results" class="no-results" style="display:none;" role="status"><div class="icon" aria-hidden="true">🔍</div><p>No products match your filters. Try resetting them!</p></div>' + cards;
+    
+    // Re-attach click handlers for product cards
+    attachProductCardHandlers(data);
+  }
+
+  renderProducts(currentProducts);
 
   // Set up filter and search controls
   const filterGame      = document.getElementById('filter-game');
   const filterCategory  = document.getElementById('filter-category');
+  const filterStatus    = document.getElementById('filter-status');
+  const sortSelect      = document.getElementById('sort-products');
   const filterResetBtn  = document.getElementById('filter-reset');
   const productsCount   = document.getElementById('products-count');
   const searchInput     = document.getElementById('product-search');
   const searchClear     = document.getElementById('search-clear');
+  const activeFiltersDiv = document.getElementById('active-filters');
+  const filterChipsDiv   = document.getElementById('filter-chips');
 
   let searchTerm = '';
   let searchTimeout = null;
+
+  /**
+   * Update active filter chips display
+   */
+  function updateFilterChips() {
+    if (!filterChipsDiv || !activeFiltersDiv) return;
+
+    const chips = [];
+    const game = filterGame?.value;
+    const category = filterCategory?.value;
+    const status = filterStatus?.value;
+
+    if (game && game !== 'all') {
+      const gameLabel = data.games.find(g => g.value === game)?.label || game;
+      chips.push({ type: 'game', label: `Game: ${gameLabel}`, value: game });
+    }
+    if (category && category !== 'all') {
+      const catLabel = CATEGORY_LABELS[category] || category;
+      chips.push({ type: 'category', label: `Category: ${catLabel}`, value: category });
+    }
+    if (status && status !== 'all') {
+      const statusLabel = STATUS_LABELS[status] || status;
+      chips.push({ type: 'status', label: `Status: ${statusLabel}`, value: status });
+    }
+    if (searchTerm) {
+      chips.push({ type: 'search', label: `Search: "${searchTerm}"`, value: searchTerm });
+    }
+
+    if (chips.length === 0) {
+      activeFiltersDiv.style.display = 'none';
+      return;
+    }
+
+    activeFiltersDiv.style.display = 'flex';
+    filterChipsDiv.innerHTML = chips.map(chip => 
+      `<button class="filter-chip" data-filter-type="${chip.type}" data-filter-value="${chip.value}">
+        ${chip.label}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>`
+    ).join('');
+
+    // Add click handlers for chip removal
+    filterChipsDiv.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const type = chip.dataset.filterType;
+        if (type === 'game' && filterGame) filterGame.value = 'all';
+        if (type === 'category' && filterCategory) filterCategory.value = 'all';
+        if (type === 'status' && filterStatus) filterStatus.value = 'all';
+        if (type === 'search' && searchInput) {
+          searchInput.value = '';
+          searchTerm = '';
+          if (searchClear) searchClear.style.display = 'none';
+        }
+        applyFilters();
+      });
+    });
+  }
+
+  /**
+   * Sort products based on selected option
+   */
+  function sortProducts(products, sortBy) {
+    const sorted = [...products];
+    
+    switch(sortBy) {
+      case 'newest':
+        sorted.sort((a, b) => {
+          const dateA = new Date(a.dateAdded || '2000-01-01');
+          const dateB = new Date(b.dateAdded || '2000-01-01');
+          return dateB - dateA;
+        });
+        break;
+      case 'name-asc':
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case 'name-desc':
+        sorted.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case 'game':
+        sorted.sort((a, b) => {
+          const gameA = data.games.find(g => g.value === a.game)?.label || a.game;
+          const gameB = data.games.find(g => g.value === b.game)?.label || b.game;
+          return gameA.localeCompare(gameB);
+        });
+        break;
+      case 'featured':
+      default:
+        // Featured first, then by date added
+        sorted.sort((a, b) => {
+          if (a.featured && !b.featured) return -1;
+          if (!a.featured && b.featured) return 1;
+          const dateA = new Date(a.dateAdded || '2000-01-01');
+          const dateB = new Date(b.dateAdded || '2000-01-01');
+          return dateB - dateA;
+        });
+        break;
+    }
+    
+    return sorted;
+  }
 
   /**
    * Apply all filters and search
@@ -193,18 +310,33 @@ function initProductsPage(data) {
   function applyFilters() {
     const game      = filterGame     ? filterGame.value     : 'all';
     const category  = filterCategory ? filterCategory.value : 'all';
+    const status    = filterStatus   ? filterStatus.value   : 'all';
+    const sortBy    = sortSelect     ? sortSelect.value     : 'featured';
     const search    = searchTerm.toLowerCase().trim();
 
+    // Filter products
+    let filteredProducts = currentProducts.filter(product => {
+      const matchGame     = game     === 'all' || product.game     === game;
+      const matchCategory = category === 'all' || product.category === category;
+      const matchStatus   = status   === 'all' || (product.status || 'available') === status;
+      const searchText = `${product.name} ${product.description} ${data.games.find(g => g.value === product.game)?.label || ''}`.toLowerCase();
+      const matchSearch   = !search || searchText.includes(search);
+
+      return matchGame && matchCategory && matchStatus && matchSearch;
+    });
+
+    // Sort products
+    filteredProducts = sortProducts(filteredProducts, sortBy);
+
+    // Render sorted and filtered products
+    renderProducts(filteredProducts);
+
+    // Update visible count display
+    // Update visible count display
     let visible = 0;
 
     grid.querySelectorAll('.product-card[data-game]').forEach(card => {
-      const matchGame      = game     === 'all' || card.dataset.game     === game;
-      const matchCategory  = category === 'all' || card.dataset.category === category;
-      const matchSearch    = !search || (card.dataset.searchText && card.dataset.searchText.includes(search));
-
-      const show = matchGame && matchCategory && matchSearch;
-      card.style.display = show ? '' : 'none';
-      if (show) visible++;
+      if (card.style.display !== 'none') visible++;
     });
 
     // Update count
@@ -218,6 +350,9 @@ function initProductsPage(data) {
     if (noResults) {
       noResults.style.display = visible === 0 ? 'block' : 'none';
     }
+
+    // Update filter chips
+    updateFilterChips();
   }
 
   /**
@@ -241,6 +376,8 @@ function initProductsPage(data) {
   // Event listeners for filters
   if (filterGame)     filterGame.addEventListener('change', applyFilters);
   if (filterCategory) filterCategory.addEventListener('change', applyFilters);
+  if (filterStatus)   filterStatus.addEventListener('change', applyFilters);
+  if (sortSelect)     sortSelect.addEventListener('change', applyFilters);
 
   // Event listeners for search
   if (searchInput) {
@@ -262,6 +399,8 @@ function initProductsPage(data) {
     filterResetBtn.addEventListener('click', () => {
       if (filterGame)     filterGame.value = 'all';
       if (filterCategory) filterCategory.value = 'all';
+      if (filterStatus)   filterStatus.value = 'all';
+      if (sortSelect)     sortSelect.value = 'featured';
       if (searchInput) {
         searchInput.value = '';
         searchTerm = '';
@@ -350,6 +489,317 @@ function initContactButtons() {
 }
 
 /* ============================================================
+   PRODUCT DETAIL MODAL
+   ============================================================ */
+
+let productsData = null; // Global reference to products data
+let currentProductIndex = -1;
+
+/**
+ * Attach click handlers to product cards
+ */
+function attachProductCardHandlers(data) {
+  productsData = data;
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      // Don't trigger if clicking the contact button
+      if (e.target.closest('.btn-contact')) return;
+      
+      const productId = parseInt(card.dataset.productId);
+      openProductDetail(productId);
+    });
+  });
+}
+
+/**
+ * Build product detail HTML
+ */
+function buildProductDetailHTML(product, games) {
+  const gameLabel = (games.find(g => g.value === product.game) || {}).label || product.game;
+  const condLabel = CONDITION_LABELS[product.condition] || product.condition;
+  const catLabel = CATEGORY_LABELS[product.category] || product.category;
+  const status = product.status || 'available';
+  const statusLabel = STATUS_LABELS[status] || status;
+  const statusIcon = STATUS_ICONS[status] || '';
+  
+  const isNew = product.dateAdded && isProductNew(product.dateAdded);
+  const productId = `#${String(product.id).padStart(3, '0')}`;
+  
+  // Release date for presale items
+  let releaseDateHTML = '';
+  if (status === 'presale' && product.releaseDate) {
+    const releaseDate = new Date(product.releaseDate).toLocaleDateString('en-US', { 
+      year: 'numeric', month: 'long', day: 'numeric' 
+    });
+    releaseDateHTML = `<div class="spec-item"><span class="spec-label">Release Date:</span> <span class="spec-value">${releaseDate}</span></div>`;
+  }
+  
+  // Date added
+  const dateAdded = product.dateAdded ? new Date(product.dateAdded).toLocaleDateString('en-US', {
+    year: 'numeric', month: 'long', day: 'numeric'
+  }) : 'Unknown';
+  
+  // Related products (same game or category, exclude current product)
+  const relatedProducts = productsData.products
+    .filter(p => p.id !== product.id && (p.game === product.game || p.category === product.category))
+    .slice(0, 4);
+  
+  const relatedHTML = relatedProducts.length > 0 ? `
+    <div class="modal-related">
+      <h3>Related Products</h3>
+      <div class="related-products-grid">
+        ${relatedProducts.map(p => {
+          const relGameLabel = (games.find(g => g.value === p.game) || {}).label || p.game;
+          return `
+            <div class="related-product" data-product-id="${p.id}">
+              <img src="${p.image}" alt="${p.imageAlt}" loading="lazy" />
+              <div class="related-product__info">
+                <h4>${p.name}</h4>
+                <span class="related-product__game">${relGameLabel}</span>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  ` : '';
+  
+  return `
+    <div class="modal-product-detail">
+      <div class="modal-product-image">
+        <img src="${product.image}" alt="${product.imageAlt}" />
+        ${isNew ? '<span class="badge-new modal-badge">✨ NEW</span>' : ''}
+      </div>
+      <div class="modal-product-info">
+        <h2 id="modal-product-title">${product.name}</h2>
+        <div class="modal-product-meta">
+          <span class="badge-status badge-status-${status}">${statusIcon} ${statusLabel}</span>
+          <span class="product-id">${productId}</span>
+        </div>
+        <p class="modal-product-description">${product.description}</p>
+        
+        <div class="modal-product-specs">
+          <h3>Specifications</h3>
+          <div class="spec-item">
+            <span class="spec-label">Game:</span>
+            <span class="spec-value">${gameLabel}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Category:</span>
+            <span class="spec-value">${catLabel}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Condition:</span>
+            <span class="spec-value">${condLabel}</span>
+          </div>
+          ${releaseDateHTML}
+          <div class="spec-item">
+            <span class="spec-label">Added:</span>
+            <span class="spec-value">${dateAdded}</span>
+          </div>
+        </div>
+        
+        <div class="modal-product-actions">
+          <button class="btn btn-primary btn-lg btn-contact" data-product="${product.name}">
+            Contact to Get
+          </button>
+          <button class="btn btn-outline btn-share" id="btn-share-product">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            Share
+          </button>
+        </div>
+      </div>
+    </div>
+    ${relatedHTML}
+  `;
+}
+
+/**
+ * Open product detail modal
+ */
+function openProductDetail(productId) {
+  if (!productsData) return;
+  
+  const product = productsData.products.find(p => p.id === productId);
+  if (!product) return;
+  
+  currentProductIndex = productsData.products.findIndex(p => p.id === productId);
+  
+  const modal = document.getElementById('product-detail-modal');
+  const modalBody = document.getElementById('modal-detail-body');
+  
+  if (!modal || !modalBody) return;
+  
+  // Render product details
+  modalBody.innerHTML = buildProductDetailHTML(product, productsData.games);
+  
+  // Show modal
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  
+  // Update URL hash
+  window.location.hash = `product-${productId}`;
+  
+  // Attach share button handler
+  const shareBtn = document.getElementById('btn-share-product');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => shareProduct(productId));
+  }
+  
+  // Attach related product click handlers
+  modalBody.querySelectorAll('.related-product').forEach(relCard => {
+    relCard.style.cursor = 'pointer';
+    relCard.addEventListener('click', () => {
+      const relProductId = parseInt(relCard.dataset.productId);
+      openProductDetail(relProductId);
+    });
+  });
+  
+  // Update prev/next button states
+  updateModalNavButtons();
+}
+
+/**
+ * Close product detail modal
+ */
+function closeProductDetail() {
+  const modal = document.getElementById('product-detail-modal');
+  if (!modal) return;
+  
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+  
+  // Remove hash from URL
+  if (window.location.hash.startsWith('#product-')) {
+    history.pushState('', document.title, window.location.pathname + window.location.search);
+  }
+}
+
+/**
+ * Navigate to previous/next product
+ */
+function navigateProduct(direction) {
+  if (!productsData || currentProductIndex < 0) return;
+  
+  const newIndex = direction === 'prev' 
+    ? (currentProductIndex - 1 + productsData.products.length) % productsData.products.length
+    : (currentProductIndex + 1) % productsData.products.length;
+  
+  const newProduct = productsData.products[newIndex];
+  if (newProduct) {
+    openProductDetail(newProduct.id);
+  }
+}
+
+/**
+ * Update prev/next button states
+ */
+function updateModalNavButtons() {
+  const prevBtn = document.getElementById('modal-nav-prev');
+  const nextBtn = document.getElementById('modal-nav-next');
+  
+  if (!productsData || !prevBtn || !nextBtn) return;
+  
+  // Always enable buttons (circular navigation)
+  prevBtn.disabled = false;
+  nextBtn.disabled = false;
+}
+
+/**
+ * Share product (copy URL to clipboard)
+ */
+function shareProduct(productId) {
+  const url = `${window.location.origin}${window.location.pathname}#product-${productId}`;
+  
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      // Show success feedback
+      const shareBtn = document.getElementById('btn-share-product');
+      if (shareBtn) {
+        const originalText = shareBtn.innerHTML;
+        shareBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+        shareBtn.style.pointerEvents = 'none';
+        setTimeout(() => {
+          shareBtn.innerHTML = originalText;
+          shareBtn.style.pointerEvents = '';
+        }, 2000);
+      }
+    }).catch(err => {
+      console.error('Failed to copy URL:', err);
+      alert('Could not copy URL to clipboard');
+    });
+  } else {
+    // Fallback for browsers without clipboard API
+    alert(`Share this URL: ${url}`);
+  }
+}
+
+/**
+ * Initialize product detail modal
+ */
+function initProductDetailModal() {
+  const modal = document.getElementById('product-detail-modal');
+  if (!modal) return;
+  
+  // Close button
+  const closeBtn = document.getElementById('modal-detail-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeProductDetail);
+  }
+  
+  // Click outside to close
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeProductDetail();
+    }
+  });
+  
+  // Previous/Next buttons
+  const prevBtn = document.getElementById('modal-nav-prev');
+  const nextBtn = document.getElementById('modal-nav-next');
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => navigateProduct('prev'));
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => navigateProduct('next'));
+  }
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (modal.style.display !== 'flex') return;
+    
+    switch(e.key) {
+      case 'Escape':
+        closeProductDetail();
+        break;
+      case 'ArrowLeft':
+        navigateProduct('prev');
+        break;
+      case 'ArrowRight':
+        navigateProduct('next');
+        break;
+    }
+  });
+  
+  // Check for hash on page load
+  if (window.location.hash.startsWith('#product-')) {
+    const productId = parseInt(window.location.hash.replace('#product-', ''));
+    if (!isNaN(productId)) {
+      // Delay opening until data is loaded
+      setTimeout(() => openProductDetail(productId), 100);
+    }
+  }
+}
+
+/* ============================================================
    BOOT
    ============================================================ */
 
@@ -386,6 +836,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Contact button delegation (works for both static and dynamic cards) */
   initContactButtons();
+
+  /* Product detail modal initialization */
+  initProductDetailModal();
 
   /* Load JSON then initialise data-driven features */
   const needsData = document.getElementById('products-grid') ||
