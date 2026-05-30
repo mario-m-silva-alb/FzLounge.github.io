@@ -252,17 +252,58 @@ footer {
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   color: var(--color-white);
   margin-bottom: .4rem;
+  position: relative;
+  display: inline-block;
+  text-wrap: balance;
 }
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+  border-radius: 2px;
+}
+
 .section-title span { color: var(--color-primary); }
 
 .section-sub {
   color: var(--color-text-muted);
   font-size: 1rem;
   max-width: 600px;
+  text-wrap: balance;
 }
 
 .section-header {
   margin-bottom: 2.5rem;
+  position: relative;
+  text-align: center;
+}
+
+.section-header::before {
+  content: '✦';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  opacity: 0.5;
+  animation: decorGlow 3s ease-in-out infinite;
+}
+
+@keyframes decorGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
 }
 
 /* ---------- Hero -------------------------------------------- */
@@ -279,9 +320,43 @@ footer {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,160,23,.12) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(31,111,235,.08) 0%, transparent 70%);
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,160,23,.15) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(31,111,235,.10) 0%, transparent 70%);
   pointer-events: none;
+  animation: heroGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+}
+
+/* Pattern overlay for hero */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      rgba(212, 160, 23, 0.02) 35px,
+      rgba(212, 160, 23, 0.02) 70px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
 }
 
 .hero__badge {
@@ -393,13 +468,46 @@ footer {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: border-color .25s, transform .25s, box-shadow .25s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--shadow-card);
+  position: relative;
 }
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    135deg,
+    rgba(212, 160, 23, 0.1) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
 .product-card:hover {
   border-color: var(--color-primary);
-  transform: translateY(-5px);
-  box-shadow: 0 8px 28px rgba(212,160,23,.18);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.6),
+    0 0 0 2px var(--color-primary),
+    0 0 20px rgba(212, 160, 23, 0.3);
+}
+
+.product-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .product-card__img-wrap {
@@ -412,9 +520,11 @@ footer {
 .product-card__img-wrap img {
   width: 100%; height: 100%;
   object-fit: cover;
-  transition: transform .4s;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.product-card:hover .product-card__img-wrap img { transform: scale(1.05); }
+.product-card:hover .product-card__img-wrap img { 
+  transform: scale(1.1) rotate(2deg); 
+}
 
 .product-card__badge {
   position: absolute;
@@ -878,6 +988,164 @@ footer {
   line-height: 1.8;
   margin-top: 1rem;
 }
+
+/* Story Timeline */
+.story-content {
+  display: grid;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.story-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+
+.story-timeline::before {
+  content: '';
+  position: absolute;
+  left: 48px;
+  top: 40px;
+  bottom: 40px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-primary), transparent);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.timeline-year {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  min-width: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-year::after {
+  content: '';
+  position: absolute;
+  right: -26px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 4px var(--color-bg), 0 0 0 6px var(--color-primary);
+}
+
+.timeline-content {
+  background: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-primary);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.timeline-content:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(212, 160, 23, 0.2);
+}
+
+.timeline-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--color-white);
+  margin-bottom: 0.75rem;
+}
+
+.timeline-content p {
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+/* Games Showcase */
+.games-showcase {
+  background: var(--color-surface);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.games-showcase h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.game-badge {
+  background: var(--color-surface2);
+  color: var(--color-text);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+
+.game-badge:hover {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-color: var(--color-primary);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(212, 160, 23, 0.3);
+}
+
+.games-note {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Mobile Responsive for Timeline */
+@media (max-width: 768px) {
+  .story-timeline::before {
+    left: 14px;
+  }
+  
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .timeline-year {
+    font-size: 1.5rem;
+    min-width: auto;
+  }
+  
+  .timeline-year::after {
+    right: auto;
+    left: -20px;
+  }
+  
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
 
 .values-grid {
   display: grid;
@@ -2313,12 +2581,28 @@ footer {
   background: rgba(35, 134, 54, 0.15);
   color: var(--color-success);
   border: 1px solid rgba(35, 134, 54, 0.3);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(35, 134, 54, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(35, 134, 54, 0);
+  }
 }
 
 .event-status.status-almost-full {
   background: rgba(255, 158, 0, 0.15);
   color: #FF9E00;
   border: 1px solid rgba(255, 158, 0, 0.3);
+  animation: statusBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
 .event-status.status-full {
@@ -2654,12 +2938,14 @@ footer {
   background: rgba(35, 134, 54, 0.15);
   color: var(--color-success);
   border: 1px solid rgba(35, 134, 54, 0.3);
+  animation: statusPulse 2s ease-in-out infinite;
 }
 
 .compact-event-status.status-almost-full {
   background: rgba(255, 158, 0, 0.15);
   color: #FF9E00;
   border: 1px solid rgba(255, 158, 0, 0.3);
+  animation: statusBlink 1.5s ease-in-out infinite;
 }
 
 .compact-event-status.status-full {
