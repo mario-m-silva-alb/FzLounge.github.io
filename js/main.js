@@ -289,8 +289,15 @@ function initProductsPage(data) {
   const grid = document.getElementById('products-grid');
   if (!grid) return;
 
-  // Store original products for sorting
+  // Store original products and sort by newest by default
   let currentProducts = [...data.products];
+  
+  // Sort by newest first on initial load
+  currentProducts.sort((a, b) => {
+    const dateA = new Date(a.dateAdded || '2000-01-01');
+    const dateB = new Date(b.dateAdded || '2000-01-01');
+    return dateB - dateA;
+  });
 
   // Render all product cards
   function renderProducts(products) {
@@ -433,7 +440,7 @@ function initProductsPage(data) {
     const game      = filterGame     ? filterGame.value     : 'all';
     const category  = filterCategory ? filterCategory.value : 'all';
     const status    = filterStatus   ? filterStatus.value   : 'all';
-    const sortBy    = sortSelect     ? sortSelect.value     : 'featured';
+    const sortBy    = sortSelect     ? sortSelect.value     : 'newest';
     const search    = searchTerm.toLowerCase().trim();
 
     // Filter products
