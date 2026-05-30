@@ -14,6 +14,75 @@ const STATUS_CONFIG = {
   past: { label: 'Past Event', icon: '⚫', class: 'status-past' }
 };
 
+/* ============================================================
+   STRUCTURED DATA (JSON-LD) GENERATION
+   ============================================================ */
+
+/**
+ * Generate Event structured data for better SEO
+ * @param {object[]} events - Array of event objects
+ */
+function generateEventStructuredData(events) {
+  // Check if structured data already exists
+  const existingScript = document.querySelector('script[data-event-schema]');
+  if (existingScript) {
+    existingScript.remove();
+  }
+  
+  // Filter out past events for schema (only show upcoming)
+  const upcomingEvents = events.filter(e => e.calculatedStatus !== 'past');
+  
+  // Generate Event schema for each event
+  const eventSchemas = upcomingEvents.map(event => ({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": event.title,
+    "startDate": `${event.date}T${event.time}`,
+    "endDate": event.endTime ? `${event.date}T${event.endTime}` : undefined,
+    "description": event.description || `${event.title} at FzLounge`,
+    "eventStatus": event.calculatedStatus === 'past' 
+      ? "https://schema.org/EventCancelled" 
+      : "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "FzLounge",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Your City",
+        "addressCountry": "Your Country"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "FzLounge",
+      "url": "https://mario-m-silva-alb.github.io/FzLounge.github.io/"
+    },
+    "image": event.image || "https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3",
+    "offers": event.capacity ? {
+      "@type": "Offer",
+      "availability": event.calculatedStatus === 'full' 
+        ? "https://schema.org/SoldOut" 
+        : "https://schema.org/InStock",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "validFrom": new Date().toISOString().split('T')[0],
+      "url": event.rsvpLink || "https://discord.gg/MTtNkGN"
+    } : undefined,
+    "maximumAttendeeCapacity": event.capacity || undefined,
+    "remainingAttendeeCapacity": event.capacity && event.registered 
+      ? Math.max(0, event.capacity - event.registered) 
+      : undefined
+  }));
+  
+  // Insert into page (as array if multiple, single object if one)
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.setAttribute('data-event-schema', 'true');
+  script.textContent = JSON.stringify(eventSchemas.length === 1 ? eventSchemas[0] : eventSchemas, null, 2);
+  document.head.appendChild(script);
+}
+
 /**
  * Initialize events page
  */
@@ -55,6 +124,9 @@ async function loadEventsData() {
     // Render events
     renderEvents(allEvents);
     updateEventsCount(allEvents.length);
+    
+    // Generate Event structured data (JSON-LD) for SEO
+    generateEventStructuredData(allEvents);
     
     // Setup filter handlers
     setupFilters();

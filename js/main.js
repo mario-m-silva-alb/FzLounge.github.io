@@ -182,6 +182,94 @@ function populateGameSelects(games) {
 }
 
 /* ============================================================
+   STRUCTURED DATA (JSON-LD) GENERATION
+   ============================================================ */
+
+/**
+ * Generate Product structured data for better SEO
+ * @param {object[]} products - Array of product objects
+ */
+function generateProductStructuredData(products) {
+  // Only generate if we're on products page
+  if (!document.getElementById('products-grid')) return;
+  
+  // Check if structured data already exists
+  const existingScript = document.querySelector('script[data-product-schema]');
+  if (existingScript) {
+    existingScript.remove();
+  }
+  
+  // Generate ItemList schema with all products
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": products.map((product, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": product.name,
+        "image": product.image,
+        "description": product.description || `${product.name} - ${product.game} trading card product`,
+        "category": product.category,
+        "brand": {
+          "@type": "Brand",
+          "name": getBrandName(product.game)
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": getSchemaAvailability(product.status || 'available'),
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": `https://mario-m-silva-alb.github.io/FzLounge.github.io/products.html#product-${product.id}`
+        }
+      }
+    }))
+  };
+  
+  // Insert into page
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.setAttribute('data-product-schema', 'true');
+  script.textContent = JSON.stringify(itemListSchema, null, 2);
+  document.head.appendChild(script);
+}
+
+/**
+ * Get brand name from game abbreviation
+ */
+function getBrandName(game) {
+  const brandMap = {
+    'mtg': 'Wizards of the Coast',
+    'pokemon': 'The Pokémon Company',
+    'yugioh': 'Konami',
+    'lorcana': 'Ravensburger',
+    'onepiece': 'Bandai',
+    'digimon': 'Bandai',
+    'unionarena': 'Bushiroad',
+    'weissschwarz': 'Bushiroad',
+    'dragonball': 'Bandai',
+    'gundam': 'Bandai',
+    'riftbound': 'Riftbound Games',
+    'starwars': 'Fantasy Flight Games',
+    'fleshandblood': 'Legend Story Studios'
+  };
+  return brandMap[game] || 'FzLounge';
+}
+
+/**
+ * Convert internal status to Schema.org availability
+ */
+function getSchemaAvailability(status) {
+  const availabilityMap = {
+    'available': 'https://schema.org/InStock',
+    'presale': 'https://schema.org/PreOrder',
+    'limited': 'https://schema.org/LimitedAvailability',
+    'sold': 'https://schema.org/OutOfStock'
+  };
+  return availabilityMap[status] || 'https://schema.org/InStock';
+}
+
+/* ============================================================
    PRODUCTS PAGE
    ============================================================ */
 
@@ -204,6 +292,9 @@ function initProductsPage(data) {
   }
 
   renderProducts(currentProducts);
+  
+  // Generate Product structured data (JSON-LD) for SEO
+  generateProductStructuredData(data.products);
 
   // Set up filter and search controls
   const filterGame      = document.getElementById('filter-game');
