@@ -1109,16 +1109,43 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  min-height: 90px;
+  gap: 0.75rem;
+  min-height: 110px;
   justify-content: center;
 }
 
-.game-icon {
-  font-size: 2rem;
-  display: block;
-  filter: grayscale(0.3);
+.game-logo-wrapper {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.game-logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0.9) contrast(1.1);
   transition: all 0.3s;
+}
+
+.game-logo-fallback {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dk));
+  color: var(--color-bg);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(212, 160, 23, 0.3);
 }
 
 .game-name {
@@ -1138,9 +1165,14 @@ footer {
   box-shadow: 0 8px 16px rgba(212, 160, 23, 0.3);
 }
 
-.game-badge:hover .game-icon {
-  filter: grayscale(0);
-  transform: scale(1.2) rotate(5deg);
+.game-badge:hover .game-logo {
+  filter: brightness(1.2) contrast(1.2);
+  transform: scale(1.1);
+}
+
+.game-badge:hover .game-logo-fallback {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 16px rgba(212, 160, 23, 0.5);
 }
 
 .games-note {
@@ -1178,12 +1210,19 @@ footer {
   }
   
   .game-badge {
-    min-height: 80px;
+    min-height: 95px;
     padding: 0.75rem 0.5rem;
   }
   
-  .game-icon {
-    font-size: 1.5rem;
+  .game-logo-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .game-logo-fallback {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
   }
   
   .game-name {
