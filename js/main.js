@@ -6,7 +6,19 @@
    - Render product cards dynamically (products page & featured section)
    - Populate game dropdowns from JSON (filter bar)
    - Products page filtering
+   - Google Analytics 4 event tracking
    ============================================================ */
+
+/* ============================================================
+   GOOGLE ANALYTICS 4 EVENT TRACKING
+   Helper function to track custom events
+   ============================================================ */
+
+function trackEvent(eventName, parameters = {}) {
+  if (typeof gtag === 'function') {
+    gtag('event', eventName, parameters);
+  }
+}
 
 /* ============================================================
    DATA – load products.json
@@ -463,6 +475,22 @@ function initProductsPage(data) {
 
     // Update filter chips
     updateFilterChips();
+    
+    // Track search event
+    if (search) {
+      trackEvent('search', {
+        'search_term': searchTerm
+      });
+    }
+    
+    // Track filter usage
+    if (game !== 'all' || category !== 'all' || status !== 'all') {
+      trackEvent('filter_products', {
+        'game': game,
+        'category': category,
+        'status': status
+      });
+    }
   }
 
   /**
@@ -561,10 +589,10 @@ function injectContactModal() {
       <h2 id="modal-title" class="modal-title">Contact to Get</h2>
       <p class="modal-desc">Interested in <strong id="modal-product-name"></strong>? Reach out on one of our community channels:</p>
       <div class="modal-channels">
-        <a href="${DISCORD_URL}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-channel-btn">
+        <a href="${DISCORD_URL}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-channel-btn" id="contact-discord">
           💬 Discord
         </a>
-        <a href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" class="btn btn-outline modal-channel-btn">
+        <a href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" class="btn btn-outline modal-channel-btn" id="contact-whatsapp">
           📱 WhatsApp
         </a>
       </div>
@@ -574,6 +602,23 @@ function injectContactModal() {
   document.getElementById('modal-close').addEventListener('click', closeContactModal);
   modal.addEventListener('click', (e) => { if (e.target === modal) closeContactModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeContactModal(); });
+  
+  // Track contact button clicks
+  document.getElementById('contact-discord').addEventListener('click', () => {
+    const productName = document.getElementById('modal-product-name').textContent;
+    trackEvent('contact_click', {
+      'platform': 'discord',
+      'product_name': productName
+    });
+  });
+  
+  document.getElementById('contact-whatsapp').addEventListener('click', () => {
+    const productName = document.getElementById('modal-product-name').textContent;
+    trackEvent('contact_click', {
+      'platform': 'whatsapp',
+      'product_name': productName
+    });
+  });
 }
 
 function openContactModal(productName) {
@@ -583,6 +628,11 @@ function openContactModal(productName) {
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
   document.getElementById('modal-close').focus();
+  
+  // Track contact modal open
+  trackEvent('contact_modal_open', {
+    'product_name': productName
+  });
 }
 
 function closeContactModal() {
@@ -831,6 +881,16 @@ function openProductDetail(productId) {
   
   // Update URL hash
   window.location.hash = `product-${productId}`;
+  
+  // Track product view
+  trackEvent('view_item', {
+    'items': [{
+      'item_id': product.id,
+      'item_name': product.name,
+      'item_category': product.game,
+      'item_category2': product.category
+    }]
+  });
   
   // Attach share button handler
   const shareBtn = document.getElementById('btn-share-product');
