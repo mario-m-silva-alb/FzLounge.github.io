@@ -77,11 +77,12 @@
       </a>
       <button class="navbar__toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">☰</button>
       <ul class="navbar__links" id="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="tiers.html">Membership</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+        <li><a href="tiers.html" data-i18n="nav.membership">Membership</a></li>
+        <li><a href="events.html" data-i18n="nav.events">Events</a></li>
+        <li><a href="about.html" class="active" data-i18n="nav.about">About</a></li>
+        <li><button id="lang-switcher" class="lang-switcher" aria-label="Mudar para Portugues">PT</button></li>
       </ul>
     </div>
   </nav>
@@ -90,7 +91,7 @@
   <header class="page-hero" role="banner">
     <div class="container">
       <h1 class="section-title">About <span>FzLounge</span></h1>
-      <p class="section-sub">Our story, our values, and the people behind it.</p>
+      <p class="section-sub" data-i18n="about.hero.sub">Our story, our values, and the people behind it.</p>
     </div>
   </header>
 
@@ -100,7 +101,7 @@
     <!-- OUR STORY -->
     <section class="about-section" aria-labelledby="story-heading">
       <div class="container">
-        <h2 class="section-title" id="story-heading">Our <span>Story</span></h2>
+        <h2 class="section-title" id="story-heading" data-i18n="about.story.title">Our <span>Story</span></h2>
         
         <div class="story-content">
           <!-- Timeline -->
@@ -111,8 +112,8 @@
                 <div class="timeline-dot"></div>
               </div>
               <div class="timeline-content">
-                <h3>The Beginning</h3>
-                <p>FzLounge started as a small group of friends who loved board games and Trading Card Games. Casual get-togethers grew into something bigger: a place where anyone could show up, play, and have a good time.</p>
+                <h3 data-i18n="about.story.2017.title">The Beginning</h3>
+                <p data-i18n="about.story.2017.desc">FzLounge started as a small group of friends who loved board games and Trading Card Games. Casual get-togethers grew into something bigger: a place where anyone could show up, play, and have a good time.</p>
               </div>
             </div>
 
@@ -122,8 +123,8 @@
                 <div class="timeline-dot"></div>
               </div>
               <div class="timeline-content">
-                <h3>Becoming an Association</h3>
-                <p>We registered as a non-profit association. This community exists for its members, not for profit. Every contribution goes directly into organizing events and keeping the space running.</p>
+                <h3 data-i18n="about.story.2020.title">Becoming an Association</h3>
+                <p data-i18n="about.story.2020.desc">We registered as a non-profit association. This community exists for its members, not for profit. Every contribution goes directly into organizing events and keeping the space running.</p>
               </div>
             </div>
 
@@ -133,8 +134,8 @@
                 <div class="timeline-dot"></div>
               </div>
               <div class="timeline-content">
-                <h3>Official WPN Store</h3>
-                <p>FzLounge became a Wizards Play Network store, bringing official Magic: The Gathering events, prereleases, and organized play to our community. A milestone that put us on the map for competitive and casual players.</p>
+                <h3 data-i18n="about.story.2021.title">Official WPN Store</h3>
+                <p data-i18n="about.story.2021.desc">FzLounge became a Wizards Play Network store, bringing official Magic: The Gathering events, prereleases, and organized play to our community. A milestone that put us on the map for competitive and casual players.</p>
               </div>
             </div>
 
@@ -144,8 +145,8 @@
                 <div class="timeline-dot"></div>
               </div>
               <div class="timeline-content">
-                <h3>Expanding Horizons</h3>
-                <p>We welcomed One Piece TCG into our lineup, adding a new community of players to the space. More games, more people, more reasons to show up.</p>
+                <h3 data-i18n="about.story.2022.title">Expanding Horizons</h3>
+                <p data-i18n="about.story.2022.desc">We welcomed One Piece TCG into our lineup, adding a new community of players to the space. More games, more people, more reasons to show up.</p>
               </div>
             </div>
             
@@ -155,15 +156,15 @@
                 <div class="timeline-dot timeline-dot--active"></div>
               </div>
               <div class="timeline-content">
-                <h3>Always Growing</h3>
-                <p>FzLounge is a community hub for TCGs, board games, and tabletop RPGs. We were there on day one for Riftbound and keep adding new games as they launch. New player or veteran collector, there is a seat at the table.</p>
+                <h3 data-i18n="about.story.now.title">Always Growing</h3>
+                <p data-i18n="about.story.now.desc">FzLounge is a community hub for TCGs, board games, and tabletop RPGs. We were there on day one for Riftbound and keep adding new games as they launch. New player or veteran collector, there is a seat at the table.</p>
               </div>
             </div>
           </div>
           
           <!-- Games Showcase -->
           <div class="games-showcase">
-            <h3>Games We Play</h3>
+            <h3 data-i18n="about.games.title">Games We Play</h3>
             
             <!-- Trading Card Games -->
             <h4 style="margin: 1.5rem 0 1rem; color: var(--color-text-muted); font-size: 1rem; font-weight: 600;">Trading Card Games</h4>
@@ -279,7 +280,7 @@
               </a>
             </div>
             
-            <p class="games-note">More games added as the community grows.</p>
+            <p class="games-note" data-i18n="about.games.note">More games added as the community grows.</p>
           </div>
         </div>
       </div>
@@ -288,7 +289,7 @@
     <!-- MISSION STATEMENT -->
     <section class="about-section" aria-labelledby="mission-heading">
       <div class="container">
-        <h2 class="section-title" id="mission-heading">Mission <span>Statement</span></h2>
+        <h2 class="section-title" id="mission-heading" data-i18n="about.mission.title">Mission <span>Statement</span></h2>
         <blockquote style="
           border-left: 4px solid var(--color-primary);
           padding: 1.25rem 1.5rem;
@@ -310,29 +311,29 @@
     <!-- VALUES -->
     <section class="about-section" aria-labelledby="values-heading">
       <div class="container">
-        <h2 class="section-title" id="values-heading">Our <span>Values</span></h2>
-        <p class="section-sub" style="margin-top:.4rem;">The principles that guide how we run the community.</p>
+        <h2 class="section-title" id="values-heading" data-i18n="about.values.title">Our <span>Values</span></h2>
+        <p class="section-sub" style="margin-top:.4rem;" data-i18n="about.values.sub">The principles that guide how we run the community.</p>
 
         <div class="values-grid">
           <div class="value-card">
             <div class="icon" aria-hidden="true">🤝</div>
-            <h3>Community First</h3>
-            <p>People over profit — always.</p>
+            <h3 data-i18n="about.values.community.title">Community First</h3>
+            <p data-i18n="about.values.community.desc">People over profit — always.</p>
           </div>
           <div class="value-card">
             <div class="icon" aria-hidden="true">🔒</div>
-            <h3>Trust &amp; Transparency</h3>
-            <p>Open finances, clear processes, no secrets.</p>
+            <h3 data-i18n="about.values.trust.title">Trust &amp; Transparency</h3>
+            <p data-i18n="about.values.trust.desc">Open finances, clear processes, no secrets.</p>
           </div>
           <div class="value-card">
             <div class="icon" aria-hidden="true">🌈</div>
-            <h3>Inclusivity</h3>
-            <p>Every age, background, and skill level belongs here.</p>
+            <h3 data-i18n="about.values.inclusivity.title">Inclusivity</h3>
+            <p data-i18n="about.values.inclusivity.desc">Every age, background, and skill level belongs here.</p>
           </div>
           <div class="value-card">
             <div class="icon" aria-hidden="true">🎓</div>
-            <h3>Education</h3>
-            <p>We help players learn and improve at any game.</p>
+            <h3 data-i18n="about.values.education.title">Education</h3>
+            <p data-i18n="about.values.education.desc">We help players learn and improve at any game.</p>
           </div>
         </div>
       </div>
@@ -341,24 +342,24 @@
     <!-- HOW TO JOIN -->
     <section class="about-section" id="join" aria-labelledby="join-heading">
       <div class="container">
-        <h2 class="section-title" id="join-heading">How to <span>Get Involved</span></h2>
-        <p class="section-sub" style="margin-top:.4rem;">A community built around games. Everyone is welcome.</p>
+        <h2 class="section-title" id="join-heading" data-i18n="about.join.title">How to <span>Get Involved</span></h2>
+        <p class="section-sub" style="margin-top:.4rem;" data-i18n="about.join.sub">A community built around games. Everyone is welcome.</p>
 
         <div class="join-steps">
           <div class="join-step">
             <div class="join-step__num" aria-hidden="true">1</div>
-            <h3>Say Hello</h3>
-            <p>Join our <a href="https://discord.gg/MTtNkGN" target="_blank" rel="noopener noreferrer">Discord server</a> or <a href="https://chat.whatsapp.com/D0mnF1MreqSGaJyBYi8H9p" target="_blank" rel="noopener noreferrer">WhatsApp group</a>. Most of the conversation happens there.</p>
+            <h3 data-i18n="about.join.step1.title">Say Hello</h3>
+            <p data-i18n="about.join.step1.desc">Join our <a href="https://discord.gg/MTtNkGN" target="_blank" rel="noopener noreferrer">Discord server</a> or <a href="https://chat.whatsapp.com/D0mnF1MreqSGaJyBYi8H9p" target="_blank" rel="noopener noreferrer">WhatsApp group</a>. Most of the conversation happens there.</p>
           </div>
           <div class="join-step">
             <div class="join-step__num" aria-hidden="true">2</div>
-            <h3>Come Play</h3>
-            <p>Drop by for a game night, grab a drink, and meet other players. No experience needed.</p>
+            <h3 data-i18n="about.join.step2.title">Come Play</h3>
+            <p data-i18n="about.join.step2.desc">Drop by for a game night, grab a drink, and meet other players. No experience needed.</p>
           </div>
           <div class="join-step">
             <div class="join-step__num" aria-hidden="true">3</div>
-            <h3>Spread the Word</h3>
-            <p>Invite your friends, share your favourite moments, and help the community grow.</p>
+            <h3 data-i18n="about.join.step3.title">Spread the Word</h3>
+            <p data-i18n="about.join.step3.desc">Invite your friends, share your favourite moments, and help the community grow.</p>
           </div>
         </div>
       </div>
@@ -367,8 +368,8 @@
     <!-- CONTACT -->
     <section class="about-section" id="contact" aria-labelledby="contact-heading">
       <div class="container">
-        <h2 class="section-title" id="contact-heading">Get in <span>Touch</span></h2>
-        <p class="section-sub" style="margin-top:.4rem;">Questions, ideas, or just want to say hello.</p>
+        <h2 class="section-title" id="contact-heading" data-i18n="about.contact.title">Get in <span>Touch</span></h2>
+        <p class="section-sub" style="margin-top:.4rem;" data-i18n="about.contact.sub">Questions, ideas, or just want to say hello.</p>
 
         <div class="contact-grid">
           <div class="contact-card">
@@ -415,21 +416,21 @@
       <div class="footer__inner">
         <div class="footer__col">
           <h4><img src="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" alt="FzLounge logo" width="24" height="24" style="vertical-align:middle" /> FzLounge</h4>
-          <p>Non-profit association for board game and TCG players. Games, drinks, and good company.</p>
+          <p data-i18n="footer.desc">Non-profit association for board game and TCG players. Games, drinks, and good company.</p>
         </div>
         <div class="footer__col">
-          <h4>Quick Links</h4>
+          <h4 data-i18n="footer.quicklinks">Quick Links</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h4>Community</h4>
+          <h4 data-i18n="footer.community">Community</h4>
           <ul>
-            <li><a href="about.html#join">How to Join</a></li>
-            <li><a href="about.html#contact">Contact Us</a></li>
+            <li><a href="about.html#join" data-i18n="footer.howtojoin">How to Join</a></li>
+            <li><a href="about.html#contact" data-i18n="footer.contact">Contact Us</a></li>
           </ul>
           <div class="footer__social" aria-label="Social media links">
             <a href="https://discord.gg/MTtNkGN" target="_blank" rel="noopener noreferrer" aria-label="Discord">
@@ -448,11 +449,12 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2025 FzLounge. All rights reserved.</p>
+        <p data-i18n="footer.copyright">© 2025 FzLounge. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>

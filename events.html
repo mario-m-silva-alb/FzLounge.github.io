@@ -81,11 +81,12 @@
       </button>
 
       <ul class="navbar__links" id="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="tiers.html">Membership</a></li>
-        <li><a href="events.html" class="active">Events</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+        <li><a href="tiers.html" data-i18n="nav.membership">Membership</a></li>
+        <li><a href="events.html" class="active" data-i18n="nav.events">Events</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><button id="lang-switcher" class="lang-switcher" aria-label="Mudar para Portugues">PT</button></li>
       </ul>
     </div>
   </nav>
@@ -93,9 +94,9 @@
   <!-- ===================== HERO ===================== -->
   <header class="hero hero--small" role="banner">
     <div class="container">
-      <div class="hero__badge">✦ Events Calendar ✦</div>
-      <h1 class="hero__title">Upcoming <span>Events</span></h1>
-      <p class="hero__tagline">
+      <div class="hero__badge" data-i18n="events.badge">✦ Events Calendar ✦</div>
+      <h1 class="hero__title" data-i18n="events.title">Upcoming <span>Events</span></h1>
+      <p class="hero__tagline" data-i18n="events.tagline">
         Join us for tournaments, game nights, release parties, and more!<br>
         From competitive play to casual hangouts, there's something for everyone.
       </p>
@@ -154,22 +155,22 @@
       <div class="footer__top">
         <div class="footer__col">
           <h3>FzLounge</h3>
-          <p>A non-profit association for board game &amp; TCG enthusiasts.</p>
+          <p data-i18n="footer.desc">A non-profit association for board game &amp; TCG enthusiasts.</p>
         </div>
 
         <div class="footer__col">
-          <h4>Quick Links</h4>
+          <h4 data-i18n="footer.quicklinks">Quick Links</h4>
           <ul role="list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="tiers.html">Membership</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+            <li><a href="tiers.html" data-i18n="nav.membership">Membership</a></li>
+            <li><a href="events.html" data-i18n="nav.events">Events</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
           </ul>
         </div>
 
         <div class="footer__col">
-          <h4>Connect</h4>
+          <h4 data-i18n="footer.connect">Connect</h4>
           <ul role="list">
             <li><a href="https://discord.gg/MTtNkGN" target="_blank" rel="noopener noreferrer">Discord</a></li>
             <li><a href="https://www.instagram.com/fzlounge/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -180,7 +181,7 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2025 FzLounge. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 FzLounge. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -202,5 +203,6 @@
   </div>
 
   <script src="js/events.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>

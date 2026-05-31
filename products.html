@@ -77,11 +77,12 @@
       </a>
       <button class="navbar__toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">☰</button>
       <ul class="navbar__links" id="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html" class="active">Products</a></li>
-        <li><a href="tiers.html">Membership</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="products.html" class="active" data-i18n="nav.products">Products</a></li>
+        <li><a href="tiers.html" data-i18n="nav.membership">Membership</a></li>
+        <li><a href="events.html" data-i18n="nav.events">Events</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><button id="lang-switcher" class="lang-switcher" aria-label="Mudar para Portugues">PT</button></li>
       </ul>
     </div>
   </nav>
@@ -89,8 +90,8 @@
   <!-- PAGE HERO -->
   <header class="page-hero" role="banner">
     <div class="container">
-      <h1 class="section-title">Our <span>Products</span></h1>
-      <p class="section-sub">Singles, sealed product, and preorders. Browse what's available or reserve yours.</p>
+      <h1 class="section-title" data-i18n="products.title">Our <span>Products</span></h1>
+      <p class="section-sub" data-i18n="products.sub">Singles, sealed product, and preorders. Browse what's available or reserve yours.</p>
     </div>
   </header>
 
@@ -192,21 +193,21 @@
       <div class="footer__inner">
         <div class="footer__col">
           <h4><img src="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" alt="FzLounge logo" width="24" height="24" style="vertical-align:middle" /> FzLounge</h4>
-          <p>Non-profit association for board game and TCG players. Games, drinks, and good company.</p>
+          <p data-i18n="footer.desc">Non-profit association for board game and TCG players. Games, drinks, and good company.</p>
         </div>
         <div class="footer__col">
-          <h4>Quick Links</h4>
+          <h4 data-i18n="footer.quicklinks">Quick Links</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h4>Community</h4>
+          <h4 data-i18n="footer.community">Community</h4>
           <ul>
-            <li><a href="about.html#join">How to Join</a></li>
-            <li><a href="about.html#contact">Contact Us</a></li>
+            <li><a href="about.html#join" data-i18n="footer.howtojoin">How to Join</a></li>
+            <li><a href="about.html#contact" data-i18n="footer.contact">Contact Us</a></li>
           </ul>
           <div class="footer__social" aria-label="Social media links">
             <a href="https://discord.gg/MTtNkGN" target="_blank" rel="noopener noreferrer" aria-label="Discord">
@@ -225,7 +226,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2025 FzLounge. All rights reserved.</p>
+                <p data-i18n="footer.copyright">© 2025 FzLounge. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -260,5 +261,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
