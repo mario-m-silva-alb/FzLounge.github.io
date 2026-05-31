@@ -1157,6 +1157,17 @@ footer {
   max-width: 100%;
 }
 
+a.game-badge {
+  text-decoration: none;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+a.game-badge:hover {
+  text-decoration: none;
+  color: var(--color-bg);
+}
+
 .game-badge:hover {
   background: var(--color-primary);
   color: var(--color-bg);

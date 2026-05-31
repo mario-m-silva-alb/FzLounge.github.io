@@ -189,6 +189,8 @@ function populateGameSelects(games) {
       all.value       = 'all';
       all.textContent = 'All Games';
       select.insertBefore(all, select.firstChild);
+      // Explicitly set value to 'all' to ensure it's selected
+      select.value = 'all';
     }
   });
 }
