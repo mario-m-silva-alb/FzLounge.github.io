@@ -1,55 +1,54 @@
 # FzLounge - TCG Community Website
 
 **Live Site:** https://mario-m-silva-alb.github.io/FzLounge.github.io/  
-**Status:** ✅ Production Ready  
+**Status:** Production Ready  
 **Version:** 1.0.0
 
 ---
 
-## 🎮 About FzLounge
+## About FzLounge
 
-FzLounge is a non-profit TCG (Trading Card Game) community association providing a welcoming space for board games, trading card games, and community events.
+FzLounge is a non-profit association for Trading Card Game and board game players. Founded in 2017, we run a community space with a bar, organized events, and a product catalogue.
 
-### Features:
-- 🛍️ **Product Catalog** - Browse 20+ TCG products with search & filtering
-- 📅 **Events Calendar** - Tournaments, game nights, and special events
-- 💎 **Membership Tiers** - 5 tiers with exclusive pricing (Wood to Platinum)
-- 🤝 **Community Hub** - Discord, WhatsApp, Instagram, Facebook integration
-- 🔍 **SEO Optimized** - Meta tags, structured data, sitemap
-- 📊 **Analytics Ready** - Google Analytics 4 tracking
+### Features
+- **Product Catalogue** - 20+ TCG products with search and filtering
+- **Events Calendar** - Tournaments, game nights, and special events
+- **Membership Tiers** - 5 tiers with exclusive pricing (Wood to Platinum)
+- **Community Hub** - Discord, WhatsApp, Instagram, Facebook integration
+- **SEO Optimized** - Meta tags, structured data, sitemap
+- **Analytics Ready** - Google Analytics 4 tracking
 
-### Supported Games:
-Magic: The Gathering • Pokémon • Yu-Gi-Oh! • Lorcana • Digimon • One Piece • Gundam • and more
+### Supported Games
+Magic: The Gathering | Pokemon | Yu-Gi-Oh! | Lorcana | Digimon | One Piece | Gundam | Riftbound | Grand Archive
+
+### Tabletop RPGs
+Dungeons & Dragons | Daggerheart | Draw Steel
 
 ---
 
-## 📚 Documentation
+## Documentation
 
-### Essential Guides:
-- **[PROJECT_COMPLETE.md](PROJECT_COMPLETE.md)** - Complete implementation guide (all phases)
-- **[IMAGE_WORKFLOW.md](IMAGE_WORKFLOW.md)** - How to add and optimize images
+- **[PROJECT_COMPLETE.md](PROJECT_COMPLETE.md)** - Full implementation guide (all phases)
+- **[IMAGE_WORKFLOW.md](IMAGE_WORKFLOW.md)** - Adding and optimizing images
 - **[TIER_SYSTEM.md](TIER_SYSTEM.md)** - Membership tier structure
 - **[GAME_LOGOS_GUIDE.md](GAME_LOGOS_GUIDE.md)** - Game logo usage guidelines
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
-### For Visitors:
+### Visitors
 1. Visit https://mario-m-silva-alb.github.io/FzLounge.github.io/
 2. Browse products, check events, explore membership tiers
-3. Join our community via Discord or WhatsApp
+3. Join the community via Discord or WhatsApp
 
-### For Developers:
+### Developers
 ```bash
-# Clone repository
 git clone https://github.com/mario-m-silva-alb/FzLounge.github.io.git
 cd FzLounge.github.io
 
-# Open locally (no build required)
-# Simply open index.html in browser
+# No build step required - open index.html in a browser
 
-# Make changes and deploy
 git add .
 git commit -m "Your changes"
 git push origin phase-1
@@ -57,62 +56,60 @@ git push origin phase-1
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 FzLounge.github.io/
 ├── index.html              # Homepage
-├── products.html           # Product catalog
-├── events.html            # Events calendar
-├── tiers.html             # Membership tiers
-├── about.html             # About page
+├── products.html           # Product catalogue
+├── events.html             # Events calendar
+├── tiers.html              # Membership tiers
+├── about.html              # About page
 ├── css/
-│   └── style.css          # Main stylesheet
+│   └── style.css           # Main stylesheet
 ├── js/
-│   ├── main.js            # Main functionality
-│   ├── events.js          # Events logic
-│   └── tiers.js           # Tiers logic
+│   ├── main.js             # Core functionality
+│   ├── events.js           # Events logic
+│   └── tiers.js            # Tiers logic
 ├── data/
-│   ├── products.json      # Product catalog
-│   └── events.json        # Events data
+│   ├── products.json       # Product catalogue
+│   └── events.json         # Events data
 ├── assets/
-│   ├── products/          # Product images
-│   └── events/            # Event images
-├── sitemap.xml            # SEO sitemap
-└── robots.txt             # Crawler instructions
+│   ├── products/           # Product images
+│   └── events/             # Event images
+├── sitemap.xml             # SEO sitemap
+└── robots.txt              # Crawler instructions
 ```
 
 ---
 
-## 🛠️ Quick Maintenance
+## Maintenance
 
-### Add a New Product:
+### Add a New Product
 1. Edit `data/products.json`
 2. Add product image to `assets/products/`
-3. Commit and push changes
+3. Commit and push
 
-### Add a New Event:
+### Add a New Event
 1. Edit `data/events.json`
 2. Add event image to `assets/events/` (optional)
-3. Commit and push changes
+3. Commit and push
 
 See [PROJECT_COMPLETE.md](PROJECT_COMPLETE.md) for detailed instructions.
 
 ---
 
-## 🌐 Live Site
+## Pages
 
-**Homepage:** https://mario-m-silva-alb.github.io/FzLounge.github.io/
-
-### Pages:
-- **[Products](https://mario-m-silva-alb.github.io/FzLounge.github.io/products.html)** - Browse TCG products
-- **[Events](https://mario-m-silva-alb.github.io/FzLounge.github.io/events.html)** - Upcoming events calendar
-- **[Membership](https://mario-m-silva-alb.github.io/FzLounge.github.io/tiers.html)** - Tier benefits & pricing
-- **[About](https://mario-m-silva-alb.github.io/FzLounge.github.io/about.html)** - Our story & contact
+- **[Homepage](https://mario-m-silva-alb.github.io/FzLounge.github.io/)** - Main landing page
+- **[Products](https://mario-m-silva-alb.github.io/FzLounge.github.io/products.html)** - TCG product catalogue
+- **[Events](https://mario-m-silva-alb.github.io/FzLounge.github.io/events.html)** - Upcoming events
+- **[Membership](https://mario-m-silva-alb.github.io/FzLounge.github.io/tiers.html)** - Tier benefits and pricing
+- **[About](https://mario-m-silva-alb.github.io/FzLounge.github.io/about.html)** - Our story and contact
 
 ---
 
-## 💻 Technology Stack
+## Technology Stack
 
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+)
 - **Data:** JSON (products.json, events.json)
@@ -123,21 +120,7 @@ See [PROJECT_COMPLETE.md](PROJECT_COMPLETE.md) for detailed instructions.
 
 ---
 
-## 📊 Site Status
-
-✅ All pages loading correctly  
-✅ Products displaying (20+ items)  
-✅ Events calendar functional  
-✅ Search & filtering working  
-✅ Mobile responsive  
-✅ SEO optimized  
-✅ Analytics configured  
-
-**Last Tested:** May 31, 2026
-
----
-
-## 📞 Community Links
+## Community Links
 
 - **Discord:** https://discord.gg/MTtNkGN
 - **Instagram:** https://www.instagram.com/fzlounge/
@@ -146,18 +129,10 @@ See [PROJECT_COMPLETE.md](PROJECT_COMPLETE.md) for detailed instructions.
 
 ---
 
-## 📝 License
+## License
 
-This project is for FzLounge, a non-profit TCG community association.
-
----
-
-## 🎉 Acknowledgments
-
-Built with ❤️ for the TCG community.
-
-**FzLounge** - Where players meet, play, and build friendships.
+This project belongs to FzLounge, a non-profit TCG community association.
 
 ---
 
-**For complete documentation, see [PROJECT_COMPLETE.md](PROJECT_COMPLETE.md)**
+**For full documentation, see [PROJECT_COMPLETE.md](PROJECT_COMPLETE.md)**
