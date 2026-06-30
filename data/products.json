@@ -22,7 +22,7 @@
       "image": "assets/products/optimized/IB09.jpg",
       "imageFallback": "assets/products/optimized/IB09.jpg",
       "imageAlt": "One Piece Card Game Illustration Box IB-09 - EN",
-      "featured": true,
+      "featured": false,
       "dateAdded": "2026-06-22",
       "status": "presale",
       "prices": {
@@ -43,7 +43,7 @@
       "image": "assets/products/optimized/IB10.jpg",
       "imageFallback": "assets/products/optimized/IB10.jpg",
       "imageAlt": "One Piece Card Game Illustration Box IB-10 - EN",
-      "featured": true,
+      "featured": false,
       "dateAdded": "2026-06-22",
       "status": "presale",
       "prices": {
@@ -64,7 +64,7 @@
       "image": "assets/products/optimized/st37&st38.jpg",
       "imageFallback": "assets/products/optimized/st37&st38.jpg",
       "imageAlt": "ST-37 Starter Deck - EN",
-      "featured": true,
+      "featured": false,
       "dateAdded": "2026-06-22",
       "status": "presale",
       "prices": {
@@ -85,7 +85,7 @@
       "image": "assets/products/optimized/st37&st38.jpg",
       "imageFallback": "assets/products/optimized/st37&st38.jpg",
       "imageAlt": "ST-38 Starter Deck - EN",
-      "featured": true,
+      "featured": false,
       "dateAdded": "2026-06-22",
       "status": "presale",
       "prices": {
@@ -94,6 +94,48 @@
         "silver": 18.50,
         "gold": 18.00,
         "platinum": 17.50
+      }
+    },
+    {
+      "id": 5,
+      "name": "One Piece Card Game - EB-06 Extra Booster Display (24 Booster) - EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "booster",
+      "description": "This set features many nostalgic characters who colored Luffy‘s adventure! Cards included in this deck will strengthen Leaders from older sets, with one new Leader bringing a new dimension to the game environment!",
+      "image": "assets/products/optimized/EB06.jpg",
+      "imageFallback": "assets/products/optimized/EB06.jpg",
+      "imageAlt": "One Piece Card Game - EB-06 Extra Booster Display (24 Booster) - EN",
+      "featured": true,
+      "dateAdded": "2026-06-30",
+      "status": "presale",
+      "prices": {
+        "wood": 92.50,
+        "bronze": 90.00,
+        "silver": 89.00,
+        "gold": 87.00,
+        "platinum": 85.00
+      }
+    },
+    {
+      "id": 6,
+      "name": "One Piece Card Game Gift Collection -ONE PIECE Heroines- – EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "deck",
+      "description": "– This is a new type of product with a large display, 2 booster packs, 10 promo cards and Sleeves, all included in a Big Set!\n\n・Booster Pack [EB-05] x2\n\n・Special Sleeves 1 type, 70pcs\n\n・Promotion Card x10 (10 types)",
+      "image": "assets/products/optimized/giftColletionHeroine.jpg",
+      "imageFallback": "assets/products/optimized/giftColletionHeroine.jpg",
+      "imageAlt": "One Piece Card Game Gift Collection -ONE PIECE Heroines- – EN",
+      "featured": true,
+      "dateAdded": "2026-06-22",
+      "status": "presale",
+      "prices": {
+        "wood": 45.00,
+        "bronze": 44.00,
+        "silver": 43.00,
+        "gold": 42.00,
+        "platinum": 40.00
       }
     }
   ]
