@@ -431,6 +431,27 @@
         "gold": 25.00,
         "platinum": 24.00
       }
+    },
+    {
+      "id": 21,
+      "name": "Booster Display OP-18 EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "booster",
+      "description": "",
+      "image": "assets/products/optimized/OP18.jpg",
+      "imageFallback": "assets/products/optimized/OP18.jpg",
+      "imageAlt": "Booster Display OP-18 EN",
+      "featured": false,
+      "dateAdded": "2026-05-05",
+      "status": "presale",
+      "prices": {
+        "wood": 95.00,
+        "bronze": 90.00,
+        "silver": 89.00,
+        "gold": 88.00,
+        "platinum": 87.50
+      }
     }
   ]
 }
