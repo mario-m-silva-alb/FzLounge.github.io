@@ -305,6 +305,27 @@
         "gold": 11.00,
         "platinum": 10.50
       }
+    },
+    {
+      "id": 15,
+      "name": "Premium Card Collection -Best Selection Vol.6- EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "singles",
+      "description": "・Card x12\n・Card booklet x1",
+      "image": "assets/products/optimized/bs6.jpg",
+      "imageFallback": "assets/products/optimized/bs6.jpg",
+      "imageAlt": "Premium Card Collection -Best Selection Vol.6- EN",
+      "featured": false,
+      "dateAdded": "2026-02-18",
+      "status": "presale",
+      "prices": {
+        "wood": 35.00,
+        "bronze": 34.00,
+        "silver": 32.00,
+        "gold": 31.00,
+        "platinum": 30.00
+      }
     }
   ]
 }
