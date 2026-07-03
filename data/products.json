@@ -368,6 +368,27 @@
         "gold": 86.00,
         "platinum": 85.00
       }
+    },
+    {
+      "id": 18,
+      "name": "SET SAIL DECK SD-01",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "deck",
+      "description": "Two constructed decks and DON!!\nContents: \n•Constructed Deck x2 (51 cards + 10 DON!! card each) (2 types)\n•BOOSTER PACK [OP-17] x1\n•2 player playsheet x1\n•Guide Book x2 (2 types)\n•2 Deck Case",
+      "image": "assets/products/optimized/SD01.jpg",
+      "imageFallback": "assets/products/optimized/SD01.jpg",
+      "imageAlt": "SET SAIL DECK SD-01",
+      "featured": false,
+      "dateAdded": "2026-04-22",
+      "status": "presale",
+      "prices": {
+        "wood": 23.00,
+        "bronze": 22.50,
+        "silver": 22.00,
+        "gold": 22.00,
+        "platinum": 21.50
+      }
     }
   ]
 }
