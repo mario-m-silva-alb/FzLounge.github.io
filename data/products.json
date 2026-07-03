@@ -137,6 +137,48 @@
         "gold": 42.00,
         "platinum": 40.00
       }
+    },
+    {
+      "id": 7,
+      "name": "One Piece Card Game - Official Playmat -Limited Edition Vol.5-",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "playmat",
+      "description": "Playmat with Luffy Leader EB02-010",
+      "image": "assets/products/optimized/playmat5.jpg",
+      "imageFallback": "assets/products/optimized/playmat5.jpg",
+      "imageAlt": "One Piece Card Game - Official Playmat -Limited Edition Vol.5-",
+      "featured": false,
+      "dateAdded": "2026-03-26",
+      "status": "presale",
+      "prices": {
+        "wood": 40.00,
+        "bronze": 37.50,
+        "silver": 37.00,
+        "gold": 36.00,
+        "platinum": 35.00
+      }
+    },
+    {
+      "id": 8,
+      "name": "One Piece Card Game English Version 3rd Anniversary Set - EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "collection",
+      "description": "Leather Card Case：1\nLeader Card：3\nCharacter Card：4\nDON!! Card：10\nStorage Box：1",
+      "image": "assets/products/optimized/3rdAnniversary.jpg",
+      "imageFallback": "assets/products/optimized/3rdAnniversary.jpg",
+      "imageAlt": "One Piece Card Game English Version 3rd Anniversary Set - EN",
+      "featured": false,
+      "dateAdded": "2026-01-27",
+      "status": "presale",
+      "prices": {
+        "wood": 190.00,
+        "bronze": 180.00,
+        "silver": 175.00,
+        "gold": 172.50,
+        "platinum": 170.00
+      }
     }
   ]
 }
