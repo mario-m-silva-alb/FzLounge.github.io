@@ -326,6 +326,27 @@
         "gold": 31.00,
         "platinum": 30.00
       }
+    },
+    {
+      "id": 16,
+      "name": "One Piece Card Game - Heroines Special Set - EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "singles",
+      "description": "・Promotion Card: 1 card, 1pc\n・Promotion DON!! Card: 1 type, 10pcs\n(Either the normal version or the Alt-Art version is included)\n・Promotion Card Sleeve: 1type, 70pcs\n・Playmat: 1 type, 1pc\n・Storage Box 1 type, 1pc",
+      "image": "assets/products/optimized/heroines.jpg",
+      "imageFallback": "assets/products/optimized/heroines.jpg",
+      "imageAlt": "One Piece Card Game - Heroines Special Set - EN",
+      "featured": false,
+      "dateAdded": "2026-03-26",
+      "status": "presale",
+      "prices": {
+        "wood": 70.00,
+        "bronze": 68.00,
+        "silver": 67.00,
+        "gold": 66.00,
+        "platinum": 65.00
+      }
     }
   ]
 }
