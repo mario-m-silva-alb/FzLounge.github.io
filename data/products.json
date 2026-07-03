@@ -187,8 +187,8 @@
       "condition": "sealed",
       "category": "booster",
       "description": "・Booster Pack [OP-15] x2\n・Booster Pack [OP-16] x2\n・Promotion Card x2 (2 types)",
-      "image": "assets/products/optimized/Ib07.png",
-      "imageFallback": "assets/products/optimized/Ib07.png",
+      "image": "assets/products/optimized/Ib07.jpg",
+      "imageFallback": "assets/products/optimized/Ib07.jpg",
       "imageAlt": "One Piece Card Game Illustration Box IB-07 - EN",
       "featured": false,
       "dateAdded": "2026-01-19",
@@ -262,6 +262,27 @@
         "silver": 11.00,
         "gold": 11.00,
         "platinum": 10.50
+      }
+    },
+    {
+      "id": 13,
+      "name": "One Piece Card Game Booster Display OP-17 EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "booster",
+      "description": "Leader x6\nCommon x45\nUncommon x30\nRare x26\nSuper Rare x10\nSecret Rare x2\nSpecial Card x6\nTreasure Rare x1\nDON!! Card x1\n Old values - 90.00€ | 89.00€ | 87.00€ | 86.00€ | 85.00€",
+      "image": "assets/products/optimized/OP17.jpg",
+      "imageFallback": "assets/products/optimized/OP17.jpg",
+      "imageAlt": "One Piece Card Game Booster Display OP-17 EN",
+      "featured": false,
+      "dateAdded": "2026-02-16",
+      "status": "presale",
+      "prices": {
+        "wood": 95.00,
+        "bronze": 90.00,
+        "silver": 89.00,
+        "gold": 88.00,
+        "platinum": 87.50
       }
     }
   ]
