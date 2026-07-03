@@ -221,6 +221,48 @@
         "gold": 23.00,
         "platinum": 22.50
       }
+    },
+    {
+      "id": 11,
+      "name": "One Piece Card Game ST-31&ST-36 Starter Deck - EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "deck",
+      "description": "",
+      "image": "assets/products/optimized/st31_36.jpg",
+      "imageFallback": "assets/products/optimized/st31_36.jpg",
+      "imageAlt": "One Piece Card Game ST-31&ST-36 Starter Deck - EN",
+      "featured": false,
+      "dateAdded": "2026-03-12",
+      "status": "presale",
+      "prices": {
+        "wood": 12.50,
+        "bronze": 12.00,
+        "silver": 11.50,
+        "gold": 11.00,
+        "platinum": 10.00
+      }
+    },
+    {
+      "id": 12,
+      "name": "One Piece Card Game Mini Case Set Vol.3 TS-03",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "MiniTin",
+      "description": "• Each case includes a promo card featuring new design!\n\n・Booster Pack [OP-17] x2 \n・Promotion Card x1",
+      "image": "assets/products/optimized/ts03.jpg",
+      "imageFallback": "assets/products/optimized/ts03.jpg",
+      "imageAlt": "One Piece Card Game Mini Case Set Vol.3 TS-03",
+      "featured": false,
+      "dateAdded": "2026-01-13",
+      "status": "presale",
+      "prices": {
+        "wood": 12.00,
+        "bronze": 11.50,
+        "silver": 11.00,
+        "gold": 11.00,
+        "platinum": 10.50
+      }
     }
   ]
 }
