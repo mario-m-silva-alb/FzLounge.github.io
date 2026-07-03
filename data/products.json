@@ -329,14 +329,14 @@
     },
     {
       "id": 16,
-      "name": "One Piece Card Game - Heroines Special Set - EN",
+      "name": "Heroines Special Set - EN",
       "game": "onepiece",
       "condition": "sealed",
       "category": "singles",
       "description": "・Promotion Card: 1 card, 1pc\n・Promotion DON!! Card: 1 type, 10pcs\n(Either the normal version or the Alt-Art version is included)\n・Promotion Card Sleeve: 1type, 70pcs\n・Playmat: 1 type, 1pc\n・Storage Box 1 type, 1pc",
       "image": "assets/products/optimized/heroines.jpg",
       "imageFallback": "assets/products/optimized/heroines.jpg",
-      "imageAlt": "One Piece Card Game - Heroines Special Set - EN",
+      "imageAlt": "Heroines Special Set - EN",
       "featured": false,
       "dateAdded": "2026-03-26",
       "status": "presale",
@@ -346,6 +346,27 @@
         "silver": 67.00,
         "gold": 66.00,
         "platinum": 65.00
+      }
+    },
+    {
+      "id": 17,
+      "name": "EB-05 Extra Booster Display (24 Booster) - EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "booster",
+      "description": "Leader x1\nCommon x29\nRare x21\nSuper Rare x9\nSecret Rare x1\nSpecial Card x8",
+      "image": "assets/products/optimized/eb05.jpg",
+      "imageFallback": "assets/products/optimized/eb05.jpg",
+      "imageAlt": "EB-05 Extra Booster Display (24 Booster) - EN",
+      "featured": false,
+      "dateAdded": "2026-04-17",
+      "status": "presale",
+      "prices": {
+        "wood": 90.00,
+        "bronze": 89.00,
+        "silver": 87.00,
+        "gold": 86.00,
+        "platinum": 85.00
       }
     }
   ]
