@@ -179,6 +179,48 @@
         "gold": 172.50,
         "platinum": 170.00
       }
+    },
+    {
+      "id": 9,
+      "name": "One Piece Card Game Illustration Box IB-07 - EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "booster",
+      "description": "・Booster Pack [OP-15] x2\n・Booster Pack [OP-16] x2\n・Promotion Card x2 (2 types)",
+      "image": "assets/products/optimized/Ib07.png",
+      "imageFallback": "assets/products/optimized/Ib07.png",
+      "imageAlt": "One Piece Card Game Illustration Box IB-07 - EN",
+      "featured": false,
+      "dateAdded": "2026-01-19",
+      "status": "presale",
+      "prices": {
+        "wood": 24.50,
+        "bronze": 24.00,
+        "silver": 23.50,
+        "gold": 23.00,
+        "platinum": 22.50
+      }
+    },
+    {
+      "id": 10,
+      "name": "One Piece Card Game Illustration Box IB-08 - EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "booster",
+      "description": "・Booster Pack [OP-15] x2\n・Booster Pack [OP-16] x2\n・Promotion Card x2 (2 types)",
+      "image": "assets/products/optimized/Ib08.jpg",
+      "imageFallback": "assets/products/optimized/Ib08.jpg",
+      "imageAlt": "One Piece Card Game Illustration Box IB-08 - EN",
+      "featured": false,
+      "dateAdded": "2026-01-19",
+      "status": "presale",
+      "prices": {
+        "wood": 24.50,
+        "bronze": 24.00,
+        "silver": 23.50,
+        "gold": 23.00,
+        "platinum": 22.50
+      }
     }
   ]
 }
