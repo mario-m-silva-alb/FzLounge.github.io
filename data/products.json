@@ -354,7 +354,7 @@
       "game": "onepiece",
       "condition": "sealed",
       "category": "booster",
-      "description": "Leader x1\nCommon x29\nRare x21\nSuper Rare x9\nSecret Rare x1\nSpecial Card x8",
+      "description": "・Leader x1\nvCommon x29\n・Rare x21\n・Super Rare x9\n・Secret Rare x1\n・Special Card x8",
       "image": "assets/products/optimized/eb05.jpg",
       "imageFallback": "assets/products/optimized/eb05.jpg",
       "imageAlt": "EB-05 Extra Booster Display (24 Booster) - EN",
@@ -388,6 +388,48 @@
         "silver": 22.00,
         "gold": 22.00,
         "platinum": 21.50
+      }
+    },
+    {
+      "id": 19,
+      "name": "Premium Card Collection Live Action Edition Vol.2 Baroque Works - EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "singles",
+      "description": "・Card x7",
+      "image": "assets/products/optimized/Baroque_Works.jpg",
+      "imageFallback": "assets/products/optimized/Baroque_Works.jpg",
+      "imageAlt": "Premium Card Collection Live Action Edition Vol.2 Baroque Works - EN",
+      "featured": false,
+      "dateAdded": "2026-04-22",
+      "status": "presale",
+      "prices": {
+        "wood": 27.50,
+        "bronze": 26.00,
+        "silver": 25.00,
+        "gold": 25.00,
+        "platinum": 24.00
+      }
+    },
+    {
+      "id": 20,
+      "name": "Premium Card Collection Live Action Edition Vol.2 Straw Hat Crew - EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "singles",
+      "description": "・Card x7",
+      "image": "assets/products/optimized/Straw_Hat_Crew.jpg",
+      "imageFallback": "assets/products/optimized/Straw_Hat_Crew.jpg",
+      "imageAlt": "Premium Card Collection Live Action Edition Vol.2 Straw Hat Crew - EN",
+      "featured": false,
+      "dateAdded": "2026-04-22",
+      "status": "presale",
+      "prices": {
+        "wood": 27.50,
+        "bronze": 26.00,
+        "silver": 25.00,
+        "gold": 25.00,
+        "platinum": 24.00
       }
     }
   ]
