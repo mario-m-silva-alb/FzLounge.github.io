@@ -452,6 +452,27 @@
         "gold": 88.00,
         "platinum": 87.50
       }
+    },
+    {
+      "id": 21,
+      "name": "Double Pack Set Display DP-13 - EN",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "booster",
+      "description": "・Booster Pack [OP-18] x2 \n・Promotion DON!! x1",
+      "image": "assets/products/optimized/DP13.jpg",
+      "imageFallback": "assets/products/optimized/DP13.jpg",
+      "imageAlt": "Double Pack Set Display DP-13 - EN",
+      "featured": false,
+      "dateAdded": "2026-05-05",
+      "status": "presale",
+      "prices": {
+        "wood": 95.00,
+        "bronze": 90.00,
+        "silver": 89.00,
+        "gold": 88.00,
+        "platinum": 87.50
+      }
     }
   ]
 }
