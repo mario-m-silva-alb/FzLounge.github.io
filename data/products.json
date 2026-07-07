@@ -473,6 +473,48 @@
         "gold": 88.00,
         "platinum": 87.50
       }
+    },
+    {
+      "id": 23,
+      "name": "GAME Premium Card Collection -Best Selection Vol.7-",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "singles",
+      "description": "・Card x12",
+      "image": "assets/products/optimized/bc7.jpg",
+      "imageFallback": "assets/products/optimized/bc7.jpg",
+      "imageAlt": "GAME Premium Card Collection -Best Selection Vol.7-",
+      "featured": true,
+      "dateAdded": "2026-07-07",
+      "status": "presale",
+      "prices": {
+        "wood": 37.50,
+        "bronze": 36.00,
+        "silver": 35.00,
+        "gold": 34.00,
+        "platinum": 33.00
+      }
+    },
+    {
+      "id": 24,
+      "name": "Official Playmat -Limited Edition Vol.6-",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "singles",
+      "description": "・Card x1. Yamato Leader OP16-079",
+      "image": "assets/products/optimized/ple6.jpg",
+      "imageFallback": "assets/products/optimized/ple6.jpg",
+      "imageAlt": "Official Playmat -Limited Edition Vol.6-",
+      "featured": true,
+      "dateAdded": "2026-07-07",
+      "status": "presale",
+      "prices": {
+        "wood": 45.00,
+        "bronze": 43.00,
+        "silver": 42.00,
+        "gold": 41.00,
+        "platinum": 40.00
+      }
     }
   ]
 }

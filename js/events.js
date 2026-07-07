@@ -577,7 +577,7 @@ function buildEventDetailHTML(event) {
       <div class="event-detail__actions">
         ${event.calculatedStatus !== 'past' ? `
           <a href="${event.rsvpLink}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-            ${event.calculatedStatus === 'full' ? 'Join Waitlist' : 'RSVP on Discord'} →
+            ${event.calculatedStatus === 'full' ? 'Join Waitlist' : 'RSVP Link'} →
           </a>
         ` : `
           <span class="text-muted">This event has passed</span>
