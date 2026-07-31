@@ -60,14 +60,16 @@ const STATUS_LABELS = {
   'presale':     'Preorder',
   'available':   'In Stock',
   'limited':     'Limited',
-  'sold':        'Sold Out'
+  'sold':        'Sold Out',
+  'closed':      'Closed'
 };
 
 const STATUS_ICONS = {
   'presale':     '🎁',
   'available':   '📦',
   'limited':     '⚡',
-  'sold':        '🔒'
+  'sold':        '🔒',
+  'closed':      '⏳'
 };
 
 /**
@@ -83,8 +85,8 @@ function buildCardHTML(product, games, titleTag) {
   const condClass     = `badge-${product.condition}`;
   const escapedName   = product.name.replace(/"/g, '&quot;');
   
-  // Status badge
-  const status        = product.status || 'available';
+  // Status badge (preorder shows as "Closed" once the preorder window has passed)
+  const status        = isPreorderClosed(product) ? 'closed' : (product.status || 'available');
   const statusLabel   = STATUS_LABELS[status] || status;
   const statusIcon    = STATUS_ICONS[status] || '';
   const statusClass   = `badge-status badge-status-${status}`;
@@ -159,6 +161,20 @@ function isProductNew(dateAdded) {
   const now = new Date();
   const daysDiff = (now - added) / (1000 * 60 * 60 * 24);
   return daysDiff <= 30;
+}
+
+/**
+ * Check if a presale product's preorder window has already closed.
+ * A missing/empty preorderDate is treated as closed as well.
+ * @param {object} product
+ * @returns {boolean}
+ */
+function isPreorderClosed(product) {
+  if (product.status !== 'presale') return false;
+  if (!product.preorderDate) return true;
+  const closeDate = new Date(product.preorderDate);
+  if (isNaN(closeDate.getTime())) return true;
+  return closeDate < new Date();
 }
 
 /* ============================================================
@@ -684,7 +700,8 @@ function buildProductDetailHTML(product, games) {
   const gameLabel = (games.find(g => g.value === product.game) || {}).label || product.game;
   const condLabel = CONDITION_LABELS[product.condition] || product.condition;
   const catLabel = CATEGORY_LABELS[product.category] || product.category;
-  const status = product.status || 'available';
+  const originalStatus = product.status || 'available';
+  const status = isPreorderClosed(product) ? 'closed' : originalStatus;
   const statusLabel = STATUS_LABELS[status] || status;
   const statusIcon = STATUS_ICONS[status] || '';
   
@@ -693,16 +710,17 @@ function buildProductDetailHTML(product, games) {
   
   // Preorder date for presale items
   let preorderDateHTML = '';
-  if (status === 'presale' && product.preorderDate) {
+  if (originalStatus === 'presale' && product.preorderDate) {
     const preorderDate = new Date(product.preorderDate).toLocaleDateString('en-US', { 
       year: 'numeric', month: 'long', day: 'numeric' 
     });
-    preorderDateHTML = `<div class="spec-item"><span class="spec-label">Preorder Closes:</span> <span class="spec-value">${preorderDate}</span></div>`;
+    const preorderLabel = status === 'closed' ? 'Preorder Closed:' : 'Preorder Closes:';
+    preorderDateHTML = `<div class="spec-item"><span class="spec-label">${preorderLabel}</span> <span class="spec-value">${preorderDate}</span></div>`;
   }
   
   // Release date for presale items
   let releaseDateHTML = '';
-  if (status === 'presale' && product.releaseDate) {
+  if (originalStatus === 'presale' && product.releaseDate) {
     const releaseDate = new Date(product.releaseDate).toLocaleDateString('en-US', { 
       year: 'numeric', month: 'long', day: 'numeric' 
     });
