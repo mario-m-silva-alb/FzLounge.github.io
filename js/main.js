@@ -57,7 +57,7 @@ const CATEGORY_LABELS = {
 };
 
 const STATUS_LABELS = {
-  'presale':     'Presale',
+  'presale':     'Preorder',
   'available':   'In Stock',
   'limited':     'Limited',
   'sold':        'Sold Out'
@@ -81,7 +81,6 @@ function buildCardHTML(product, games, titleTag) {
   const gameLabel     = (games.find(g => g.value === product.game) || {}).label || product.game;
   const condLabel     = CONDITION_LABELS[product.condition] || product.condition;
   const condClass     = `badge-${product.condition}`;
-  const catLabel      = CATEGORY_LABELS[product.category]  || product.category;
   const escapedName   = product.name.replace(/"/g, '&quot;');
   
   // Status badge
@@ -94,9 +93,6 @@ function buildCardHTML(product, games, titleTag) {
   const isNew = product.dateAdded && isProductNew(product.dateAdded);
   const newBadge = isNew ? '<span class="badge-new">✨ NEW</span>' : '';
   
-  // Product ID badge
-  const productId = `#${String(product.id).padStart(3, '0')}`;
-  
   // Image with WebP support
   const imageSrc = product.image;
   const imageFallback = product.imageFallback || product.image;
@@ -107,19 +103,19 @@ function buildCardHTML(product, games, titleTag) {
        </picture>`
     : `<img src="${imageSrc}" alt="${product.imageAlt}" loading="lazy" />`;
   
-  // Pricing display
+  // Pricing display (highest / standard tier price)
   let pricingHTML = '';
   if (product.prices) {
-    const minPrice = Math.min(
-      product.prices.wood || Infinity,
-      product.prices.bronze || Infinity,
-      product.prices.silver || Infinity,
-      product.prices.gold || Infinity,
-      product.prices.platinum || Infinity
+    const maxPrice = Math.max(
+      product.prices.wood || -Infinity,
+      product.prices.bronze || -Infinity,
+      product.prices.silver || -Infinity,
+      product.prices.gold || -Infinity,
+      product.prices.platinum || -Infinity
     );
     pricingHTML = `
       <div class="product-card__pricing">
-        <span class="price-from">From €${minPrice.toFixed(2)}</span>
+        <span class="price-from">€${maxPrice.toFixed(2)}</span>
         <span class="price-tiers">Member pricing</span>
       </div>
     `;
@@ -144,11 +140,8 @@ function buildCardHTML(product, games, titleTag) {
       </div>
       <div class="product-card__body">
         <${tag} class="product-card__title">${product.name}</${tag}>
-        <p class="product-card__desc">${product.description}</p>
         ${pricingHTML}
         <div class="product-card__footer">
-          <span class="product-card__category">${catLabel}</span>
-          <span class="product-card__id">${productId}</span>
           <button class="btn btn-primary btn-sm btn-contact"
                   data-product="${escapedName}">Contact to Get</button>
         </div>
@@ -704,7 +697,7 @@ function buildProductDetailHTML(product, games) {
     const preorderDate = new Date(product.preorderDate).toLocaleDateString('en-US', { 
       year: 'numeric', month: 'long', day: 'numeric' 
     });
-    preorderDateHTML = `<div class="spec-item"><span class="spec-label">Preorder Opened:</span> <span class="spec-value">${preorderDate}</span></div>`;
+    preorderDateHTML = `<div class="spec-item"><span class="spec-label">Preorder Closes:</span> <span class="spec-value">${preorderDate}</span></div>`;
   }
   
   // Release date for presale items

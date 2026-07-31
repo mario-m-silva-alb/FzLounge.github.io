@@ -626,35 +626,24 @@ footer {
   line-height: 1.35;
   text-wrap: balance;
   font-weight: 600;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.product-card__desc {
-  font-size: .85rem;
-  color: var(--color-text-muted);
-  flex: 1;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
 
 .product-card__footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: .5rem;
 }
 
-.product-card__category {
-  font-size: .75rem;
-  color: var(--color-text-muted);
-  font-style: normal;
-  font-weight: 500;
-}
-
-.product-card__id {
-  font-size: .7rem;
-  color: var(--color-text-muted);
-  font-family: 'Courier New', monospace;
-  opacity: 0.6;
+.product-card__footer .btn-contact {
+  width: 100%;
 }
 
 /* Status and NEW badges container */
@@ -2534,10 +2523,14 @@ a.game-badge:hover {
   border: 1px solid rgba(200, 164, 78, 0.25);
   border-radius: var(--radius-md);
   padding: .75rem 1rem;
+  margin-top: auto;
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: .25rem;
+  flex: 0 0 auto;
+  height: 4.5rem;
 }
 
 .price-from {
