@@ -413,7 +413,7 @@
       "image": "assets/products/optimized/bc7.jpg",
       "imageFallback": "assets/products/optimized/bc7.jpg",
       "imageAlt": "GAME Premium Card Collection -Best Selection Vol.7-",
-      "featured": true,
+      "featured": false,
       "dateAdded": "2026-07-07",
       "status": "presale",
       "preorderDate": "2026-07-14",
@@ -436,7 +436,7 @@
       "image": "assets/products/optimized/ple6.jpg",
       "imageFallback": "assets/products/optimized/ple6.jpg",
       "imageAlt": "Official Playmat -Limited Edition Vol.6-",
-      "featured": true,
+      "featured": false,
       "dateAdded": "2026-07-07",
       "status": "presale",
       "preorderDate": "",
@@ -447,6 +447,29 @@
         "silver": 42.00,
         "gold": 41.00,
         "platinum": 40.00
+      }
+    },
+    {
+      "id": 25,
+      "name": "Premium Card Collection -29th Anniversary Edition-",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "singles",
+      "description": "・Card x8.<br> ・4 Normal Monkey. D. Luffy P-159 <br> ・4 Foil Monkey. D. Luffy P-159",
+      "image": "assets/products/optimized/opcg_pc_29th.jpg",
+      "imageFallback": "assets/products/optimized/opcg_pc_29th.jpg",
+      "imageAlt": "Premium Card Collection -29th Anniversary Edition-",
+      "featured": true,
+      "dateAdded": "2026-08-03",
+      "status": "presale",
+      "preorderDate": "2026-08-04",
+      "releaseDate": "2027-03-05",
+      "prices": {
+        "wood": 25.00,
+        "bronze": 20.00,
+        "silver": 19.00,
+        "gold": 18.00,
+        "platinum": 17.00
       }
     }
   ]
