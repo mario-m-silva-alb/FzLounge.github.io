@@ -114,7 +114,7 @@
       "image": "assets/products/optimized/EB06.jpg",
       "imageFallback": "assets/products/optimized/EB06.jpg",
       "imageAlt": "EB-06 Extra Booster Display (24 Booster)",
-      "featured": true,
+      "featured": false,
       "dateAdded": "2026-06-30",
       "status": "presale",
       "preorderDate": "2026-07-09",
@@ -137,7 +137,7 @@
       "image": "assets/products/optimized/giftColletionHeroine.jpg",
       "imageFallback": "assets/products/optimized/giftColletionHeroine.jpg",
       "imageAlt": "Gift Collection Heroines",
-      "featured": true,
+      "featured": false,
       "dateAdded": "2026-06-22",
       "status": "presale",
       "preorderDate": "2026-07-09",
@@ -396,11 +396,11 @@
       "preorderDate": "2026-06-01",
       "releaseDate": "2026-11-20",
       "prices": {
-        "wood": 95.00,
-        "bronze": 90.00,
-        "silver": 89.00,
-        "gold": 88.00,
-        "platinum": 87.50
+        "wood": 15.00,
+        "bronze": 13.00,
+        "silver": 12.50,
+        "gold": 12.00,
+        "platinum": 11.50
       }
     },
     {
@@ -459,7 +459,7 @@
       "image": "assets/products/optimized/opcg_pc_29th.jpg",
       "imageFallback": "assets/products/optimized/opcg_pc_29th.jpg",
       "imageAlt": "Premium Card Collection -29th Anniversary Edition-",
-      "featured": true,
+      "featured": false,
       "dateAdded": "2026-08-03",
       "status": "presale",
       "preorderDate": "2026-08-04",
@@ -470,6 +470,52 @@
         "silver": 19.00,
         "gold": 18.00,
         "platinum": 17.00
+      }
+    },
+    {
+      "id": 26,
+      "name": "Booster Display OP-19",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "booster",
+      "description": "・Leader x6<br>・Common x45<br>・Uncommon x30<br>・Rare x26<br>・Super Rare x10<br>・Secret Rare x2<br>・Special Card x6<br>・Treasure Rare x1<br>・DON!! Card x1<br>・126+1 card types <br>*Subject to change<br>*This product also includes alternative art and parallel design cards from the above types.",
+      "image": "assets/products/optimized/OP19.jpg",
+      "imageFallback": "assets/products/optimized/OP19.jpg",
+      "imageAlt": "Booster Display OP-19",
+      "featured": true,
+      "dateAdded": "2026-08-05",
+      "status": "presale",
+      "preorderDate": "2026-08-27",
+      "releaseDate": "2027-03-05",
+      "prices": {
+        "wood": 95.00,
+        "bronze": 90.00,
+        "silver": 89.00,
+        "gold": 88.00,
+        "platinum": 87.50
+      }
+    },
+    {
+      "id": 27,
+      "name": "Double Pack Set Display DP-14",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "booster",
+      "description": "・Booster Pack [OP-19] x2<br>・DON!! Card x1 (2 types)",
+      "image": "assets/products/optimized/DP14.jpg",
+      "imageFallback": "assets/products/optimized/DP14.jpg",
+      "imageAlt": "Double Pack Set Display DP-14",
+      "featured": true,
+      "dateAdded": "2026-08-05",
+      "status": "presale",
+      "preorderDate": "2026-08-27",
+      "releaseDate": "2027-03-05",
+      "prices": {
+        "wood": 15.00,
+        "bronze": 13.00,
+        "silver": 12.50,
+        "gold": 12.00,
+        "platinum": 11.50
       }
     }
   ]
