@@ -563,6 +563,29 @@
         "gold": 25.00,
         "platinum": 25.00
       }
+    },
+    {
+      "id": 30,
+      "name": "GAME Premium Card Collection Best Selection -Ace & Sabo & Luffy-",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "singles",
+      "description": "・Card x14",
+      "image": "assets/products/optimized/bestAceSaboLuffy.jpg",
+      "imageFallback": "assets/products/optimized/bestAceSaboLuffy.jpg",
+      "imageAlt": "GAME Premium Card Collection Best Selection -Ace & Sabo & Luffy-",
+      "featured": true,
+      "dateAdded": "2026-08-07",
+      "status": "presale",
+      "preorderDate": "2026-08-21",
+      "releaseDate": "2027-04-02",
+      "prices": {
+        "wood": 42.50,
+        "bronze": 40.00,
+        "silver": 39.00,
+        "gold": 38.00,
+        "platinum": 35.00
+      }
     }
   ]
 }
