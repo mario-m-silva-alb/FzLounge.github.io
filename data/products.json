@@ -586,6 +586,52 @@
         "gold": 38.00,
         "platinum": 35.00
       }
+    },
+    {
+      "id": 31,
+      "name": "Chinese version 3rd Anniversary Set",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "singles",
+      "description": "・Promotion Card x11 (11 types in total, 1 card per each type)<br>・OP08-105 [SR] Jewelry Bonney;<br>・OP12-031 [R] Tashigi;<br>・OP09-034 [R] Perona;<br>・OP09-107 [R] Nico Robin;<br>・OP12-071 [R] Charlotte Pudding;<br>・P-069 [P] Koala;<br>・OP05-086 [R] Nefeltari Vivi;<br>・OP11-054 [SR] Nami;<br>・EB02-006 [SR] Yamato;<br>・P-066 [P] Boa Hancock;<br>・OP10-076 [UC] Baby 5<br><br>・DON!! Card x10 (1 type in total)<br>・Playmat x1 (1 type in total)<br>・Storage Box x1 (1 type in total)<br>・Sleeve x70 (1 type in total)",
+      "image": "assets/products/optimized/3ani_ch.jpg",
+      "imageFallback": "assets/products/optimized/3ani_ch.jpg",
+      "imageAlt": "Chinese version 3rd Anniversary Set",
+      "featured": true,
+      "dateAdded": "2026-08-20",
+      "status": "presale",
+      "preorderDate": "2026-08-21",
+      "releaseDate": "2027-07-02",
+      "prices": {
+        "wood": 200.00,
+        "bronze": 175.00,
+        "silver": 170.00,
+        "gold": 160.00,
+        "platinum": 155.00
+      }
+    },
+    {
+      "id": 32,
+      "name": "One Piece Card Game [ST-39~ST44] Starter Deck",
+      "game": "onepiece",
+      "condition": "sealed",
+      "category": "deck",
+      "description": "・Six new Starter Decks featuring popular Leaders from OP-13 ~ OP-17, with simple effects and characteristics, make this product an ideal entry point for new ONE PIECE CARD GAME players.<br>・Five brand new cards with new text included in each deck, giving existing players new options to upgrade their current decks and evolve their battle strategies.<br>・One OP-19 booster pack is included in every deck, featuring reprints of popular cards from past packs and giving new players a chance to strengthen their decks and enhance their experience.<br><br>・Constructed Deck x1  (51 cards)<br>・DON!! Cards x10<br>・Playsheet x1<br>・Booster Pack [OP-19] x1",
+      "image": "assets/products/optimized/onepiece_tcg_st39_st44_set.jpg",
+      "imageFallback": "assets/products/optimized/onepiece_tcg_st39_st44_set.jpg",
+      "imageAlt": "One Piece Card Game [ST-39~ST44] Starter Deck",
+      "featured": true,
+      "dateAdded": "2026-08-20",
+      "status": "presale",
+      "preorderDate": "2026-09-11",
+      "releaseDate": "2027-07-23",
+      "prices": {
+        "wood": 15.00,
+        "bronze": 12.50,
+        "silver": 12.00,
+        "gold": 11.50,
+        "platinum": 11.00
+      }
     }
   ]
 }
