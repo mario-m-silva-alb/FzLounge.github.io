@@ -1,0 +1,163 @@
+[
+  {
+    "id": "riftbound_1",
+    "name": "Riftbound: League of Legends TCG - Gift of the Rift Bundle",
+    "game": "riftbound",
+    "condition": "sealed",
+    "category": "booster",
+    "description": "GROW YOUR COLLECTION!<br>・16 assorted booster packs of Riftbound sets Origins (3), Spiritforged (3), Unleashed (3), Vendetta (3) and Radiance (4).<br><br>PROMOS & RUNES<br>・1 Alt-Art Promo card Ramen Akali and 36 Rainbow Foil Runes.<br><br>STAY ORGANIZED<br>・2000-card storage box to help keep your collection organized and secure.<br><br>PROTECT YOUR CARDS<br>・Pack of 100 sleeves featuring the Alt-Art Ramen Akali art",
+    "image": "assets/products/optimized/riftGift.jpg",
+    "imageFallback": "assets/products/optimized/riftGift.jpg",
+    "imageAlt": "Riftbound: League of Legends TCG - Gift of the Rift Bundle",
+    "featured": true,
+    "dateAdded": "2026-08-28",
+    "status": "presale",
+    "preorderDate": "",
+    "releaseDate": "2026-12-04",
+    "prices": {
+      "wood": 105,
+      "bronze": 100,
+      "silver": 98,
+      "gold": 97,
+      "platinum": 95
+    }
+  },
+  {
+    "id": "riftbound_2",
+    "name": "Riftbound: League of Legends TCG - Radiance Art Sleeves",
+    "game": "riftbound",
+    "condition": "sealed",
+    "category": "Sleeves",
+    "description": " PROTECT YOUR CARDS<br><br>・Each pack of sleeves contains 100 sleeves featuring a Champion from Riftbound: Radiance<br><br>● COLLECT THEM ALL!<br>One of 4 different packs of sleeves created for the release of the Riftbound: Radiance.",
+    "image": "assets/products/optimized/riftSleeves.jpg",
+    "imageFallback": "assets/products/optimized/riftSleeves.jpg",
+    "imageAlt": "Riftbound: League of Legends TCG - Radiance Art",
+    "featured": false,
+    "dateAdded": "2026-08-28",
+    "status": "presale",
+    "preorderDate": "2026-06-26",
+    "releaseDate": "2026-10-23",
+    "prices": {
+      "wood": 15.5,
+      "bronze": 14.5,
+      "silver": 14.5,
+      "gold": 13.5,
+      "platinum": 13.5
+    }
+  },
+  {
+    "id": "riftbound_3",
+    "name": "Riftbound: League of Legends TCG - Radiance Playmat",
+    "game": "riftbound",
+    "condition": "sealed",
+    "category": "Playmat",
+    "description": " ● HIGH QUALITY<br>・24 x 14 inch neoprene playmat with bound edge and rubber backing provides smooth play surface to protect your cards.",
+    "image": "assets/products/optimized/riftPlaymat.jpg",
+    "imageFallback": "assets/products/optimized/riftPlaymat.jpg",
+    "imageAlt": "Riftbound: League of Legends TCG - Radiance Playmat",
+    "featured": false,
+    "dateAdded": "2026-08-28",
+    "status": "presale",
+    "preorderDate": "2026-06-26",
+    "releaseDate": "2026-10-23",
+    "prices": {
+      "wood": 23,
+      "bronze": 22,
+      "silver": 22,
+      "gold": 21,
+      "platinum": 21
+    }
+  },
+  {
+    "id": "riftbound_4",
+    "name": "Riftbound: League of Legends TCG - Radiance - Collector's Binder",
+    "game": "riftbound",
+    "condition": "sealed",
+    "category": "Binder",
+    "description": "Radiance is taking the stage!<br>Keep your Riftbound collection protected and organized with the Collector’s Binder - Radiance. Designed for durability and ease of use, this binder features side-loading pockets and a secure zippered closure to keep cards in place. Holds up to 360 sleeved cards in archival safe pages built for long term storage.<br><br>PROTECT YOUR CARDS<br>・Holds up to 360 sleeved cards in side-loading 9-pocket pages. Durable zippered closure keeps cards secure during storage and transport",
+    "image": "assets/products/optimized/riftCollectorBinder.jpg",
+    "imageFallback": "assets/products/optimized/riftCollectorBinder.jpg",
+    "imageAlt": "Riftbound: League of Legends TCG - Radiance - Collector's Binder",
+    "featured": true,
+    "dateAdded": "2026-08-28",
+    "status": "presale",
+    "preorderDate": "2026-06-26",
+    "releaseDate": "2026-10-23",
+    "prices": {
+      "wood": 35,
+      "bronze": 32,
+      "silver": 31,
+      "gold": 30,
+      "platinum": 30
+    }
+  },
+  {
+    "id": "riftbound_5",
+    "name": "Riftbound: League of Legends TCG - Radiance Vault Bundle",
+    "game": "riftbound",
+    "condition": "sealed",
+    "category": "booster",
+    "description": "Break into the Radiance Vault!<br><br>This high-value bundle contains a variety of contents that are perfect to compliment a growing Riftbound collection.<br>Packaged in a reusable storage box, inside you’ll find 6 Booster Packs from Riftbound Set 5: Radiance, 36 basic runes to power your decks, and 3 full art, foil Promo tokens!",
+    "image": "assets/products/optimized/riftVault.jpg",
+    "imageFallback": "assets/products/optimized/riftVault.jpg",
+    "imageAlt": "Riftbound: League of Legends TCG - Radiance Vault Bundle",
+    "featured": true,
+    "dateAdded": "2026-08-28",
+    "status": "presale",
+    "preorderDate": "2026-06-26",
+    "releaseDate": "2026-10-23",
+    "prices": {
+      "wood": 32.5,
+      "bronze": 31.5,
+      "silver": 31,
+      "gold": 30.5,
+      "platinum": 30
+    }
+  },
+  {
+    "id": "riftbound_6",
+    "name": "Riftbound: League of Legends TCG - Radiance Evelynn & Seraphine Showdown Deck",
+    "game": "riftbound",
+    "condition": "sealed",
+    "category": "deck",
+    "description": "Evelynn & Seraphine: Who’s topping the charts and who’s facing the music? Find out with these Showdown Decks.<br>Jump into play with two 56-card preconstructed decks, two paper playmats, two booster packs, and a rulebook. Expand your collection or play with a friend! Either way, these Showdown Decks strike the perfect chord.<br>Includes 2 Riftbound: Radiance boosters!",
+    "image": "assets/products/optimized/riftDeck.jpg",
+    "imageFallback": "assets/products/optimized/riftDeck.jpg",
+    "imageAlt": "Riftbound: League of Legends TCG - Radiance Evelynn & Seraphine Showdown Deck",
+    "featured": true,
+    "dateAdded": "2026-08-28",
+    "status": "presale",
+    "preorderDate": "2026-06-26",
+    "releaseDate": "2026-10-23",
+    "prices": {
+      "wood": 32.5,
+      "bronze": 31.5,
+      "silver": 31,
+      "gold": 30.5,
+      "platinum": 30
+    }
+  },
+  {
+    "id": "riftbound_7",
+    "name": "Riftbound: League of Legends TCG - Radiance Booster Display",
+    "game": "riftbound",
+    "condition": "sealed",
+    "category": "booster",
+    "description": "The fifth set for Riftbound: League of Legends TCG is putting even more champions in the spotlight! These 14-card booster packs pull from a pool of 180 cards with more than 60 Showcase cards, including all new legends, units, spells, new mechanics, and more.<br><br>● CHAMPION YOUR STRATEGY<br>Build your deck from premium packs filled with 7 Commons, 3 Uncommons, 2 foil Rares or better, 1 foil of any rarity, and 1 token slot. Each booster display contains 24 booster packs.<br><br> <b>Booster boxes will not leave unopened; they must be opened inside the association.</b>",
+    "image": "assets/products/optimized/riftDisplay.jpg",
+    "imageFallback": "assets/products/optimized/riftDisplay.jpg",
+    "imageAlt": "Riftbound: League of Legends TCG - Radiance Booster Display",
+    "featured": true,
+    "dateAdded": "2026-08-28",
+    "status": "presale",
+    "preorderDate": "2026-06-26",
+    "releaseDate": "2026-10-23",
+    "prices": {
+      "wood": 117.5,
+      "bronze": 115.0,
+      "silver": 112.5,
+      "gold": 110,
+      "platinum": 107.5
+    }
+  }
+]

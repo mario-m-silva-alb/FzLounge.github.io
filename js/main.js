@@ -2,7 +2,7 @@
    FzLounge – Main JavaScript
    - Mobile nav toggle
    - Active nav link highlighting
-   - Load products from data/products.json
+   - Load products from data/products.json manifest + data/products/*.json
    - Render product cards dynamically (products page & featured section)
    - Populate game dropdowns from JSON (filter bar)
    - Products page filtering
@@ -21,9 +21,19 @@ function trackEvent(eventName, parameters = {}) {
 }
 
 /* ============================================================
-   DATA – load products.json
-   All pages share one JSON file at data/products.json.
-   We resolve the path relative to the site root so it works
+   DATA – load products
+   data/products.json is a small manifest: { games, productFiles }.
+   The actual product entries live in per-game files under
+   data/products/ (e.g. data/products/onepiece.json), so the
+   catalog can grow without one huge JSON file.
+
+   To add a new game's products:
+     1. Create data/products/<gameValue>.json with an array of
+        product objects (same shape as before).
+     2. Add "<gameValue>.json" to the "productFiles" array in
+        data/products.json.
+
+   We resolve paths relative to the site root so it works
    regardless of which page is loaded.
    ============================================================ */
 
@@ -33,12 +43,34 @@ function basePath() {
   return loc.substring(0, loc.lastIndexOf('/') + 1);
 }
 
-/** Fetch and return the parsed JSON data. Throws on network/parse errors. */
+/** Fetch and return the parsed JSON data ({ games, products }). Throws on network/parse errors. */
 async function loadData() {
-  const url = basePath() + 'data/products.json';
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to load products.json (${res.status})`);
-  return res.json();
+  const base = basePath();
+  const manifestUrl = base + 'data/products.json';
+  const manifestRes = await fetch(manifestUrl);
+  if (!manifestRes.ok) throw new Error(`Failed to load products.json (${manifestRes.status})`);
+  const manifest = await manifestRes.json();
+
+  const files = manifest.productFiles || [];
+  const productArrays = await Promise.all(files.map(async file => {
+    const fileUrl = `${base}data/products/${file}`;
+    try {
+      const res = await fetch(fileUrl);
+      if (!res.ok) {
+        console.error(`FzLounge: could not load data/products/${file} (${res.status})`);
+        return [];
+      }
+      return await res.json();
+    } catch (err) {
+      console.error(`FzLounge: could not load data/products/${file} –`, err);
+      return [];
+    }
+  }));
+
+  return {
+    games: manifest.games,
+    products: productArrays.flat()
+  };
 }
 
 /* ============================================================
@@ -687,7 +719,7 @@ function attachProductCardHandlers(data) {
       // Don't trigger if clicking the contact button
       if (e.target.closest('.btn-contact')) return;
       
-      const productId = parseInt(card.dataset.productId);
+      const productId = card.dataset.productId;
       openProductDetail(productId);
     });
   });
@@ -706,7 +738,6 @@ function buildProductDetailHTML(product, games) {
   const statusIcon = STATUS_ICONS[status] || '';
   
   const isNew = product.dateAdded && isProductNew(product.dateAdded);
-  const productId = `#${String(product.id).padStart(3, '0')}`;
   
   // Preorder date for presale items
   let preorderDateHTML = '';
@@ -767,7 +798,6 @@ function buildProductDetailHTML(product, games) {
         <h2 id="modal-product-title">${product.name}</h2>
         <div class="modal-product-meta">
           <span class="badge-status badge-status-${status}">${statusIcon} ${statusLabel}</span>
-          <span class="product-id">${productId}</span>
         </div>
         <p class="modal-product-description">${product.description}</p>
         
@@ -824,7 +854,7 @@ function attachProductCardHandlers(data) {
       // Don't trigger if clicking the contact button
       if (e.target.closest('.btn-contact')) return;
       
-      const productId = parseInt(card.dataset.productId);
+      const productId = card.dataset.productId;
       openProductDetail(productId);
     });
   });
@@ -922,7 +952,7 @@ function openProductDetail(productId) {
   modalBody.querySelectorAll('.related-product').forEach(relCard => {
     relCard.style.cursor = 'pointer';
     relCard.addEventListener('click', () => {
-      const relProductId = parseInt(relCard.dataset.productId);
+      const relProductId = relCard.dataset.productId;
       openProductDetail(relProductId);
     });
   });
@@ -987,8 +1017,7 @@ function shareProduct(productId) {
   if (!product) return;
   
   const productName = product.name;
-  const productIdFormatted = `#${String(product.id).padStart(3, '0')}`;
-  const textToCopy = `${productName} (${productIdFormatted})`;
+  const textToCopy = productName;
   
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(textToCopy).then(() => {
@@ -1063,8 +1092,8 @@ function initProductDetailModal() {
   
   // Check for hash on page load
   if (window.location.hash.startsWith('#product-')) {
-    const productId = parseInt(window.location.hash.replace('#product-', ''));
-    if (!isNaN(productId)) {
+    const productId = window.location.hash.replace('#product-', '');
+    if (productId) {
       // Delay opening until data is loaded
       setTimeout(() => openProductDetail(productId), 100);
     }

@@ -1732,12 +1732,6 @@ a.game-badge:hover {
   margin-bottom: 1.25rem;
 }
 
-.modal-product-meta .product-id {
-  font-size: .85rem;
-  color: var(--color-text-muted);
-  font-family: 'Courier New', monospace;
-}
-
 .modal-product-description {
   font-size: 1rem;
   line-height: 1.7;
