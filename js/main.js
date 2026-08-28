@@ -82,10 +82,13 @@ const CONDITION_LABELS = {
 };
 
 const CATEGORY_LABELS = {
-  'single':    'Single Card',
-  'deck':      'Deck',
-  'booster':   'Booster Pack',
-  'accessory': 'Accessory',
+  'booster':    'Booster Pack',
+  'deck':       'Deck',
+  'collection': 'Collection',
+  'singles':    'Singles',
+  'sleeves':    'Sleeves',
+  'playmat':    'Playmat',
+  'binder':     'Binder',
 };
 
 const STATUS_LABELS = {
@@ -374,6 +377,34 @@ function initProductsPage(data) {
   let searchTimeout = null;
 
   /**
+   * Keep the "game" query param in the URL in sync with the current filter,
+   * so the page can be shared/bookmarked to show only that game's products.
+   */
+  function updateURLForGameFilter() {
+    const game = filterGame ? filterGame.value : 'all';
+    const url = new URL(window.location.href);
+    if (game && game !== 'all') {
+      url.searchParams.set('game', game);
+    } else {
+      url.searchParams.delete('game');
+    }
+    history.replaceState(null, '', url.pathname + url.search + url.hash);
+  }
+
+  /**
+   * Pre-select the game filter from a `?game=<value>` URL param, if present
+   * and valid, so shared links open directly filtered to that game.
+   */
+  function applyGameFromURL() {
+    if (!filterGame) return;
+    const gameParam = new URLSearchParams(window.location.search).get('game');
+    if (gameParam && data.games.some(g => g.value === gameParam)) {
+      filterGame.value = gameParam;
+    }
+  }
+
+
+  /**
    * Update active filter chips display
    */
   function updateFilterChips() {
@@ -525,7 +556,10 @@ function initProductsPage(data) {
 
     // Update filter chips
     updateFilterChips();
-    
+
+    // Keep the shareable "game" URL param in sync with the current filter
+    updateURLForGameFilter();
+
     // Track search event
     if (search) {
       trackEvent('search', {
@@ -597,6 +631,9 @@ function initProductsPage(data) {
       applyFilters();
     });
   }
+
+  // Pre-fill the game filter from a shared link (?game=<value>), if present
+  applyGameFromURL();
 
   // Initial filter application
   applyFilters();

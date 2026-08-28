@@ -144,10 +144,6 @@ function renderComparisonTable() {
       getValue: (tier) => tier.level >= 1 ? '✓' : '-'
     },
     {
-      label: 'Early Pickup',
-      getValue: (tier) => tier.level >= 2 ? '✓' : '-'
-    },
-    {
       label: 'Singles Discount',
       getValue: (tier) => tier.level >= 3 ? '5%' : '-'
     },
@@ -156,8 +152,8 @@ function renderComparisonTable() {
       getValue: (tier) => tier.level >= 3 ? '✓' : '-'
     },
     {
-      label: 'Free Prerelease',
-      getValue: (tier) => tier.level >= 4 ? 'Every 2 months' : '-'
+      label: 'D&D Table Reservations',
+      getValue: (tier) => tier.level >= 4 ? '4/month' : '-'
     },
     {
       label: 'Priority Level',

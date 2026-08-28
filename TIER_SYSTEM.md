@@ -1,7 +1,7 @@
 # FzLounge Membership Tier System
 
-**Last Updated:** January 29, 2025  
-**Version:** 1.0  
+**Last Updated:** August 28, 2026  
+**Version:** 2.0  
 **Status:** Active
 
 ---
@@ -24,7 +24,7 @@ The FzLounge membership tier system consists of 5 tiers designed to reward commu
 **Benefits:**
 - Access to association space
 - Use of tables and gaming area
-- Participation in events (fees apply)
+- Participation in events (fees may apply)
 - Access to community Discord
 
 **Product Discounts:**
@@ -71,8 +71,6 @@ The FzLounge membership tier system consists of 5 tiers designed to reward commu
 - All Bronze Tier benefits
 - €11 monthly credit (tournaments & bar)
 - Same product discounts as Bronze
-- **Early pickup of preorders (before release)**
-- Free access to electronic space
 - Priority over Wood & Bronze
 
 **Product Discounts:**
@@ -81,10 +79,6 @@ The FzLounge membership tier system consists of 5 tiers designed to reward commu
 
 **Monthly Credit:** €11  
 **Priority:** Silver Priority
-
-**Special Privilege:**
-- Pre-orders can be collected before the official release date
-- **Important:** Products must not be sold before release. Violation results in tier revocation and immediate ban!
 
 ---
 
@@ -124,9 +118,8 @@ The FzLounge membership tier system consists of 5 tiers designed to reward commu
 **Benefits:**
 - All Gold Tier benefits
 - Same product discounts as Gold
-- **Free prerelease event every 2 months (up to €25)**
 - **Free access to all association facilities**
-- Free large table reservation (no time limit)
+- 4 Free reservations of the D&D table (no time limit)
 - **Highest priority in all preorders & events**
 
 **Product Discounts:**
@@ -134,25 +127,21 @@ The FzLounge membership tier system consists of 5 tiers designed to reward commu
 - Products >€10: -€2.00
 - Singles: 5% off
 
-**Monthly Credit:** €15  
+**Monthly Credit:** €25  
 **Priority:** Platinum Priority (Highest)
-
-**Prerelease Benefit:**
-- Free prerelease event every 2 months (up to €25 value)
-- Events over €25: receive €25 discount
-- Annual value: up to €150
-- Credit accumulates monthly (€12.50/month) to prevent early misuse
 
 ---
 
 ## 📏 Rules & Policies
+- Priority doesn't mean quantity. Due to supply constraints in the distribution, we can't guarantee the full allocation requested.
+- The quantity will be limited if the player doesn't attend the minimum number of tournaments for that game.
 
 ### Eligibility Requirements
 
 **3-Month Rule:**
 - Benefits require **at least 3 consecutive months** of valid membership
 - This rule prevents abuse and ensures fair access
-- Applies to all tier benefits including discounts, credits, and priority
+- Applies to all tier benefits including discounts, credits, and priority.
 
 **Purpose:**
 - Protects against membership manipulation
@@ -178,6 +167,7 @@ The FzLounge membership tier system consists of 5 tiers designed to reward commu
 
 **Important:**
 - No benefits during the 3-month upgrade period
+- Access to the store credit of the new tier
 - Only the price difference is required (not full amount)
 - After 3 months, all new tier benefits are available
 
@@ -188,7 +178,7 @@ The FzLounge membership tier system consists of 5 tiers designed to reward commu
 **How It Works:**
 - Higher tier members have **priority** in:
   - Event registrations
-  - Preorder fulfillment
+  - Preorder fulfillment. Doesn't guarantee quantity.
   - Limited stock situations
   - Table reservations
 
@@ -207,12 +197,13 @@ Orders:
 - Bronze member: 2 boxes (ordered second)
 
 Result:
-- Bronze member receives 2 boxes (priority)
-- Wood member waits for restock
+- Bronze member receives 2 boxes (priority) if participate in tournaments of that game. if not, it will only receive one.
+- Wood member waits for restock. if participate in multiple tournaments of that game, it will receive one.
 ```
 
 **Why?**
 - Rewards those who support the association
+- Rewards those that participate in the community
 - Ensures community sustainability
 - Fair system based on contribution level
 
@@ -223,22 +214,22 @@ Result:
 **What Is Credit?**
 - Monthly monetary credit for use within the association
 - Accumulates each month based on tier
-- Use it or lose it (does not roll over)
+- Rolls over throughout the year and expires December 31st
 
 **Where Can You Use Credit?**
 - ✅ Tournament entry fees
 - ✅ Bar items (drinks, snacks)
-- ❌ **NOT** for materials (sleeves, dice, playmats)
+- ❌ **NOT** for materials during the year (sleeves, dice, playmats) — see [Materials & Accessories Policy](#materials--accessories-policy) for the year-end exception
 
 **Credit by Tier:**
 - Wood: €0/month
 - Bronze: €6/month
 - Silver: €11/month
 - Gold: €15/month
-- Platinum: €15/month
+- Platinum: €25/month
 
 **Important:**
-- Credit resets monthly
+- Credit rolls over month to month, but expires December 31st (does not carry into the next year)
 - Cannot be transferred between members
 - Cannot be converted to cash
 
@@ -255,9 +246,8 @@ Result:
 - Other gaming accessories
 
 **Rules:**
-1. **Credit cannot be used** for materials
-2. **Tier discounts do not apply** to materials
-3. **10% markup** when purchasing materials (minimum €1 increase)
+1. **Credit cannot be used** for materials during the year
+2. **Exception:** at the end of the year (by December 31st), leftover credit *can* be used for materials — the no-discount and 10% markup rules above still apply
 
 **Why?**
 - Materials have different profit margins
@@ -293,7 +283,9 @@ Any abuse of tier benefits will result in:
 
 ## 💰 Product Discount Breakdown
 
-### Discount Table
+### Discount Table (Default/Fallback)
+
+*This table applies only to products that don't have custom per-tier pricing set (see "Variable Discounts" below — this covers the majority of products).*
 
 | Tier | Products €5-€10 | Products >€10 | Singles | Priority |
 |------|----------------|---------------|---------|----------|
@@ -305,15 +297,16 @@ Any abuse of tier benefits will result in:
 
 ### Important Notes
 
-**Variable Discounts:**
-- Some products may have different discount amounts
-- Common variations: €0.50, €1.00, €2.00, €2.50, €5.00
-- Check individual product pages for specific tier pricing
-- Depends on product cost, supplier pricing, and margins
+**Variable Discounts (Custom Product Pricing):**
+- Most sealed/box products have their **own fixed price per tier** set individually (not calculated from the table above)
+- When a product has custom tier pricing, the standard discount table **does not apply and does not stack** — the listed per-tier price is final
+- Custom pricing is not always a flat step down each tier; amounts vary per product based on cost, supplier pricing, and margins
+- Check individual product pages for the exact price at your tier
+- The Discount Table above is only the **fallback** used for products without custom per-tier pricing set (e.g. singles, some accessories)
 
 **Not Applicable To:**
 - Bar items (drinks, snacks, food)
-- Materials (sleeves, dice, accessories)
+- Materials (sleeves, dice, accessories) — see [Materials & Accessories Policy](#materials--accessories-policy)
 - Services (tournament fees, table rentals)
 - Special promotions or clearance items
 
@@ -347,8 +340,6 @@ Any abuse of tier benefits will result in:
 | Gold | €360 | €30 × 12 = €360 | €0 |
 | Platinum | €480 | €40 × 12 = €480 | €0 |
 
-*Note: Currently no annual discount. Consider adding 10-15% annual savings in future.*
-
 ---
 
 ## 🎯 Which Tier Is Right For You?
@@ -368,9 +359,7 @@ Any abuse of tier benefits will result in:
 ### Choose Silver If:
 - **Most Popular Choice** ⭐
 - You preorder new releases frequently
-- You want early access to products
 - You attend tournaments often (€11 credit)
-- You need electronic space access
 
 ### Choose Gold If:
 - You're a serious player/collector
@@ -381,11 +370,9 @@ Any abuse of tier benefits will result in:
 
 ### Choose Platinum If:
 - **Ultimate Support Tier** 💎
-- You attend every prerelease
 - You want highest priority always
-- You reserve tables frequently
+- You reserve the D&D table frequently
 - You want to maximize support to the association
-- You spend €150+ on prereleases annually
 
 ---
 
@@ -402,7 +389,6 @@ Any abuse of tier benefits will result in:
 - Buy singles regularly to benefit from 5% discount
 - Use table reservation for Commander nights
 - Preorder every new set to maximize discounts
-- Platinum: Plan prerelease attendance every 2 months
 
 ### Break-Even Analysis
 
@@ -413,7 +399,6 @@ Any abuse of tier benefits will result in:
 
 **Silver Tier (€20/month):**
 - €11 credit = 55% value back
-- Early pickup = valuable for resellers/collectors
 - **Breaks even** if you buy 2 products >€10 per month
 
 **Gold Tier (€30/month):**
@@ -424,10 +409,10 @@ Any abuse of tier benefits will result in:
 - **Breaks even** if you spend €100+ monthly
 
 **Platinum Tier (€40/month):**
-- €15 credit + prerelease (€12.50/month avg) = €27.50 value
+- €25 credit
 - €2 discount on products
 - Highest priority (invaluable during high demand)
-- **Breaks even** if you attend prereleases and buy sealed products
+- **Breaks even** if buy sealed products
 
 ---
 
@@ -436,13 +421,12 @@ Any abuse of tier benefits will result in:
 ### Payment Methods
 - Cash (in person)
 - Bank transfer
-- PayPal
 - Revolut
 - MBWay
 
 ### Billing Cycle
 - Monthly: Charged on the same day each month
-- Yearly: Charged once annually (save on transaction fees)
+- Yearly: Charged once annually
 
 ### Cancellation
 - Can cancel anytime
@@ -461,19 +445,14 @@ Any abuse of tier benefits will result in:
 ## 🔄 Future Updates
 
 ### Planned Improvements
-- [ ] Annual payment discount (10-15% off)
 - [ ] Tier upgrade fast-track option
 - [ ] Loyalty bonuses for long-term members
-- [ ] Birthday month perks
-- [ ] Referral bonuses
 - [ ] Seasonal promotions
 
 ### Under Consideration
 - Member-exclusive products
 - Early access to event registration
 - Exclusive tier-only events
-- Partner discounts at other stores
-- Online store integration
 
 ---
 
@@ -524,7 +503,7 @@ Any abuse of tier benefits will result in:
 **A:** Yes. No exceptions. This protects all members.
 
 ### Q: Can I use credit from multiple months?
-**A:** No. Credit expires monthly and doesn't accumulate.
+**A:** yes. Credit accumulate until the end of the year.
 
 ### Q: Do discounts apply to already discounted items?
 **A:** No. Tier discounts don't stack with sale/clearance prices.
@@ -540,16 +519,15 @@ Any abuse of tier benefits will result in:
 ## 📊 Statistics & Impact
 
 ### Current Membership (Example - Update Regularly)
-- Total Members: 100+
-- Wood: 40%
-- Bronze: 30%
-- Silver: 20%
-- Gold: 8%
-- Platinum: 2%
+- Total Members with tier bronze+: 57 
+- Bronze: 13
+- Silver: 20
+- Gold: 3
+- Platinum: 15
+- Diamond (only for the managers): 6
 
 ### Community Impact
 - All tier fees support association operations
-- Enables free community events
 - Maintains gaming space
 - Purchases community collections
 - Funds tournament prizes
@@ -566,10 +544,17 @@ Any abuse of tier benefits will result in:
 - Priority system documented
 - 3-month eligibility rule enacted
 
-### Future Versions
-- v1.1: Annual payment discount implementation
-- v1.2: Portuguese translation
-- v2.0: Online membership portal integration
+### Version 2.0 (August 28, 2026)
+- Platinum monthly credit increased from €15 to €25
+- Removed prerelease event benefit from Platinum Tier
+- Removed early preorder pickup and electronic space access from Silver Tier
+- Added D&D table reservations (4/month, no time limit) to Platinum Tier
+- Credit now rolls over throughout the year and expires December 31st (previously reset monthly)
+- Leftover credit can be used for materials at year-end (10% markup, no tier discount)
+- Preorder/priority fulfillment now factors in tournament attendance for that game
+- Removed PayPal as a payment method
+- Removed annual payment discount plans, birthday perks, and referral bonus items from Future Updates
+
 
 ---
 
@@ -602,4 +587,4 @@ The FzLounge tier system is designed to:
 
 ---
 
-*This document is maintained by the FzLounge team and updated regularly. Last review: January 29, 2025.*
+*This document is maintained by the FzLounge team and updated regularly. Last review: August 28, 2026.*

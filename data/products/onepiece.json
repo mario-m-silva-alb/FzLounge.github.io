@@ -17,7 +17,7 @@
     "prices": {
       "wood": 30.00,
       "bronze": 27.00,
-      "silver": 28.00,
+      "silver": 27.00,
       "gold": 26.00,
       "platinum": 25.00
     }
@@ -40,7 +40,7 @@
     "prices": {
       "wood": 30.00,
       "bronze": 27.00,
-      "silver": 28.00,
+      "silver": 27.00,
       "gold": 26.00,
       "platinum": 25.00
     }
@@ -423,7 +423,7 @@
     "image": "assets/products/optimized/DP14.jpg",
     "imageFallback": "assets/products/optimized/DP14.jpg",
     "imageAlt": "Double Pack Set Display DP-14",
-    "featured": true,
+    "featured": false,
     "dateAdded": "2026-08-05",
     "status": "presale",
     "preorderDate": "2026-08-27",
@@ -446,7 +446,7 @@
     "image": "assets/products/optimized/bestAceSaboLuffy.jpg",
     "imageFallback": "assets/products/optimized/bestAceSaboLuffy.jpg",
     "imageAlt": "GAME Premium Card Collection Best Selection -Ace & Sabo & Luffy-",
-    "featured": true,
+    "featured": false,
     "dateAdded": "2026-08-07",
     "status": "presale",
     "preorderDate": "2026-08-21",
@@ -469,7 +469,7 @@
     "image": "assets/products/optimized/3ani_ch.jpg",
     "imageFallback": "assets/products/optimized/3ani_ch.jpg",
     "imageAlt": "Chinese version 3rd Anniversary Set",
-    "featured": true,
+    "featured": false,
     "dateAdded": "2026-08-20",
     "status": "presale",
     "preorderDate": "2026-08-21",
@@ -492,7 +492,7 @@
     "image": "assets/products/optimized/onepiece_tcg_st39_st44_set.jpg",
     "imageFallback": "assets/products/optimized/onepiece_tcg_st39_st44_set.jpg",
     "imageAlt": "One Piece Card Game [ST-39~ST44] Starter Deck",
-    "featured": true,
+    "featured": false,
     "dateAdded": "2026-08-20",
     "status": "presale",
     "preorderDate": "2026-09-11",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-01-29",
+  "lastUpdated": "2026-08-28",
   "currency": "EUR",
   "tiers": [
     {
@@ -15,7 +15,7 @@
       "benefits": [
         "Access to association space",
         "Use of tables and gaming area",
-        "Participation in events (fees apply)",
+        "Participation in events (fees may apply)",
         "Access to community Discord"
       ],
       "productDiscounts": {
@@ -64,8 +64,6 @@
         "All Bronze Tier benefits",
         "€11 monthly credit (tournaments & bar)",
         "Same product discounts as Bronze",
-        "Early pickup of preorders (before release)",
-        "Free access to electronic space",
         "Priority over Wood & Bronze"
       ],
       "productDiscounts": {
@@ -114,16 +112,15 @@
       "benefits": [
         "All Gold Tier benefits",
         "Same product discounts as Gold",
-        "Free prerelease event every 2 months (up to €25)",
         "Free access to all association facilities",
-        "Free large table reservation (no time limit)",
+        "4 Free reservations of the D&D table (no time limit)",
         "Highest priority in all preorders & events"
       ],
       "productDiscounts": {
         "range5to10": 1.00,
         "rangeAbove10": 2.00
       },
-      "barCredit": 15,
+      "barCredit": 25,
       "priority": "Platinum Priority (Highest)"
     }
   ],
@@ -131,12 +128,12 @@
     "eligibility": "Benefits require last 3 consecutive months of valid membership",
     "upgrading": "Upgrading tiers requires paying the difference for the last 3 months without receiving benefits during that period",
     "abuse": "Any abuse of benefits may result in tier revocation and association ban",
-    "priority": "Higher tier members have priority in event registration and preorders",
-    "creditUsage": "Credit can be used for tournaments and bar items only",
-    "materialsCredit": "Credit cannot be used for materials (sleeves, etc.). Materials have 10% markup (minimum €1) and no tier discount applies"
+    "priority": "Higher tier members have priority in event registration and preorders, but priority does not guarantee full allocation. Quantity may be limited if a member does not attend the minimum number of tournaments for that game",
+    "creditUsage": "Credit can be used for tournaments and bar items only during the year. Credit rolls over monthly and expires December 31st; it does not carry into the next year",
+    "materialsCredit": "Credit cannot be used for materials during the year, except leftover credit at year-end (by December 31st). Extra rules will be applied."
   },
   "priorityExample": {
     "scenario": "Limited stock situation",
-    "description": "If a Wood member orders 1 box and a Bronze member orders 2 boxes, but only 2 boxes are available, the Bronze member receives their full order first due to tier priority."
+    "description": "If a Wood member orders 1 box and a Bronze member orders 2 boxes, but only 2 boxes are available, the Bronze member receives their full order first due to tier priority, provided they attend tournaments for that game. If they don't meet the tournament attendance minimum, their allocation may be reduced."
   }
 }

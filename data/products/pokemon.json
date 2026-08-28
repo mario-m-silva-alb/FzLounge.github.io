@@ -1,25 +1,2 @@
 [
-  {
-    "id": "pokemon_1",
-    "name": "First Partner Illustration Collection - Series 3",
-    "game": "pokemon",
-    "condition": "sealed",
-    "category": "booster",
-    "description": "The Pokémon TCG: First Partner Illustration Collection—Series 3 includes:<br>・1 Pokémon TCG booster pack containing 3 of 9 promo cards<br>・2 Pokémon TCG booster packs (PBL & CRI)<br>・1 sticker sheet<br>・Limit 1 Per Customer (3 if Bronze or higher tier)",
-    "image": "assets/products/optimized/first3.jpg",
-    "imageFallback": "assets/products/optimized/first3.jpg",
-    "imageAlt": "First Partner Illustration Collection - Series 3",
-    "featured": true,
-    "dateAdded": "2026-08-06",
-    "status": "available",
-    "preorderDate": "",
-    "releaseDate": "",
-    "prices": {
-      "wood": 27.50,
-      "bronze": 26.00,
-      "silver": 25.50,
-      "gold": 25.00,
-      "platinum": 25.00
-    }
-  }
 ]
