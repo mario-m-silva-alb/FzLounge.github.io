@@ -1,0 +1,140 @@
+[
+  {
+    "id": "ga_1",
+    "name": "Grand Archive TCG: .Asphodel/Cantabile Pantheon Deck - EN",
+    "game": "grandarchive",
+    "condition": "sealed",
+    "category": "deck",
+    "description": "There is 2 decks. Price for each deck",
+    "image": "assets/products/optimized/147939_0.jpg",
+    "imageFallback": "assets/products/optimized/147939_0.jpg",
+    "imageAlt": "Grand Archive TCG: .asphodel/cantabile Pantheon Deck - EN",
+    "featured": false,
+    "dateAdded": "2026-09-07",
+    "status": "presale",
+    "preorderDate": "2026-09-24",
+    "releaseDate": "2026-12-11",
+    "prices": {
+      "wood": 35.00,
+      "bronze": 33.00,
+      "silver": 32.00,
+      "gold": 31.00,
+      "platinum": 30.00
+    }
+  },
+  {
+    "id": "ga_2",
+    "name": "Grand Archive TCG: Casella Re:Collection - Sky's Cantatrice - EN",
+    "game": "grandarchive",
+    "condition": "sealed",
+    "category": "deck",
+    "description": "",
+    "image": "assets/products/optimized/147938_0.jpg",
+    "imageFallback": "assets/products/optimized/147938_0.jpg",
+    "imageAlt": "Grand Archive TCG: Casella Re:Collection - Sky's Cantatrice - EN",
+    "featured": false,
+    "dateAdded": "2026-09-07",
+    "status": "presale",
+    "preorderDate": "2026-09-24",
+    "releaseDate": "2026-12-11",
+    "prices": {
+      "wood": 55.00,
+      "bronze": 54.00,
+      "silver": 53.00,
+      "gold": 52.00,
+      "platinum": 50.00
+    }
+  },
+  {
+    "id": "ga_3",
+    "name": "Grand Archive TCG: Beatrice Re:Collection - Master Directive - EN",
+    "game": "grandarchive",
+    "condition": "sealed",
+    "category": "deck",
+    "description": "",
+    "image": "assets/products/optimized/147937_0.jpg",
+    "imageFallback": "assets/products/optimized/147937_0.jpg",
+    "imageAlt": "Grand Archive TCG: Beatrice Re:Collection - Master Directive - EN",
+    "featured": false,
+    "dateAdded": "2026-09-07",
+    "status": "presale",
+    "preorderDate": "2026-09-24",
+    "releaseDate": "2026-12-11",
+    "prices": {
+      "wood": 55.00,
+      "bronze": 54.00,
+      "silver": 53.00,
+      "gold": 52.00,
+      "platinum": 50.00
+    }
+  },
+  {
+    "id": "ga_4",
+    "name": "Grand Archive TCG: .asphodel/cantabile 1st Edition Booster Display (24 Boosters) - EN",
+    "game": "grandarchive",
+    "condition": "sealed",
+    "category": "booster",
+    "description": "",
+    "image": "assets/products/optimized/147936_0.jpg",
+    "imageFallback": "assets/products/optimized/147936_0.jpg",
+    "imageAlt": "Grand Archive TCG: .asphodel/cantabile 1st Edition Booster Display (24 Boosters) - EN",
+    "featured": false,
+    "dateAdded": "2026-09-07",
+    "status": "presale",
+    "preorderDate": "2026-09-24",
+    "releaseDate": "2026-12-11",
+    "prices": {
+      "wood": 92.50,
+      "bronze": 87.50,
+      "silver": 86.00,
+      "gold": 85.00,
+      "platinum": 85.00
+    }
+  },
+  {
+    "id": "ga_5",
+    "name": "Grand Archive TCG: Distorted Reflections New-to-Alter Bundle (4 Packs) - EN",
+    "game": "grandarchive",
+    "condition": "sealed",
+    "category": "booster",
+    "description": "",
+    "image": "assets/products/optimized/147774_0.jpg",
+    "imageFallback": "assets/products/optimized/147774_0.jpg",
+    "imageAlt": "Grand Archive TCG: Distorted Reflections New-to-Alter Bundle (4 Packs) - EN",
+    "featured": false,
+    "dateAdded": "2026-09-07",
+    "status": "presale",
+    "preorderDate": "2026-09-04",
+    "releaseDate": "2026-10-16",
+    "prices": {
+      "wood": 35.00,
+      "bronze": 34.00,
+      "silver": 33.00,
+      "gold": 32.00,
+      "platinum": 31.00
+    }
+  },
+  {
+    "id": "ga_6",
+    "name": "Grand Archive TCG: Distorted Reflections Alter Edition Booster Display (24 Boosters) - EN",
+    "game": "grandarchive",
+    "condition": "sealed",
+    "category": "booster",
+    "description": "Tumble back down the rabbit hole and return to Underland with this special set. It's a delight to see our heroes in a whole new light-and to discover the wondrous Forest of Clubs, where even more surprises await.<br>Distorted Reflections Alter Edition is a reprint set that adds 40 unique cards, alternate art URs, and brand-new CSRs to collect!<br>Product Info:<br>• 280 unique cards in set<br>• 261 foil variations in set<br>• 15 randomly inserted cards per pack<br>• 24 booster packs per booster box<br>• 6 booster boxes per case",
+    "image": "assets/products/optimized/147773_0.jpg",
+    "imageFallback": "assets/products/optimized/147773_0.jpg",
+    "imageAlt": "Grand Archive TCG: Distorted Reflections Alter Edition Booster Display (24 Boosters) - EN",
+    "featured": false,
+    "dateAdded": "2026-09-07",
+    "status": "presale",
+    "preorderDate": "2026-09-04",
+    "releaseDate": "2026-10-16",
+    "prices": {
+      "wood": 100.00,
+      "bronze": 97.50,
+      "silver": 95.00,
+      "gold": 92.50,
+      "platinum": 90.00
+    }
+  }
+]

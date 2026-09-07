@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags -->
+  <title>Upcoming TCG Events & Tournaments | FzLounge</title>
+  <meta name="description" content="FzLounge weekly TCG tournaments, game nights, and special events. Magic: The Gathering, Pokemon, Yu-Gi-Oh!, and board games. Check the schedule and RSVP on Discord." />
+  <meta name="keywords" content="TCG events, MTG tournaments, Friday Night Magic, FNM, Pokemon TCG League, Yu-Gi-Oh locals, game nights, tournament schedule, TCG calendar, board game events, release parties, draft events, Commander night" />
+  <meta name="author" content="FzLounge" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mario-m-silva-alb.github.io/FzLounge.github.io/events.html" />
+  <meta property="og:title" content="Upcoming TCG Events & Tournaments | FzLounge" />
+  <meta property="og:description" content="Weekly tournaments, game nights, and special TCG events. Join us for Magic, Pokémon, Yu-Gi-Oh!, and board games!" />
+  <meta property="og:image" content="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="FzLounge" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://mario-m-silva-alb.github.io/FzLounge.github.io/events.html" />
+  <meta name="twitter:title" content="Upcoming TCG Events & Tournaments | FzLounge" />
+  <meta name="twitter:description" content="Weekly tournaments, game nights, and special TCG events. Join us for Magic, Pokémon, Yu-Gi-Oh!, and more!" />
+  <meta name="twitter:image" content="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
+
+  <link rel="icon" type="image/gif" href="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Analytics 4 -->
+  <!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Structured Data (JSON-LD) - Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FzLounge",
+    "url": "https://mario-m-silva-alb.github.io/FzLounge.github.io/",
+    "logo": "https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3",
+    "description": "Non-profit TCG community association offering board games, trading card games, tournaments, and game nights",
+    "foundingDate": "2024",
+    "sameAs": [
+      "https://discord.gg/MTtNkGN",
+      "https://www.instagram.com/fzlounge/",
+      "https://web.facebook.com/friendzonelounge",
+      "https://chat.whatsapp.com/D0mnF1MreqSGaJyBYi8H9p"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "availableLanguage": ["English", "Portuguese"]
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="navbar__brand">
+        <span class="navbar__brand-icon" aria-hidden="true"><img src="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" alt="FzLounge logo" /></span>
+        FzLounge
+      </a>
+
+      <button class="navbar__toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <ul class="navbar__links" id="nav-links" role="list">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+        <li><a href="tiers.html" data-i18n="nav.membership">Membership</a></li>
+        <li><a href="events.html" class="active" data-i18n="nav.events">Events</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><button id="lang-switcher" class="lang-switcher" aria-label="Mudar para Portugues">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero hero--small" role="banner">
+    <div class="container">
+      <div class="hero__badge" data-i18n="events.badge">✦ Events Calendar ✦</div>
+      <h1 class="hero__title" data-i18n="events.title">Upcoming <span>Events</span></h1>
+      <p class="hero__tagline" data-i18n="events.tagline">
+        Join us for tournaments, game nights, release parties, and more!<br>
+        From competitive play to casual hangouts, there's something for everyone.
+      </p>
+    </div>
+  </header>
+
+  <!-- ===================== FILTERS ===================== -->
+  <section class="events-filters" aria-label="Event filters">
+    <div class="container">
+      <div class="filter-bar">
+        <div class="filter-group">
+          <label for="filter-event-type">Event Type</label>
+          <select id="filter-event-type" aria-label="Filter by event type">
+            <option value="all">All Events</option>
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-event-game">Game</label>
+          <select id="filter-event-game" data-game-select="filter" aria-label="Filter by game">
+            <option value="all">All Games</option>
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-event-status">Status</label>
+          <select id="filter-event-status" aria-label="Filter by availability">
+            <option value="all">All Status</option>
+            <option value="open">Open</option>
+            <option value="almost_full">Almost Full</option>
+            <option value="full">Full</option>
+          </select>
+        </div>
+
+        <button class="filter-reset" id="filter-reset-events" type="button">Reset Filters</button>
+
+        <span id="events-count" aria-live="polite" aria-atomic="true">Loading...</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EVENTS GRID ===================== -->
+  <main style="padding: 2rem 0 5rem;" role="main">
+    <div class="container">
+      <div class="events-grid" id="events-grid">
+        <!-- Events rendered dynamically -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__col">
+          <h3>FzLounge</h3>
+          <p data-i18n="footer.desc">A non-profit association for board game &amp; TCG enthusiasts.</p>
+        </div>
+
+        <div class="footer__col">
+          <h4 data-i18n="footer.quicklinks">Quick Links</h4>
+          <ul role="list">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+            <li><a href="tiers.html" data-i18n="nav.membership">Membership</a></li>
+            <li><a href="events.html" data-i18n="nav.events">Events</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4 data-i18n="footer.connect">Connect</h4>
+          <ul role="list">
+            <li><a href="https://discord.gg/MTtNkGN" target="_blank" rel="noopener noreferrer">Discord</a></li>
+            <li><a href="https://www.instagram.com/fzlounge/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://web.facebook.com/friendzonelounge" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://chat.whatsapp.com/D0mnF1MreqSGaJyBYi8H9p" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+                <p data-i18n="footer.copyright">&copy; 2025 FzLounge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== EVENT DETAIL MODAL ===================== -->
+  <div id="event-detail-modal" class="modal-overlay event-detail-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-event-title">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-event-close" aria-label="Close modal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-body" id="modal-event-body">
+        <!-- Event details rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/events.js"></script>
+  <script src="js/i18n.js"></script>
+</body>
+</html>

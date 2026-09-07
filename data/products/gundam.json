@@ -1,0 +1,117 @@
+[
+  {
+    "id": "gundam_1",
+    "name": "Gundam Card Game 1st Anniversary Set [PB-03]",
+    "game": "gundam",
+    "condition": "sealed",
+    "category": "collection",
+    "description": "・Fixed Cards: 10 (10 types)<br>・Resource Cards: 10 (1 type)<br>・(Either the normal version or the Alt-Art version is included)<br>・EX Resource:1 (1 type)<br>・EX Base:1 (1 type)<br>・Card Sleeve Set: 2 (70 sleeves/set)<br>・Synthetic Leather Card Case:1<br>・Playmat: 1<br>・Damage Counter Dice:6<br>・Storage Box: 1",
+    "image": "assets/products/optimized/PB03.jpg",
+    "imageFallback": "assets/products/optimized/PB03.jpg",
+    "imageAlt": "1st Anniversary Set [PB-03]",
+    "featured": true,
+    "dateAdded": "2026-08-06",
+    "status": "presale",
+    "preorderDate": "2026-08-26",
+    "releaseDate": "2027-03-31",
+    "prices": {
+      "wood": 170.00,
+      "bronze": 165.00,
+      "silver": 164.00,
+      "gold": 162.00,
+      "platinum": 160.00
+    }
+  },
+  {
+    "id": "gundam_2",
+    "name": "Gundam Card Game Booster Display GD-06 (24 packs) - EN",
+    "game": "gundam",
+    "condition": "sealed",
+    "category": "booster",
+    "description": "Mobile Suit Gundam ZZ Joins the Lineup<br>Mobile Suit Gundam ZZ enters the GUNDAM CARD GAME as a new title, featuring iconic units such as the ZZ Gundam.<br><br>Strengthens Existing Decks<br>Includes numerous cards designed to enhance decks from GD05 and earlier, making it an essential expansion for both existing players and competitive environments.<br><br>High Collectability with Alt-Art Cards<br>A wide variety of alternate-art cards across multiple rarities are included, appealing to both collectors and players seeking premium items.<br><br>50 Common<br>36 Uncommon<br>32 Rare<br>12 Legend Rare<br>5 Special<br>8 Token<br><br>TOTAL:<br>135+8 Card Types<br>(with 46 alt-art from above types)",
+    "image": "assets/products/optimized/gundamGeneric.jpg",
+    "imageFallback": "assets/products/optimized/gundamGeneric.jpg",
+    "imageAlt": "Gundam Card Game Booster Display GD-06 (24 packs) - EN",
+    "featured": false,
+    "dateAdded": "2026-09-07",
+    "status": "presale",
+    "preorderDate": "2026-04-16",
+    "releaseDate": "2026-10-30",
+    "prices": {
+      "wood": 95.00,
+      "bronze": 92.50,
+      "silver": 90.00,
+      "gold": 87.50,
+      "platinum": 85.00
+    }
+  },
+  {
+    "id": "gundam_3",
+    "name": "Gundam Card Game Booster Display GD-07 (24 packs) - EN",
+    "game": "gundam",
+    "condition": "sealed",
+    "category": "booster",
+    "description": "• Burning Gundam joins the GUNDAM CARD GAME!<br>Featuring the debut of Burning Gundam from Mobile Fighter G Gundam, alongside numerous Mobile Suits from a wide variety of GUNDAM series.<br><br>• Expanded SP Card Lineup<br>Powerful fan-favorite cards return as SP cards, with an even stronger SP lineup beginning in this set.<br><br>• New Support for Existing Starter Decks<br>Previously released Starter Deck themes receive new support cards, giving players more ways to upgrade and customize their decks.<br>50 Common<br>36 Uncommon<br>32 Rare<br>12 Legend Rare<br>5 Special<br>1 Token<br><br>TOTAL:<br> 135+1 Card Types<br>(with 46 alt-art from above types)",
+    "image": "assets/products/optimized/gundamGeneric.jpg",
+    "imageFallback": "assets/products/optimized/gundamGeneric.jpg",
+    "imageAlt": "Gundam Card Game Booster Display GD-07 (24 packs) - EN",
+    "featured": false,
+    "dateAdded": "2026-09-07",
+    "status": "presale",
+    "preorderDate": "2026-07-23",
+    "releaseDate": "2027-01-29",
+    "prices": {
+      "wood": 95.00,
+      "bronze": 92.50,
+      "silver": 90.00,
+      "gold": 87.50,
+      "platinum": 85.00
+    }
+  },
+  {
+    "id": "gundam_4",
+    "name": "Gundam Card Game Extra Booster Display EB02 (24 packs) - EN",
+    "game": "gundam",
+    "condition": "sealed",
+    "category": "booster",
+    "description": "Card Rarities<br>45 Common<br>24 Uncommon<br>15 Rare<br>6 Legend Rare<br>10 Special<br>3 Token<br><br>TOTAL:90+3 Card Types(with 26 alt-art from above types)",
+    "image": "assets/products/optimized/gundamGeneric.jpg",
+    "imageFallback": "assets/products/optimized/gundamGeneric.jpg",
+    "imageAlt": "Gundam Card Game Extra Booster Display EB02 (24 packs) - EN",
+    "featured": false,
+    "dateAdded": "2026-09-07",
+    "status": "presale",
+    "preorderDate": "2026-09-29",
+    "releaseDate": "2027-02-26",
+    "prices": {
+      "wood": 90.00,
+      "bronze": 87.50,
+      "silver": 85.00,
+      "gold": 82.50,
+      "platinum": 80.00
+    }
+  },
+  {
+    "id": "gundam_5",
+    "name": "Gundam Card Game Ultimate Deck 02 ST-15 - EN",
+    "game": "gundam",
+    "condition": "sealed",
+    "category": "deck",
+    "description": "x1 Ready-to-play 50-card deck<br>x25 Extra Cards<br>x10 Resource Cards<br>x6 Token Cards(4 types)<br>X6 Damage Counter Dice<br>x1 Bonus Pack (1 card) (1 of 30 types)<br>x1 Rule/Playsheet",
+    "image": "assets/products/optimized/gundamGeneric.jpg",
+    "imageFallback": "assets/products/optimized/gundamGeneric.jpg",
+    "imageAlt": "Gundam Card Game Ultimate Deck 02 ST-15 - EN",
+    "featured": false,
+    "dateAdded": "2026-09-07",
+    "status": "presale",
+    "preorderDate": "2026-09-29",
+    "releaseDate": "2027-04-16",
+    "prices": {
+      "wood": 40.00,
+      "bronze": 35.00,
+      "silver": 34.00,
+      "gold": 33.00,
+      "platinum": 32.00
+    }
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "lastUpdated": "2025-01-29",
+  "eventTypes": [
+    { "value": "tournament", "label": "Tournament", "icon": "🏆", "color": "#FFD700" },
+    { "value": "gamenight", "label": "Game Night", "icon": "🎲", "color": "#4A90E2" },
+    { "value": "release", "label": "Release Event", "icon": "🎉", "color": "#E74C3C" },
+    { "value": "casual", "label": "Casual Play", "icon": "🃏", "color": "#2ECC71" },
+    { "value": "special", "label": "Special Event", "icon": "⭐", "color": "#9B59B6" }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Vendetta Pre-Rift Event",
+      "date": "2026-07-24",
+      "time": "21:00",
+      "endTime": "01:00",
+      "type": "release",
+      "game": "riftbound",
+      "description": "Prerelease Event",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn0mpnDNIj615Ya-U56l9iT1FB83Yz81ylO71lHaRCJQ",
+      "rsvpLink": "https://locator.riftbound.uvsgames.com/events/499195",
+      "capacity": 32,
+      "registered": 2,
+      "status": "open",
+      "prizes": "1.5 additional Vendetta Booster per player for the top half of the players",
+      "format": "Prerelease Event"
+    },
+    {
+      "id": 2,
+      "title": "Vendetta Pre-Rift Event",
+      "date": "2026-07-25",
+      "time": "20:30",
+      "endTime": "01:00",
+      "type": "release",
+      "game": "riftbound",
+      "description": "Prerelease Event",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn0mpnDNIj615Ya-U56l9iT1FB83Yz81ylO71lHaRCJQ",
+      "rsvpLink": "https://locator.riftbound.uvsgames.com/events/499198",
+      "capacity": 32,
+      "registered": 1,
+      "status": "open",
+      "prizes": "1.5 additional Vendetta Booster per player for the top half of the players",
+      "format": "Prerelease Event"
+    },
+    {
+      "id": 3,
+      "title": "Attack of the Vine! Prerelease (Sealed)",
+      "date": "2026-07-17",
+      "time": "21:00",
+      "endTime": "01:00",
+      "type": "release",
+      "game": "lorcana",
+      "description": "Prerelease Event - Attack of the Vine!",
+      "image": "https://cdn11.bigcommerce.com/s-ngldkk6hwy/images/stencil/1280x1280/products/1267/1687/LRCN_AOTV_PRERE_PRDSQR__03306.1781790483.jpg?c=1",
+      "rsvpLink": "https://tcg.ravensburgerplay.com/events/692566",
+      "capacity": 12,
+      "registered": 5,
+      "status": "open",
+      "prizes": "Booster per win. Only 3 rounds",
+      "format": "Prerelease Event"
+    },
+    {
+      "id": 4,
+      "title": "RDO Store Championship - GA",
+      "date": "2026-07-25",
+      "time": "21:00",
+      "endTime": "01:00",
+      "type": "special",
+      "game": "grandarchive",
+      "description": "Store Championship",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHSX9BXw2yUtt3NQQEyxCL5aLcjjdBB8PmJVp16RWviw&s=10",
+      "rsvpLink": "https://omni.gatcg.com/events/57745",
+      "capacity": 32,
+      "registered": 2,
+      "status": "open",
+      "prizes": "Booster per win & promos",
+      "format": "special"
+    }
+  ]
+}

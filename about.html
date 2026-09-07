@@ -3,18 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About – FzLounge</title>
-  <meta name="description" content="Learn about FzLounge — our mission, values, and how you can join our non-profit TCG community." />
+  
+  <!-- SEO Meta Tags -->
+  <title>About FzLounge - Non-Profit TCG Community & Gaming Space</title>
+  <meta name="description" content="FzLounge is a non-profit TCG association and WPN store since 2020. A space for Magic, Pokemon, Yu-Gi-Oh!, board games, and tabletop RPGs. Our story, values, and how to join." />
+  <meta name="keywords" content="about FzLounge, TCG community, non-profit gaming, gaming association, board game community, Magic community, Pokemon community, friendly gaming space, how to join, TCG organization" />
+  <meta name="author" content="FzLounge" />
+  <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://mario-m-silva-alb.github.io/FzLounge.github.io/about.html" />
-  <meta property="og:title"       content="About – FzLounge" />
-  <meta property="og:description" content="Learn about FzLounge — our mission, values, and how to join our non-profit TCG community." />
-  <meta property="og:image"       content="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mario-m-silva-alb.github.io/FzLounge.github.io/about.html" />
+  <meta property="og:title" content="About FzLounge - Non-Profit TCG Community" />
+  <meta property="og:description" content="Non-profit TCG association and WPN store since 2020. Board games, card games, tabletop RPGs, and community events." />
+  <meta property="og:image" content="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="FzLounge" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://mario-m-silva-alb.github.io/FzLounge.github.io/about.html" />
+  <meta name="twitter:title" content="About FzLounge - Non-Profit TCG Community" />
+  <meta name="twitter:description" content="Non-profit TCG association and WPN store since 2020. Board games, card games, and tabletop RPGs." />
+  <meta name="twitter:image" content="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
 
   <link rel="icon" type="image/gif" href="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Analytics 4 -->
+  <!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Structured Data (JSON-LD) - Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FzLounge",
+    "url": "https://mario-m-silva-alb.github.io/FzLounge.github.io/",
+    "logo": "https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3",
+    "description": "Non-profit TCG association and WPN store. Board games, trading card games, tournaments, and tabletop RPGs.",
+    "foundingDate": "2017",
+    "sameAs": [
+      "https://discord.gg/MTtNkGN",
+      "https://www.instagram.com/fzlounge/",
+      "https://web.facebook.com/friendzonelounge",
+      "https://chat.whatsapp.com/D0mnF1MreqSGaJyBYi8H9p"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "availableLanguage": ["English", "Portuguese"]
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -27,9 +77,12 @@
       </a>
       <button class="navbar__toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">☰</button>
       <ul class="navbar__links" id="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+        <li><a href="tiers.html" data-i18n="nav.membership">Membership</a></li>
+        <li><a href="events.html" data-i18n="nav.events">Events</a></li>
+        <li><a href="about.html" class="active" data-i18n="nav.about">About</a></li>
+        <li><button id="lang-switcher" class="lang-switcher" aria-label="Mudar para Portugues">PT</button></li>
       </ul>
     </div>
   </nav>
@@ -38,7 +91,7 @@
   <header class="page-hero" role="banner">
     <div class="container">
       <h1 class="section-title">About <span>FzLounge</span></h1>
-      <p class="section-sub">Our story, our values, and the community that makes it all happen.</p>
+      <p class="section-sub" data-i18n="about.hero.sub">Our story, our values, and the people behind it.</p>
     </div>
   </header>
 
@@ -48,31 +101,187 @@
     <!-- OUR STORY -->
     <section class="about-section" aria-labelledby="story-heading">
       <div class="container">
-        <div class="about-hero-text">
-          <h2 class="section-title" id="story-heading">Our <span>Story</span></h2>
-          <p>
-            FzLounge started in <strong style="color:var(--color-white)">2017</strong> as a small
-            group of friends who loved board games and Trading Card Games. What began as casual
-            get-togethers quickly grew into something bigger — a place where anyone could show up,
-            play, and have a good time.
-          </p>
-          <p style="margin-top:1rem;">
-            We became a <strong style="color:var(--color-white)">non-profit association</strong>,
-            dedicated to bringing people together through games. No profit is made — any contributions
-            go directly into organising community events and keeping the fun going.
-          </p>
-          <p style="margin-top:1rem;">
-            Today, our community plays <strong style="color:var(--color-white)">Magic: The Gathering</strong>,
-            <strong style="color:var(--color-white)">Pokémon TCG</strong>,
-            <strong style="color:var(--color-white)">Yu-Gi-Oh!</strong>,
-            <strong style="color:var(--color-white)">Disney Lorcana</strong>,
-            <strong style="color:var(--color-white)">Riftbound</strong>,
-            <strong style="color:var(--color-white)">Grand Archive</strong>,
-            <strong style="color:var(--color-white)">Digimon TCG</strong>,
-            <strong style="color:var(--color-white)">Gundam TCG</strong>,
-            <strong style="color:var(--color-white)">One Piece TCG</strong>,
-            and a growing collection of board games — with more being added as the community grows.
-          </p>
+        <h2 class="section-title" id="story-heading" data-i18n="about.story.title">Our <span>Story</span></h2>
+        
+        <div class="story-content">
+          <!-- Timeline -->
+          <div class="story-timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-year">2017</div>
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-content">
+                <h3 data-i18n="about.story.2017.title">The Beginning</h3>
+                <p data-i18n="about.story.2017.desc">FzLounge started as a small group of friends who loved board games and Trading Card Games. Casual get-togethers grew into something bigger: a place where anyone could show up, play, and have a good time.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-content">
+                <h3 data-i18n="about.story.2020.title">Becoming an Association</h3>
+                <p data-i18n="about.story.2020.desc">We registered as a non-profit association. This community exists for its members, not for profit. Every contribution goes directly into organizing events and keeping the space running.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-content">
+                <h3 data-i18n="about.story.2021.title">Official WPN Store</h3>
+                <p data-i18n="about.story.2021.desc">FzLounge became a Wizards Play Network store, bringing official Magic: The Gathering events, prereleases, and organized play to our community. A milestone that put us on the map for competitive and casual players.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-content">
+                <h3 data-i18n="about.story.2022.title">Expanding Horizons</h3>
+                <p data-i18n="about.story.2022.desc">We welcomed One Piece TCG into our lineup, adding a new community of players to the space. More games, more people, more reasons to show up.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-year">Now</div>
+                <div class="timeline-dot timeline-dot--active"></div>
+              </div>
+              <div class="timeline-content">
+                <h3 data-i18n="about.story.now.title">Always Growing</h3>
+                <p data-i18n="about.story.now.desc">FzLounge is a community hub for TCGs, board games, and tabletop RPGs. We were there on day one for Riftbound and keep adding new games as they launch. New player or veteran collector, there is a seat at the table.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Games Showcase -->
+          <div class="games-showcase">
+            <h3 data-i18n="about.games.title">Games We Play</h3>
+            
+            <!-- Trading Card Games -->
+            <h4 style="margin: 1.5rem 0 1rem; color: var(--color-text-muted); font-size: 1rem; font-weight: 600;">Trading Card Games</h4>
+            <div class="games-grid">
+              <div class="game-badge" data-game="mtg">
+                <div class="game-logo-wrapper">
+                  <img src="assets/game-logos/mtg-logo.webp" alt="Magic: The Gathering Logo" class="game-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="game-logo-fallback" style="display:none;">MTG</div>
+                </div>
+                <span class="game-name">Magic: The Gathering</span>
+              </div>
+              <div class="game-badge" data-game="pokemon">
+                <div class="game-logo-wrapper">
+                  <img src="assets/game-logos/pokemon-logo.png" alt="Pokémon TCG Logo" class="game-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="game-logo-fallback" style="display:none;">PKM</div>
+                </div>
+                <span class="game-name">Pokémon TCG</span>
+              </div>
+              <div class="game-badge" data-game="yugioh">
+                <div class="game-logo-wrapper">
+                  <img src="assets/game-logos/yugioh-logo.jpg" alt="Yu-Gi-Oh! Logo" class="game-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="game-logo-fallback" style="display:none;">YGO</div>
+                </div>
+                <span class="game-name">Yu-Gi-Oh!</span>
+              </div>
+              <div class="game-badge" data-game="lorcana">
+                <div class="game-logo-wrapper">
+                  <img src="assets/game-logos/lorcana-logo.webp" alt="Disney Lorcana Logo" class="game-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="game-logo-fallback" style="display:none;">DL</div>
+                </div>
+                <span class="game-name">Disney Lorcana</span>
+              </div>
+              <div class="game-badge" data-game="onepiece">
+                <div class="game-logo-wrapper">
+                  <img src="assets/game-logos/onepiece-logo.png" alt="One Piece TCG Logo" class="game-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="game-logo-fallback" style="display:none;">OP</div>
+                </div>
+                <span class="game-name">One Piece TCG</span>
+              </div>
+              <div class="game-badge" data-game="digimon">
+                <div class="game-logo-wrapper">
+                  <img src="assets/game-logos/digimon-logo.webp" alt="Digimon TCG Logo" class="game-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="game-logo-fallback" style="display:none;">DGM</div>
+                </div>
+                <span class="game-name">Digimon TCG</span>
+              </div>
+              <div class="game-badge" data-game="gundam">
+                <div class="game-logo-wrapper">
+                  <img src="assets/game-logos/gundam-logo.png" alt="Gundam TCG Logo" class="game-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="game-logo-fallback" style="display:none;">GND</div>
+                </div>
+                <span class="game-name">Gundam TCG</span>
+              </div>
+              <div class="game-badge" data-game="riftbound">
+                <div class="game-logo-wrapper">
+                  <img src="assets/game-logos/riftbound-logo.webp" alt="Riftbound Logo" class="game-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="game-logo-fallback" style="display:none;">RB</div>
+                </div>
+                <span class="game-name">Riftbound</span>
+              </div>
+              <div class="game-badge" data-game="unionarena">
+                <div class="game-logo-wrapper">
+                  <img src="assets/game-logos/grand-archive-logo.png" alt="Grand Archive Logo" class="game-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="game-logo-fallback" style="display:none;">GA</div>
+                </div>
+                <span class="game-name">Grand Archive</span>
+              </div>
+            </div>
+            
+            <!-- Board Games -->
+            <h4 style="margin: 2rem 0 1rem; color: var(--color-text-muted); font-size: 1rem; font-weight: 600;">Board Games</h4>
+            <div class="games-grid">
+              <div class="game-badge" data-game="boardgames">
+                <div class="game-logo-wrapper">
+                  <div class="game-logo-fallback" style="display:flex; font-size: 1.5rem;">🎲</div>
+                </div>
+                <span class="game-name">Strategy Games</span>
+              </div>
+              <div class="game-badge" data-game="boardgames">
+                <div class="game-logo-wrapper">
+                  <div class="game-logo-fallback" style="display:flex; font-size: 1.5rem;">🎯</div>
+                </div>
+                <span class="game-name">Party Games</span>
+              </div>
+              <div class="game-badge" data-game="boardgames">
+                <div class="game-logo-wrapper">
+                  <div class="game-logo-fallback" style="display:flex; font-size: 1.5rem;">🏰</div>
+                </div>
+                <span class="game-name">Adventure Games</span>
+              </div>
+            </div>
+            
+            <!-- RPG Sessions -->
+            <h4 style="margin: 2rem 0 1rem; color: var(--color-text-muted); font-size: 1rem; font-weight: 600;">Tabletop RPGs</h4>
+            <div class="games-grid">
+              <a href="https://www.dndbeyond.com" target="_blank" rel="noopener noreferrer" class="game-badge" data-game="rpg" title="Visit D&D Official Site">
+                <div class="game-logo-wrapper">
+                  <div class="game-logo-fallback" style="display:flex; font-size: 1.5rem;">⚔️</div>
+                </div>
+                <span class="game-name">Dungeons & Dragons</span>
+              </a>
+              <a href="https://darringtonpress.com/daggerheart/" target="_blank" rel="noopener noreferrer" class="game-badge" data-game="rpg" title="Visit Daggerheart Official Site">
+                <div class="game-logo-wrapper">
+                  <div class="game-logo-fallback" style="display:flex; font-size: 1.5rem;">🗡️</div>
+                </div>
+                <span class="game-name">Daggerheart</span>
+              </a>
+              <a href="https://www.mcdmproductions.com/draw-steel" target="_blank" rel="noopener noreferrer" class="game-badge" data-game="rpg" title="Visit Draw Steel Official Site">
+                <div class="game-logo-wrapper">
+                  <div class="game-logo-fallback" style="display:flex; font-size: 1.5rem;">🛡️</div>
+                </div>
+                <span class="game-name">Draw Steel</span>
+              </a>
+            </div>
+            
+            <p class="games-note" data-i18n="about.games.note">More games added as the community grows.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -80,7 +289,7 @@
     <!-- MISSION STATEMENT -->
     <section class="about-section" aria-labelledby="mission-heading">
       <div class="container">
-        <h2 class="section-title" id="mission-heading">Mission <span>Statement</span></h2>
+        <h2 class="section-title" id="mission-heading" data-i18n="about.mission.title">Mission <span>Statement</span></h2>
         <blockquote style="
           border-left: 4px solid var(--color-primary);
           padding: 1.25rem 1.5rem;
@@ -91,9 +300,9 @@
           color: var(--color-text);
           font-style: italic;
         ">
-          "To bring people together through the joy of playing games. As a non-profit association
-          since 2017, we are committed to building a welcoming, inclusive community where everyone —
-          regardless of age, experience, or background — has a seat at the table, a hand of cards,
+          "To bring people together through games. As a non-profit association
+          since 2017, we build a welcoming, inclusive community where everyone,
+          regardless of age, experience, or background, has a seat at the table, a hand of cards,
           and friends to share them with."
         </blockquote>
       </div>
@@ -102,29 +311,29 @@
     <!-- VALUES -->
     <section class="about-section" aria-labelledby="values-heading">
       <div class="container">
-        <h2 class="section-title" id="values-heading">Our <span>Values</span></h2>
-        <p class="section-sub" style="margin-top:.4rem;">The principles that shape everything we do as a community.</p>
+        <h2 class="section-title" id="values-heading" data-i18n="about.values.title">Our <span>Values</span></h2>
+        <p class="section-sub" style="margin-top:.4rem;" data-i18n="about.values.sub">The principles that guide how we run the community.</p>
 
         <div class="values-grid">
           <div class="value-card">
             <div class="icon" aria-hidden="true">🤝</div>
-            <h3>Community First</h3>
-            <p>People over profit — always.</p>
+            <h3 data-i18n="about.values.community.title">Community First</h3>
+            <p data-i18n="about.values.community.desc">People over profit — always.</p>
           </div>
           <div class="value-card">
             <div class="icon" aria-hidden="true">🔒</div>
-            <h3>Trust &amp; Transparency</h3>
-            <p>Open finances, clear processes, no secrets.</p>
+            <h3 data-i18n="about.values.trust.title">Trust &amp; Transparency</h3>
+            <p data-i18n="about.values.trust.desc">Open finances, clear processes, no secrets.</p>
           </div>
           <div class="value-card">
             <div class="icon" aria-hidden="true">🌈</div>
-            <h3>Inclusivity</h3>
-            <p>Every age, background, and skill level belongs here.</p>
+            <h3 data-i18n="about.values.inclusivity.title">Inclusivity</h3>
+            <p data-i18n="about.values.inclusivity.desc">Every age, background, and skill level belongs here.</p>
           </div>
           <div class="value-card">
             <div class="icon" aria-hidden="true">🎓</div>
-            <h3>Education</h3>
-            <p>We help every player learn and level up.</p>
+            <h3 data-i18n="about.values.education.title">Education</h3>
+            <p data-i18n="about.values.education.desc">We help players learn and improve at any game.</p>
           </div>
         </div>
       </div>
@@ -133,24 +342,24 @@
     <!-- HOW TO JOIN -->
     <section class="about-section" id="join" aria-labelledby="join-heading">
       <div class="container">
-        <h2 class="section-title" id="join-heading">How to <span>Get Involved</span></h2>
-        <p class="section-sub" style="margin-top:.4rem;">We're a community built around playing games and having fun — everyone is welcome!</p>
+        <h2 class="section-title" id="join-heading" data-i18n="about.join.title">How to <span>Get Involved</span></h2>
+        <p class="section-sub" style="margin-top:.4rem;" data-i18n="about.join.sub">A community built around games. Everyone is welcome.</p>
 
         <div class="join-steps">
           <div class="join-step">
             <div class="join-step__num" aria-hidden="true">1</div>
-            <h3>Say Hello</h3>
-            <p>Join our <a href="https://discord.gg/MTtNkGN" target="_blank" rel="noopener noreferrer">Discord server</a> or <a href="https://chat.whatsapp.com/D0mnF1MreqSGaJyBYi8H9p" target="_blank" rel="noopener noreferrer">WhatsApp group</a> — that's where most of the conversation happens.</p>
+            <h3 data-i18n="about.join.step1.title">Say Hello</h3>
+            <p data-i18n="about.join.step1.desc">Join our <a href="https://discord.gg/MTtNkGN" target="_blank" rel="noopener noreferrer">Discord server</a> or <a href="https://chat.whatsapp.com/D0mnF1MreqSGaJyBYi8H9p" target="_blank" rel="noopener noreferrer">WhatsApp group</a>. Most of the conversation happens there.</p>
           </div>
           <div class="join-step">
             <div class="join-step__num" aria-hidden="true">2</div>
-            <h3>Come Play</h3>
-            <p>Drop by for a game night, grab a drink, and meet fellow board game and TCG enthusiasts. No experience needed!</p>
+            <h3 data-i18n="about.join.step2.title">Come Play</h3>
+            <p data-i18n="about.join.step2.desc">Drop by for a game night, grab a drink, and meet other players. No experience needed.</p>
           </div>
           <div class="join-step">
             <div class="join-step__num" aria-hidden="true">3</div>
-            <h3>Spread the Word</h3>
-            <p>Invite your friends, share your favourite moments, and help the community grow. The more, the merrier!</p>
+            <h3 data-i18n="about.join.step3.title">Spread the Word</h3>
+            <p data-i18n="about.join.step3.desc">Invite your friends, share your favourite moments, and help the community grow.</p>
           </div>
         </div>
       </div>
@@ -159,8 +368,8 @@
     <!-- CONTACT -->
     <section class="about-section" id="contact" aria-labelledby="contact-heading">
       <div class="container">
-        <h2 class="section-title" id="contact-heading">Get in <span>Touch</span></h2>
-        <p class="section-sub" style="margin-top:.4rem;">We'd love to hear from you — questions, ideas, or just to say hello!</p>
+        <h2 class="section-title" id="contact-heading" data-i18n="about.contact.title">Get in <span>Touch</span></h2>
+        <p class="section-sub" style="margin-top:.4rem;" data-i18n="about.contact.sub">Questions, ideas, or just want to say hello.</p>
 
         <div class="contact-grid">
           <div class="contact-card">
@@ -207,21 +416,21 @@
       <div class="footer__inner">
         <div class="footer__col">
           <h4><img src="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" alt="FzLounge logo" width="24" height="24" style="vertical-align:middle" /> FzLounge</h4>
-          <p>A non-profit association for board game and TCG players — come play, have fun, and enjoy a drink!</p>
+          <p data-i18n="footer.desc">Non-profit association for board game and TCG players. Games, drinks, and good company.</p>
         </div>
         <div class="footer__col">
-          <h4>Quick Links</h4>
+          <h4 data-i18n="footer.quicklinks">Quick Links</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h4>Community</h4>
+          <h4 data-i18n="footer.community">Community</h4>
           <ul>
-            <li><a href="about.html#join">How to Join</a></li>
-            <li><a href="about.html#contact">Contact Us</a></li>
+            <li><a href="about.html#join" data-i18n="footer.howtojoin">How to Join</a></li>
+            <li><a href="about.html#contact" data-i18n="footer.contact">Contact Us</a></li>
           </ul>
           <div class="footer__social" aria-label="Social media links">
             <a href="https://discord.gg/MTtNkGN" target="_blank" rel="noopener noreferrer" aria-label="Discord">
@@ -240,11 +449,12 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2025 FzLounge – All rights reserved. Built with ❤️ for the TCG community.</p>
+        <p data-i18n="footer.copyright">© 2025 FzLounge. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>

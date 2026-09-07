@@ -3,18 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FzLounge – Board Games, TCGs &amp; Good Times</title>
-  <meta name="description" content="FzLounge is a non-profit association offering a welcoming space for board games, TCGs, snacks, and drinks. Come play, connect, and have fun!" />
+  
+  <!-- SEO Meta Tags -->
+  <title>FzLounge - TCG Community & Board Game Store | Magic, Pokémon, Yu-Gi-Oh!</title>
+  <meta name="description" content="FzLounge is a non-profit TCG community and WPN store. Magic: The Gathering, Pokemon, Yu-Gi-Oh!, and board games. Tournaments, game nights, and sealed products." />
+  <meta name="keywords" content="TCG, trading card games, Magic the Gathering, Pokemon, Yu-Gi-Oh, board games, game store, tournaments, FNM, Friday Night Magic, game nights, TCG community, non-profit gaming, sealed products, booster boxes, MTG, Lorcana, One Piece TCG" />
+  <meta name="author" content="FzLounge" />
+  <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://mario-m-silva-alb.github.io/FzLounge.github.io/" />
-  <meta property="og:title"       content="FzLounge – Board Games, TCGs &amp; Good Times" />
-  <meta property="og:description" content="A non-profit association with a cozy space for board games, TCGs, snacks, and drinks. Come have fun!" />
-  <meta property="og:image"       content="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mario-m-silva-alb.github.io/FzLounge.github.io/" />
+  <meta property="og:title" content="FzLounge - TCG Community & Board Game Store" />
+  <meta property="og:description" content="Non-profit TCG community with Magic, Pokémon, Yu-Gi-Oh! tournaments, game nights, and sealed products. Join our welcoming gaming space!" />
+  <meta property="og:image" content="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="FzLounge" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://mario-m-silva-alb.github.io/FzLounge.github.io/" />
+  <meta name="twitter:title" content="FzLounge - TCG Community & Board Game Store" />
+  <meta name="twitter:description" content="Non-profit TCG community with Magic, Pokémon, Yu-Gi-Oh! tournaments, game nights, and sealed products." />
+  <meta name="twitter:image" content="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
 
   <link rel="icon" type="image/gif" href="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Analytics 4 -->
+  <!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Structured Data (JSON-LD) - Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FzLounge",
+    "url": "https://mario-m-silva-alb.github.io/FzLounge.github.io/",
+    "logo": "https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3",
+    "description": "Non-profit TCG association and WPN store. Board games, trading card games, tournaments, and tabletop RPGs",
+    "foundingDate": "2017",
+    "sameAs": [
+      "https://discord.gg/MTtNkGN",
+      "https://www.instagram.com/fzlounge/",
+      "https://web.facebook.com/friendzonelounge",
+      "https://chat.whatsapp.com/D0mnF1MreqSGaJyBYi8H9p"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "availableLanguage": ["English", "Portuguese"]
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -31,9 +81,12 @@
       </button>
 
       <ul class="navbar__links" id="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
+        <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+        <li><a href="tiers.html" data-i18n="nav.membership">Membership</a></li>
+        <li><a href="events.html" data-i18n="nav.events">Events</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><button id="lang-switcher" class="lang-switcher" aria-label="Mudar para Portugues">PT</button></li>
       </ul>
     </div>
   </nav>
@@ -41,15 +94,15 @@
   <!-- ===================== HERO ===================== -->
   <header class="hero" role="banner">
     <div class="container">
-      <div class="hero__badge">✦ Non-Profit Association ✦</div>
-      <h1 class="hero__title">Welcome to <span>FzLounge</span></h1>
-      <p class="hero__tagline">
-        Your friendly neighbourhood spot for board games, TCGs, and good times.<br>
-        Grab a drink, pick up some cards, and join the fun!
+      <div class="hero__badge" data-i18n="hero.badge.index">✦ Non-Profit Association ✦</div>
+      <h1 class="hero__title" data-i18n="hero.title.index">Welcome to <span>FzLounge</span></h1>
+      <p class="hero__tagline" data-i18n="hero.tagline.index">
+        Your local spot for board games, TCGs, and good company.<br>
+        Grab a drink, pick up some cards, and play.
       </p>
       <div class="hero__cta">
-        <a href="products.html" class="btn btn-primary btn-lg">Browse Products</a>
-        <a href="about.html" class="btn btn-outline btn-lg">Learn More</a>
+        <a href="products.html" class="btn btn-primary btn-lg" data-i18n="hero.cta.products">Browse Products</a>
+        <a href="about.html" class="btn btn-outline btn-lg" data-i18n="hero.cta.about">Learn More</a>
       </div>
     </div>
   </header>
@@ -58,33 +111,61 @@
   <section class="mission" aria-labelledby="mission-heading">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title" id="mission-heading">What We're <span>About</span></h2>
-        <p class="section-sub">
-          FzLounge is a non-profit association created by players, for players.
-          We provide a welcoming space to enjoy board games, TCGs, and each other's company.
+        <h2 class="section-title" id="mission-heading" data-i18n="mission.title">What We're <span>About</span></h2>
+        <p class="section-sub" data-i18n="mission.sub">
+          FzLounge is a non-profit association built by players, for players.
+          We run a space for board games, TCGs, and community events.
         </p>
       </div>
 
       <div class="mission__grid">
-        <div class="mission__card">
+        <div class="mission__card animate-on-scroll">
           <div class="mission__card-icon" aria-hidden="true">🎲</div>
-          <h3>Gaming Space</h3>
-          <p>A dedicated space where you can play board games, trading card games, and discover new favourites with friends.</p>
+          <h3 data-i18n="mission.gaming.title">Gaming Space</h3>
+          <p data-i18n="mission.gaming.desc">A dedicated space for board games, trading card games, and discovering new favourites with friends.</p>
         </div>
-        <div class="mission__card">
+        <div class="mission__card animate-on-scroll">
           <div class="mission__card-icon" aria-hidden="true">🍹</div>
-          <h3>Bar &amp; Snacks</h3>
-          <p>Enjoy a small bar stocked with drinks and snacks — the perfect fuel for game nights and casual hangouts.</p>
+          <h3 data-i18n="mission.bar.title">Bar &amp; Snacks</h3>
+          <p data-i18n="mission.bar.desc">A small bar with drinks and snacks to keep you fuelled through game nights and casual sessions.</p>
         </div>
-        <div class="mission__card">
+        <div class="mission__card animate-on-scroll">
           <div class="mission__card-icon" aria-hidden="true">🤝</div>
-          <h3>Community First</h3>
-          <p>As a non-profit, every decision puts the community first. No hidden fees — just players supporting players.</p>
+          <h3 data-i18n="mission.community.title">Community First</h3>
+          <p data-i18n="mission.community.desc">Run as a non-profit. No hidden fees. Players supporting players.</p>
         </div>
-        <div class="mission__card">
+        <div class="mission__card animate-on-scroll">
           <div class="mission__card-icon" aria-hidden="true">🌍</div>
-          <h3>Everyone's Welcome</h3>
-          <p>Whether you're a beginner or a seasoned player, young or old — there's a seat at the table for you.</p>
+          <h3 data-i18n="mission.welcome.title">Everyone's Welcome</h3>
+          <p data-i18n="mission.welcome.desc">Beginners and veterans, young and old. There is a seat at the table for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS SECTION ===================== -->
+  <section class="stats-section" aria-labelledby="stats-heading">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">📦</div>
+          <div class="stat-number" data-target="20">0</div>
+          <div class="stat-label" data-i18n="stats.products">Products</div>
+        </div>
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">🎮</div>
+          <div class="stat-number" data-target="10">0</div>
+          <div class="stat-label" data-i18n="stats.games">Games</div>
+        </div>
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">👥</div>
+          <div class="stat-number" data-target="100">0</div>
+          <div class="stat-label" data-i18n="stats.members">Members</div>
+        </div>
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">📅</div>
+          <div class="stat-number" data-target="4">0</div>
+          <div class="stat-label" data-i18n="stats.events">Weekly Events</div>
         </div>
       </div>
     </div>
@@ -94,8 +175,8 @@
   <section class="featured" aria-labelledby="featured-heading">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title" id="featured-heading">Featured <span>Products</span></h2>
-        <p class="section-sub">A glimpse of what our community is sharing right now.</p>
+        <h2 class="section-title" id="featured-heading" data-i18n="featured.title">Featured <span>Products</span></h2>
+        <p class="section-sub" data-i18n="featured.sub">New arrivals and popular picks from the catalogue.</p>
       </div>
 
       <!-- Featured cards rendered dynamically from data/products.json (featured: true) -->
@@ -103,7 +184,25 @@
       </div>
 
       <div class="text-center mt-2" style="margin-top:2.5rem;">
-        <a href="products.html" class="btn btn-outline">View All Products →</a>
+        <a href="products.html" class="btn btn-outline" data-i18n="featured.viewall">View All Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== UPCOMING EVENTS ===================== -->
+  <section class="upcoming-events" aria-labelledby="upcoming-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="upcoming-heading" data-i18n="upcoming.title">Upcoming <span>Events</span></h2>
+        <p class="section-sub" data-i18n="upcoming.sub">Tournaments, game nights, and special events on the calendar.</p>
+      </div>
+
+      <div class="upcoming-events-grid" id="upcoming-events-grid">
+        <!-- Upcoming events loaded dynamically -->
+      </div>
+
+      <div class="text-center mt-2" style="margin-top:2.5rem;">
+        <a href="events.html" class="btn btn-outline" data-i18n="upcoming.viewall">View All Events →</a>
       </div>
     </div>
   </section>
@@ -114,21 +213,21 @@
       <div class="footer__inner">
         <div class="footer__col">
           <h4><img src="https://github.com/user-attachments/assets/5b11f5cf-b048-4a1c-aaf3-fa44133f79e3" alt="FzLounge logo" width="24" height="24" style="vertical-align:middle" /> FzLounge</h4>
-          <p>A non-profit association for board game and TCG players — come play, have fun, and enjoy a drink!</p>
+          <p data-i18n="footer.desc">Non-profit association for board game and TCG players. Games, drinks, and good company.</p>
         </div>
         <div class="footer__col">
-          <h4>Quick Links</h4>
+          <h4 data-i18n="footer.quicklinks">Quick Links</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h4>Community</h4>
+          <h4 data-i18n="footer.community">Community</h4>
           <ul>
-            <li><a href="about.html#join">How to Join</a></li>
-            <li><a href="about.html#contact">Contact Us</a></li>
+            <li><a href="about.html#join" data-i18n="footer.howtojoin">How to Join</a></li>
+            <li><a href="about.html#contact" data-i18n="footer.contact">Contact Us</a></li>
           </ul>
           <div class="footer__social" aria-label="Social media links">
             <a href="https://discord.gg/MTtNkGN" target="_blank" rel="noopener noreferrer" aria-label="Discord">
@@ -147,11 +246,41 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2025 FzLounge – All rights reserved. Built with ❤️ for the TCG community.</p>
+                <p data-i18n="footer.copyright">© 2025 FzLounge. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="product-detail-modal" class="modal-overlay product-detail-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-detail-close" aria-label="Close modal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-nav">
+        <button class="modal-nav-btn modal-nav-prev" id="modal-nav-prev" aria-label="Previous product">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="modal-nav-btn modal-nav-next" id="modal-nav-next" aria-label="Next product">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body" id="modal-detail-body">
+        <!-- Product details rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
