@@ -15,6 +15,8 @@
     "onepiece.json",
     "gundam.json",
     "pokemon.json",
-    "riftbound.json"
+    "riftbound.json",
+    "mtg.json",
+    "ga.json"
   ]
 }
